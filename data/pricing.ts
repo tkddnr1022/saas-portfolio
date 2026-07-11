@@ -36,7 +36,7 @@ export const PRICING_PLANS: Plan[] = [
       "온보딩 2주 포함",
       "주 5일 풀타임 투입",
     ],
-    monthlyPrice: 300,
+    monthlyPrice: 320,
     yearlyDiscountPercent: YEARLY_SAVINGS_PERCENT,
     popular: true,
   },
