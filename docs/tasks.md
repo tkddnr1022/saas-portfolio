@@ -38,9 +38,9 @@
 
 ### Hero 섹션 (3개)
 
-- [ ] **`p1-hero-1`** 상태 배지 컴포넌트 (`NEXT_PUBLIC_HIRE_STATUS` 연동)
-- [ ] **`p1-hero-2`** 헤드라인, 서브 카피, CTA 버튼 2개 레이아웃
-- [ ] **`p1-hero-3`** 스킬 키워드 태그 롤링 애니메이션 (Framer Motion)
+- [x] **`p1-hero-1`** 상태 배지 컴포넌트 (`NEXT_PUBLIC_HIRE_STATUS` 연동)
+- [x] **`p1-hero-2`** 헤드라인, 서브 카피, CTA 버튼 2개 레이아웃
+- [x] **`p1-hero-3`** 스킬 키워드 태그 롤링 애니메이션 (Framer Motion)
 
 ### Pricing 섹션 (3개)
 
