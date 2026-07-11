@@ -28,8 +28,8 @@
 
 ### 디자인 토큰 (2개)
 
-- [ ] **`p1-design-1`** 컬러 팔레트 / 타이포그래피 스케일 정의 (Tailwind config 확장)
-- [ ] **`p1-design-2`** 다크 모드 CSS 변수 구조 준비 (Phase 3 선행 작업)
+- [x] **`p1-design-1`** 컬러 팔레트 / 타이포그래피 스케일 정의 (Tailwind config 확장)
+- [x] **`p1-design-2`** 다크 모드 CSS 변수 구조 준비 (Phase 3 선행 작업)
 
 ### Navbar (2개)
 
