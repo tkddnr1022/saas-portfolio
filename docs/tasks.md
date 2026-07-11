@@ -2,7 +2,8 @@
 
 **기준 문서:** [prd.md](./prd.md)  
 **작성일:** 2026-07-11  
-**총 태스크:** 61개
+**최종 수정:** 2026-07-12  
+**총 태스크:** 62개
 
 ---
 
@@ -11,7 +12,7 @@
 | Phase   | 기간  | 태스크 수 | 목표                   |
 | ------- | ----- | --------- | ---------------------- |
 | Phase 1 | 1–2주 | 29개      | 정적 뼈대 구축 및 배포 |
-| Phase 2 | 2–3주 | 21개      | AI 챗봇 (RAG) 구현     |
+| Phase 2 | 2–3주 | 22개      | AI 챗봇 (RAG + AI SDK) |
 | Phase 3 | 1–2주 | 11개      | 완성도 & 최적화        |
 
 ---
@@ -22,7 +23,7 @@
 
 - [x] **`p1-setup-1`** Next.js 14+ 프로젝트 생성 (App Router, TypeScript)
 - [x] **`p1-setup-2`** Tailwind CSS + shadcn/ui 설치 및 초기 설정
-- [x] **`p1-setup-3`** Framer Motion, Zustand 의존성 설치
+- [x] **`p1-setup-3`** Framer Motion, Zustand 의존성 설치 (챗봇 UI는 Phase 2에서 `@ai-sdk/react` `useChat` 사용)
 - [x] **`p1-setup-4`** ESLint / Prettier 설정 + 폴더 구조 설계 (`app/`, `components/`, `data/`, `lib/`)
 - [x] **`p1-setup-5`** 환경 변수 정의 (`.env.local`, `.env.example`) — `NEXT_PUBLIC_HIRE_STATUS`, `NEXT_PUBLIC_SHOW_SALARY`
 
@@ -76,7 +77,7 @@
 
 ---
 
-## Phase 2 — AI 챗봇 (21개)
+## Phase 2 — AI 챗봇 (22개)
 
 ### 지식 베이스 문서 수집 (4개)
 
@@ -85,8 +86,9 @@
 - [ ] **`p2-kb-3`** 기술 블로그 포스트 / 노션 포트폴리오 Markdown 정리
 - [ ] **`p2-kb-4`** 자격증·교육 이력 + 개인 소개 문서 작성 (강점, 협업 스타일)
 
-### 인프라 셋업 (3개)
+### SDK / 인프라 셋업 (4개)
 
+- [ ] **`p2-sdk-1`** Vercel AI SDK 설치 — `ai`, `@ai-sdk/react`, `@ai-sdk/openai` + `OPENAI_API_KEY` 환경 변수
 - [ ] **`p2-infra-1`** Supabase 프로젝트 생성 + pgvector 확장 활성화
 - [ ] **`p2-infra-2`** `documents` 테이블 스키마 생성 (id, content, embedding, metadata)
 - [ ] **`p2-infra-3`** Upstash Redis 계정 생성 + 환경 변수 설정
@@ -94,23 +96,23 @@
 ### 인덱싱 스크립트 (3개)
 
 - [ ] **`p2-script-1`** 청킹 스크립트 구현 (512토큰, 64토큰 오버랩, `source/category/date` 메타데이터)
-- [ ] **`p2-script-2`** OpenAI `text-embedding-3-small` 임베딩 생성 + Supabase 업로드 스크립트
+- [ ] **`p2-script-2`** AI SDK `embed` / `embedMany` + `text-embedding-3-small` 임베딩 생성 + Supabase 업로드 스크립트
 - [ ] **`p2-script-3`** 인덱싱 실행 및 벡터 검색 정확도 검증
 
 ### API Route 구현 (5개)
 
 - [ ] **`p2-api-1`** `/api/chat` Route Handler — 입력 유효성 검사 (500자 제한, 욕설 필터)
-- [ ] **`p2-api-2`** RAG 파이프라인 — 질문 임베딩 → pgvector 유사도 검색 (상위 5개)
+- [ ] **`p2-api-2`** RAG 파이프라인 — `embed`로 질문 임베딩 → pgvector 유사도 검색 (상위 5개)
 - [ ] **`p2-api-3`** 페르소나 System Prompt 작성 (1인칭, 솔직함, 수치 기반 답변 원칙)
-- [ ] **`p2-api-4`** OpenAI gpt-5.4 스트리밍 호출 + ReadableStream 응답 반환 (최대 800토큰)
+- [ ] **`p2-api-4`** AI SDK `streamText` (`@ai-sdk/openai` gpt-5.4) + `createUIMessageStreamResponse` / `toUIMessageStream` 응답 (maxOutputTokens 800)
 - [ ] **`p2-api-5`** Upstash Redis — IP 기반 Rate Limiting 미들웨어 (20 req/min)
 
 ### 챗봇 UI (4개)
 
-- [ ] **`p2-ui-1`** Zustand 챗봇 대화 상태 스토어 설계 (세션 단위, 새로고침 시 초기화)
-- [ ] **`p2-ui-2`** 채팅 레이아웃, 메시지 버블 (사용자/AI 구분)
-- [ ] **`p2-ui-3`** 스트리밍 타이핑 효과 구현
-- [ ] **`p2-ui-4`** 추천 질문 버튼 3–4개 + 피드백 버튼 (👍/👎) + 에러 처리 UI
+- [ ] **`p2-ui-1`** `@ai-sdk/react` `useChat` 연동 (세션 단위 메시지, 새로고침 시 초기화)
+- [ ] **`p2-ui-2`** 채팅 레이아웃, 메시지 버블 (사용자/AI 구분, `UIMessage` parts 렌더)
+- [ ] **`p2-ui-3`** `useChat` 스트리밍 토큰 렌더 + 로딩/중단(stop) 상태 UI
+- [ ] **`p2-ui-4`** 추천 질문 버튼 3–4개 (`sendMessage`) + 피드백 버튼 (👍/👎) + 에러 처리 UI
 
 ### 품질 테스트 (2개)
 
@@ -161,8 +163,8 @@ Phase 1 (정적 뼈대)
 
 Phase 2 (AI 챗봇) — Phase 1 완료 후 시작
   ├── p2-kb-* (병렬 가능)
-  ├── p2-infra-* → p2-script-* → p2-api-*
-  ├── p2-api-* → p2-ui-*
+  ├── p2-sdk-1 → p2-infra-* → p2-script-* → p2-api-*
+  ├── p2-api-* → p2-ui-* (`useChat`)
   └── p2-ui-* → p2-test-*
 
 Phase 3 (최적화) — Phase 2 완료 후 시작

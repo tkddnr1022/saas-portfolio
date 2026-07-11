@@ -1,7 +1,8 @@
 # PRD — SaaS 스타일 개인 포트폴리오 사이트
 
-**문서 버전** 1.0.0  
+**문서 버전** 1.1.0  
 **작성일** 2026-07-11  
+**최종 수정** 2026-07-12  
 **상태** 초안 (Draft)
 
 ---
@@ -124,23 +125,29 @@
 
 #### 4.1 아키텍처
 
+Vercel AI SDK를 중심으로 스트리밍 챗·임베딩·UI 상태를 통합한다.
+
 ```
-방문자 질문
+방문자 질문 (useChat → POST /api/chat)
     ↓
-[Next.js API Route /api/chat]
+[Next.js Route Handler /api/chat]
     ↓
-질문 임베딩 생성 (text-embedding-3-small)
+입력 검증 + Rate Limiting
+    ↓
+질문 임베딩 생성 (AI SDK embed + text-embedding-3-small)
     ↓
 벡터 DB 유사도 검색 (Supabase pgvector 또는 Pinecone)
     ↓
 관련 문서 청크 추출 (상위 5개)
     ↓
-OpenAI API 호출 (gpt-5.4)
-  - System prompt: "나" 페르소나 정의
-  - Context: 추출된 문서 청크
-  - User message: 방문자 질문
+streamText (AI SDK)
+  - Provider: @ai-sdk/openai (gpt-5.4)
+  - System prompt: "나" 페르소나 + RAG context
+  - messages: convertToModelMessages(UIMessage[])
     ↓
-스트리밍 응답 반환
+createUIMessageStreamResponse / toUIMessageStream
+    ↓
+클라이언트 useChat이 토큰 단위로 렌더
 ```
 
 #### 4.2 RAG 지식 베이스 구성
@@ -174,17 +181,18 @@ OpenAI API 호출 (gpt-5.4)
 #### 4.4 UI 요구사항
 
 - 섹션 내 임베디드 채팅 UI (별도 페이지 이동 없음)
-- 추천 질문 버튼 3–4개 제공 (예: "K8s 경험이 있나요?", "리액트 프로젝트 규모는?", "협업 스타일이 어때요?")
-- 스트리밍 응답 지원 (타이핑 효과)
+- `@ai-sdk/react`의 `useChat`으로 메시지 상태·전송·스트리밍·에러를 관리 (별도 Zustand 챗 스토어 불필요)
+- 추천 질문 버튼 3–4개 제공 (예: "K8s 경험이 있나요?", "리액트 프로젝트 규모는?", "협업 스타일이 어때요?") — `sendMessage`로 전송
+- 스트리밍 응답 지원 (AI SDK UI Message Stream 프로토콜)
 - 대화 기록은 세션 단위로 유지, 새로고침 시 초기화
 - 응답 하단 "이 내용이 도움이 됐나요?" 피드백 버튼 (👍 / 👎)
-- API 키 노출 방지: 모든 OpenAI 호출은 서버사이드 API Route에서만 실행
+- API 키 노출 방지: 모든 모델/임베딩 호출은 서버사이드 Route Handler에서만 실행
 
 #### 4.5 안전 장치
 
 - 욕설·부적절한 입력에 대한 기본 필터링
 - 분당 요청 수 제한 (Rate limiting): IP당 20 req/min
-- 응답 최대 토큰: 800 tokens (비용 제어)
+- 응답 최대 토큰: 800 tokens (`streamText`의 `maxOutputTokens`로 제어)
 - 월 비용 알림: OpenAI 사용량 모니터링 설정
 
 ---
@@ -235,22 +243,24 @@ OpenAI API 호출 (gpt-5.4)
 
 ### 3.1 프론트엔드
 
-| 항목       | 선택                     | 선택 이유                                   |
-| ---------- | ------------------------ | ------------------------------------------- |
-| 프레임워크 | Next.js 14+ (App Router) | SSR/SSG 혼합, API Route 내장, Vercel 최적화 |
-| 언어       | TypeScript               | 타입 안정성, 유지보수성                     |
-| 스타일링   | Tailwind CSS + shadcn/ui | SaaS UI 컴포넌트 즉시 활용 가능             |
-| 애니메이션 | Framer Motion            | 스킬 바, 스크롤 트리거, 페이지 전환         |
-| 상태 관리  | Zustand (챗봇 대화 상태) | 경량, 보일러플레이트 최소                   |
+| 항목       | 선택                          | 선택 이유                                              |
+| ---------- | ----------------------------- | ------------------------------------------------------ |
+| 프레임워크 | Next.js 14+ (App Router)      | SSR/SSG 혼합, API Route 내장, Vercel 최적화            |
+| 언어       | TypeScript                    | 타입 안정성, 유지보수성                                |
+| 스타일링   | Tailwind CSS + shadcn/ui      | SaaS UI 컴포넌트 즉시 활용 가능                        |
+| 애니메이션 | Framer Motion                 | 스킬 바, 스크롤 트리거, 페이지 전환                    |
+| 챗봇 UI 상태 | `@ai-sdk/react` (`useChat`) | 스트리밍·메시지 히스토리·전송 상태를 SDK가 일괄 관리 |
 
 ### 3.2 백엔드 / AI
 
-| 항목              | 선택                                      | 선택 이유                                      |
-| ----------------- | ----------------------------------------- | ---------------------------------------------- |
-| AI API            | OpenAI (gpt-5.4)                          | 응답 품질, 스트리밍 지원                       |
-| 임베딩            | OpenAI text-embedding-3-small             | 비용 효율, 한국어 품질                         |
-| 벡터 DB           | Supabase pgvector (MVP) → Pinecone (확장) | MVP는 무료 티어로 시작, 이후 전용 벡터 DB 이전 |
-| API Rate Limiting | Upstash Redis                             | 서버리스 환경에서 IP 기반 제한                 |
+| 항목              | 선택                                      | 선택 이유                                                        |
+| ----------------- | ----------------------------------------- | ---------------------------------------------------------------- |
+| AI 프레임워크     | Vercel AI SDK (`ai`)                      | `streamText` / `embed` 통합, Next.js 스트리밍 프로토콜 네이티브 |
+| React 바인딩      | `@ai-sdk/react`                           | `useChat`으로 챗 UI 상태·스트리밍 렌더                           |
+| 모델 Provider     | `@ai-sdk/openai` (gpt-5.4)                | OpenAI 연동을 SDK Provider로 추상화, 응답 품질·스트리밍 지원     |
+| 임베딩            | AI SDK `embed` + text-embedding-3-small   | 비용 효율, 한국어 품질, 인덱싱·질의 경로 통일                    |
+| 벡터 DB           | Supabase pgvector (MVP) → Pinecone (확장) | MVP는 무료 티어로 시작, 이후 전용 벡터 DB 이전                   |
+| API Rate Limiting | Upstash Redis                             | 서버리스 환경에서 IP 기반 제한                                   |
 
 ### 3.3 인프라
 
@@ -281,11 +291,12 @@ OpenAI API 호출 (gpt-5.4)
 ### Phase 2 — AI 챗봇 (2–3주)
 
 - [ ] 지식 베이스 문서 수집 및 정리 (Markdown)
-- [ ] 문서 청킹 및 임베딩 생성 스크립트
+- [ ] Vercel AI SDK 의존성 설치 (`ai`, `@ai-sdk/react`, `@ai-sdk/openai`)
+- [ ] 문서 청킹 및 임베딩 생성 스크립트 (`embed` / `embedMany`)
 - [ ] Supabase pgvector 셋업 및 인덱싱
-- [ ] `/api/chat` API Route 구현 (RAG 파이프라인)
+- [ ] `/api/chat` Route Handler — RAG + `streamText` + UI Message Stream 응답
 - [ ] 페르소나 System Prompt 작성 및 튜닝
-- [ ] 챗봇 UI 컴포넌트 (스트리밍, 추천 질문, 피드백)
+- [ ] 챗봇 UI (`useChat`, 스트리밍, 추천 질문, 피드백)
 - [ ] Rate limiting (Upstash Redis)
 - [ ] 챗봇 응답 품질 테스트 (20+ 예상 질문 시나리오)
 
