@@ -1,0 +1,9 @@
+export const navLinks = [
+  { href: "#hero", label: "Home" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#skills", label: "Skills" },
+  { href: "#career", label: "Career" },
+  { href: "#links", label: "Links" },
+] as const;
+
+export type NavLink = (typeof navLinks)[number];
