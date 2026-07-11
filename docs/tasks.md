@@ -44,9 +44,9 @@
 
 ### Pricing 섹션 (3개)
 
-- [ ] **`p1-pricing-1`** 플랜 카드 컴포넌트 3종 (Starter / Professional / Enterprise)
-- [ ] **`p1-pricing-2`** 월간/연간 토글 스위치 + 절약 배지
-- [ ] **`p1-pricing-3`** Most Popular 배지 + `NEXT_PUBLIC_SHOW_SALARY` 플래그 연동
+- [x] **`p1-pricing-1`** 플랜 카드 컴포넌트 3종 (Starter / Professional / Enterprise)
+- [x] **`p1-pricing-2`** 월간/연간 토글 스위치 + 절약 배지
+- [x] **`p1-pricing-3`** Most Popular 배지 + `NEXT_PUBLIC_SHOW_SALARY` 플래그 연동
 
 ### Skills 섹션 (4개)
 
