@@ -89,14 +89,14 @@
 ### SDK / 인프라 셋업 (4개)
 
 - [ ] **`p2-sdk-1`** Vercel AI SDK 설치 — `ai`, `@ai-sdk/react`, `@ai-sdk/openai` + `OPENAI_API_KEY` 환경 변수
-- [ ] **`p2-infra-1`** Supabase 프로젝트 생성 + pgvector 확장 활성화
+- [ ] **`p2-infra-1`** PostgreSQL 인스턴스 준비 + pgvector 확장 활성화
 - [ ] **`p2-infra-2`** `documents` 테이블 스키마 생성 (id, content, embedding, metadata)
-- [ ] **`p2-infra-3`** Upstash Redis 계정 생성 + 환경 변수 설정
+- [ ] **`p2-infra-3`** Redis 인스턴스 준비 + 환경 변수 설정
 
 ### 인덱싱 스크립트 (3개)
 
 - [ ] **`p2-script-1`** 청킹 스크립트 구현 (512토큰, 64토큰 오버랩, `source/category/date` 메타데이터)
-- [ ] **`p2-script-2`** AI SDK `embed` / `embedMany` + `text-embedding-3-small` 임베딩 생성 + Supabase 업로드 스크립트
+- [ ] **`p2-script-2`** AI SDK `embed` / `embedMany` + `text-embedding-3-small` 임베딩 생성 + pgvector 업로드 스크립트
 - [ ] **`p2-script-3`** 인덱싱 실행 및 벡터 검색 정확도 검증
 
 ### API Route 구현 (5개)
@@ -105,7 +105,7 @@
 - [ ] **`p2-api-2`** RAG 파이프라인 — `embed`로 질문 임베딩 → pgvector 유사도 검색 (상위 5개)
 - [ ] **`p2-api-3`** 페르소나 System Prompt 작성 (1인칭, 솔직함, 수치 기반 답변 원칙)
 - [ ] **`p2-api-4`** AI SDK `streamText` (`@ai-sdk/openai` gpt-5.4) + `createUIMessageStreamResponse` / `toUIMessageStream` 응답 (maxOutputTokens 800)
-- [ ] **`p2-api-5`** Upstash Redis — IP 기반 Rate Limiting 미들웨어 (20 req/min)
+- [ ] **`p2-api-5`** Redis — IP 기반 Rate Limiting 미들웨어 (20 req/min)
 
 ### 챗봇 UI (4개)
 
@@ -182,7 +182,7 @@ Phase 3 (최적화) — Phase 2 완료 후 시작
 | 1   | 희망 연봉을 실제 수치로 공개할 것인가?    | Phase 1 완료 전 | `p1-pricing-3`        |
 | 2   | 챗봇 언어 — 한국어 전용 vs 영어 지원?     | Phase 2 시작 전 | `p2-api-3`, `p2-ui-4` |
 | 3   | 도메인 — 실명 기반 vs 브랜드명?           | Phase 1 배포 전 | `p1-deploy-2`         |
-| 4   | Pinecone 이전 기준점                      | Phase 3 이후    | —                     |
+| 4   | pgvector 인프라 배치 — 기존 PostgreSQL 확장 vs 분리 DB? | Phase 3 이후    | —                     |
 | 5   | 다국어 지원 범위 — 전체 페이지 vs 챗봇만? | Phase 3         | `p3-seo-1`            |
 
 ---
