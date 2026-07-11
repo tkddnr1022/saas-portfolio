@@ -8,11 +8,11 @@
 
 ## 개요
 
-| Phase | 기간 | 태스크 수 | 목표 |
-|---|---|---|---|
-| Phase 1 | 1–2주 | 29개 | 정적 뼈대 구축 및 배포 |
-| Phase 2 | 2–3주 | 21개 | AI 챗봇 (RAG) 구현 |
-| Phase 3 | 1–2주 | 11개 | 완성도 & 최적화 |
+| Phase   | 기간  | 태스크 수 | 목표                   |
+| ------- | ----- | --------- | ---------------------- |
+| Phase 1 | 1–2주 | 29개      | 정적 뼈대 구축 및 배포 |
+| Phase 2 | 2–3주 | 21개      | AI 챗봇 (RAG) 구현     |
+| Phase 3 | 1–2주 | 11개      | 완성도 & 최적화        |
 
 ---
 
@@ -20,11 +20,11 @@
 
 ### 프로젝트 셋업 (5개)
 
-- [ ] **`p1-setup-1`** Next.js 14+ 프로젝트 생성 (App Router, TypeScript)
-- [ ] **`p1-setup-2`** Tailwind CSS + shadcn/ui 설치 및 초기 설정
-- [ ] **`p1-setup-3`** Framer Motion, Zustand 의존성 설치
-- [ ] **`p1-setup-4`** ESLint / Prettier 설정 + 폴더 구조 설계 (`app/`, `components/`, `data/`, `lib/`)
-- [ ] **`p1-setup-5`** 환경 변수 정의 (`.env.local`, `.env.example`) — `NEXT_PUBLIC_HIRE_STATUS`, `NEXT_PUBLIC_SHOW_SALARY`
+- [x] **`p1-setup-1`** Next.js 14+ 프로젝트 생성 (App Router, TypeScript)
+- [x] **`p1-setup-2`** Tailwind CSS + shadcn/ui 설치 및 초기 설정
+- [x] **`p1-setup-3`** Framer Motion, Zustand 의존성 설치
+- [x] **`p1-setup-4`** ESLint / Prettier 설정 + 폴더 구조 설계 (`app/`, `components/`, `data/`, `lib/`)
+- [x] **`p1-setup-5`** 환경 변수 정의 (`.env.local`, `.env.example`) — `NEXT_PUBLIC_HIRE_STATUS`, `NEXT_PUBLIC_SHOW_SALARY`
 
 ### 디자인 토큰 (2개)
 
@@ -175,14 +175,14 @@ Phase 3 (최적화) — Phase 2 완료 후 시작
 
 ## Phase 시작 전 결정 사항
 
-| # | 질문 | 결정 시점 | 관련 태스크 |
-|---|---|---|---|
-| 1 | 희망 연봉을 실제 수치로 공개할 것인가? | Phase 1 완료 전 | `p1-pricing-3` |
-| 2 | 챗봇 언어 — 한국어 전용 vs 영어 지원? | Phase 2 시작 전 | `p2-api-3`, `p2-ui-4` |
-| 3 | 도메인 — 실명 기반 vs 브랜드명? | Phase 1 배포 전 | `p1-deploy-2` |
-| 4 | Pinecone 이전 기준점 | Phase 3 이후 | — |
-| 5 | 다국어 지원 범위 — 전체 페이지 vs 챗봇만? | Phase 3 | `p3-seo-1` |
+| #   | 질문                                      | 결정 시점       | 관련 태스크           |
+| --- | ----------------------------------------- | --------------- | --------------------- |
+| 1   | 희망 연봉을 실제 수치로 공개할 것인가?    | Phase 1 완료 전 | `p1-pricing-3`        |
+| 2   | 챗봇 언어 — 한국어 전용 vs 영어 지원?     | Phase 2 시작 전 | `p2-api-3`, `p2-ui-4` |
+| 3   | 도메인 — 실명 기반 vs 브랜드명?           | Phase 1 배포 전 | `p1-deploy-2`         |
+| 4   | Pinecone 이전 기준점                      | Phase 3 이후    | —                     |
+| 5   | 다국어 지원 범위 — 전체 페이지 vs 챗봇만? | Phase 3         | `p3-seo-1`            |
 
 ---
 
-*이 문서는 개발 진행에 따라 태스크 상태를 업데이트합니다.*
+_이 문서는 개발 진행에 따라 태스크 상태를 업데이트합니다._
