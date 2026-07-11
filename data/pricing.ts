@@ -14,9 +14,7 @@ export type Plan = {
 
 export const YEARLY_SAVINGS_PERCENT = 10;
 
-export const CONTACT_EMAIL = "hello@example.com";
-
-export const CONTACT_HREF = `mailto:${CONTACT_EMAIL}`;
+export { CONTACT_EMAIL, CONTACT_HREF } from "@/data/links";
 
 export const PRICING_PLANS: Plan[] = [
   {

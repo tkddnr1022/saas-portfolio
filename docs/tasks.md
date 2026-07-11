@@ -64,9 +64,9 @@
 
 ### Links & CTA / Footer (3개)
 
-- [ ] **`p1-links-1`** 외부 링크 카드 그리드 (GitHub, 블로그, 노션, LinkedIn 등)
-- [ ] **`p1-links-2`** Primary CTA (연락하기) + Secondary CTA (이력서 PDF 다운로드)
-- [ ] **`p1-footer-1`** 저작권 표시, 소셜 아이콘 링크
+- [x] **`p1-links-1`** 외부 링크 카드 그리드 (GitHub, 블로그, 노션, LinkedIn 등)
+- [x] **`p1-links-2`** Primary CTA (연락하기) + Secondary CTA (이력서 PDF 다운로드)
+- [x] **`p1-footer-1`** 저작권 표시, 소셜 아이콘 링크
 
 ### 반응형 & 배포 (3개)
 

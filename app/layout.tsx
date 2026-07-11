@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         <TooltipProvider>
           <Navbar />
           <div className="flex-1">{children}</div>
+          <Footer />
         </TooltipProvider>
       </body>
     </html>
