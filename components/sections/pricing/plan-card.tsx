@@ -81,6 +81,7 @@ export function PlanCard({ plan, billingPeriod, showSalary }: PlanCardProps) {
 
       <Button
         className="mt-8 w-full"
+        nativeButton={false}
         render={<a href={CONTACT_HREF} />}
         variant={plan.popular ? "default" : "outline"}
       >

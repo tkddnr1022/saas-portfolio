@@ -1,8 +1,8 @@
 import { HeroSection } from "@/components/sections/hero/hero-section";
 import { PricingSection } from "@/components/sections/pricing/pricing-section";
+import { SkillsSection } from "@/components/sections/skills/skills-section";
 
 const sections = [
-  { id: "skills", label: "Skills", minHeight: "min-h-[50vh]" },
   { id: "career", label: "Career", minHeight: "min-h-[50vh]" },
   { id: "links", label: "Links", minHeight: "min-h-[50vh]" },
 ] as const;
@@ -12,6 +12,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <PricingSection />
+      <SkillsSection />
 
       {sections.map((section) => (
         <section

@@ -1,0 +1,172 @@
+{
+  "categories": [
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "skills": [
+        {
+          "name": "React",
+          "level": 92,
+          "years": 4,
+          "context": "대규모 SaaS 대시보드, 디자인 시스템 연동"
+        },
+        {
+          "name": "Next.js",
+          "level": 88,
+          "years": 3,
+          "context": "App Router, SSR/ISR, API Route"
+        },
+        {
+          "name": "TypeScript",
+          "level": 90,
+          "years": 4,
+          "context": "엄격 모드, 제네릭 기반 공통 컴포넌트"
+        },
+        {
+          "name": "디자인 시스템",
+          "level": 85,
+          "years": 2,
+          "context": "토큰 정의, 컴포넌트 라이브러리 구축"
+        },
+        {
+          "name": "Storybook",
+          "level": 78,
+          "years": 2,
+          "context": "컴포넌트 문서화, 시각 회귀 테스트"
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "skills": [
+        {
+          "name": "Node.js",
+          "level": 86,
+          "years": 4,
+          "context": "Express, NestJS 기반 REST API"
+        },
+        {
+          "name": "Python",
+          "level": 72,
+          "years": 2,
+          "context": "데이터 파이프라인, 스크립트 자동화"
+        },
+        {
+          "name": "REST / GraphQL API",
+          "level": 84,
+          "years": 3,
+          "context": "OpenAPI 스펙, Apollo Server"
+        },
+        {
+          "name": "PostgreSQL",
+          "level": 80,
+          "years": 3,
+          "context": "스키마 설계, 인덱스 최적화"
+        },
+        {
+          "name": "Redis",
+          "level": 75,
+          "years": 2,
+          "context": "캐시, Rate Limiting, 세션 저장"
+        }
+      ]
+    },
+    {
+      "id": "devops",
+      "label": "DevOps",
+      "skills": [
+        {
+          "name": "Docker",
+          "level": 82,
+          "years": 3,
+          "context": "멀티스테이지 빌드, 로컬 개발 환경"
+        },
+        {
+          "name": "Kubernetes",
+          "level": 68,
+          "years": 1,
+          "context": "Helm 차트, 롤링 업데이트"
+        },
+        {
+          "name": "GitHub Actions",
+          "level": 88,
+          "years": 3,
+          "context": "CI/CD 파이프라인, 자동 배포"
+        },
+        {
+          "name": "AWS",
+          "level": 76,
+          "years": 2,
+          "context": "EC2, S3, Lambda, RDS"
+        },
+        {
+          "name": "GCP",
+          "level": 65,
+          "years": 1,
+          "context": "Cloud Run, Cloud Storage"
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "label": "Design",
+      "skills": [
+        {
+          "name": "Figma",
+          "level": 80,
+          "years": 3,
+          "context": "와이어프레임, 프로토타입, 핸드오프"
+        },
+        {
+          "name": "디자인 시스템 구축",
+          "level": 78,
+          "years": 2,
+          "context": "토큰·컴포넌트 스펙 정의"
+        },
+        {
+          "name": "UI/UX 프로세스",
+          "level": 74,
+          "years": 2,
+          "context": "사용자 플로우, 접근성 검토"
+        },
+        {
+          "name": "반응형 레이아웃",
+          "level": 86,
+          "years": 4,
+          "context": "모바일 퍼스트, 브레이크포인트 설계"
+        }
+      ]
+    },
+    {
+      "id": "pm",
+      "label": "PM",
+      "skills": [
+        {
+          "name": "로드맵 수립",
+          "level": 76,
+          "years": 2,
+          "context": "분기별 목표, 우선순위 정렬"
+        },
+        {
+          "name": "스프린트 운영",
+          "level": 82,
+          "years": 3,
+          "context": "2주 스프린트, 회고·데일리 스크럼"
+        },
+        {
+          "name": "기술 문서화",
+          "level": 85,
+          "years": 3,
+          "context": "ADR, API 문서, 온보딩 가이드"
+        },
+        {
+          "name": "이해관계자 커뮤니케이션",
+          "level": 80,
+          "years": 3,
+          "context": "기획·디자인·QA 간 요구사항 조율"
+        }
+      ]
+    }
+  ]
+}

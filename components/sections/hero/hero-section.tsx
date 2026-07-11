@@ -44,6 +44,7 @@ export function HeroSection() {
 
         <div className="flex flex-wrap items-center justify-center gap-3">
           <Button
+            nativeButton={false}
             render={<a href="#pricing" />}
             size="lg"
           >
@@ -51,6 +52,7 @@ export function HeroSection() {
             <ArrowRight aria-hidden="true" />
           </Button>
           <Button
+            nativeButton={false}
             render={<a href="#chat" />}
             variant="outline"
             size="lg"
