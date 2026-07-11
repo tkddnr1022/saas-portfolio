@@ -13,7 +13,7 @@ type PricingContentProps = {
 
 export function PricingContent({ showSalary }: PricingContentProps) {
   const [billingPeriod, setBillingPeriod] =
-    useState<BillingPeriod>("monthly");
+    useState<BillingPeriod>("yearly");
 
   return (
     <div className="flex w-full flex-col gap-10">

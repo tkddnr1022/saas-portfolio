@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import {
   CONTACT_HREF,
   formatPrice,
+  getYearlyPrice,
   type BillingPeriod,
   type Plan,
 } from "@/data/pricing";
@@ -25,12 +26,14 @@ function getPriceLabel(
     return "협의";
   }
 
-  if (plan.monthlyPrice === null || plan.yearlyPrice === null) {
-    return "프로젝트별 협의";
+  const yearlyPrice = getYearlyPrice(plan);
+
+  if (plan.monthlyPrice === null || yearlyPrice === null) {
+    return "협의";
   }
 
   const amount =
-    billingPeriod === "monthly" ? plan.monthlyPrice : plan.yearlyPrice;
+    billingPeriod === "monthly" ? plan.monthlyPrice : yearlyPrice;
 
   return formatPrice(amount, billingPeriod);
 }
