@@ -1,0 +1,39 @@
+import { Badge } from "@/components/ui/badge";
+import { CERTIFICATIONS } from "@/data/career";
+import { cn } from "@/lib/utils";
+
+type CertificationGridProps = {
+  className?: string;
+};
+
+export function CertificationGrid({ className }: CertificationGridProps) {
+  return (
+    <div className={cn("w-full", className)}>
+      <h3 className="mb-6 font-heading text-h3 font-semibold tracking-tight">
+        자격증
+      </h3>
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {CERTIFICATIONS.map((cert) => (
+          <li key={cert.id}>
+            <a
+              href={cert.credentialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex h-full flex-col gap-2 rounded-lg border border-border px-4 py-3 transition-colors hover:border-primary/40 hover:bg-muted/50"
+            >
+              <span className="font-medium leading-snug group-hover:text-primary">
+                {cert.name}
+              </span>
+              <span className="text-muted-foreground text-sm">
+                {cert.issuer}
+              </span>
+              <Badge variant="outline" className="w-fit">
+                {cert.year}
+              </Badge>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
