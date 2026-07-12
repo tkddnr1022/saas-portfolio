@@ -24,7 +24,7 @@
 - [x] **`p1-setup-1`** Next.js 14+ 프로젝트 생성 (App Router, TypeScript)
 - [x] **`p1-setup-2`** Tailwind CSS + shadcn/ui 설치 및 초기 설정
 - [x] **`p1-setup-3`** Framer Motion, Zustand 의존성 설치 (챗봇 UI는 Phase 2에서 `@ai-sdk/react` `useChat` 사용)
-- [x] **`p1-setup-4`** ESLint / Prettier 설정 + 폴더 구조 설계 (`app/`, `components/`, `data/`, `lib/`)
+- [x] **`p1-setup-4`** ESLint / Prettier 설정 + 폴더 구조 설계 (`src/app/`, `src/components/`, `src/data/`, `src/lib/`)
 - [x] **`p1-setup-5`** 환경 변수 정의 (`.env.local`, `.env.example`) — `NEXT_PUBLIC_HIRE_STATUS`, `NEXT_PUBLIC_SHOW_SALARY`
 
 ### 디자인 토큰 (2개)
@@ -51,14 +51,14 @@
 
 ### Skills 섹션 (4개)
 
-- [x] **`p1-skills-1`** `/data/skills.json` 스키마 설계 및 더미 데이터 작성
+- [x] **`p1-skills-1`** `src/data/skills.json` 스키마 설계 및 더미 데이터 작성
 - [x] **`p1-skills-2`** 5개 카테고리 탭 UI (Frontend / Backend / DevOps / Design / PM)
 - [x] **`p1-skills-3`** 숙련도 바 컴포넌트 + 스크롤 진입 시 0→N% 애니메이션
 - [x] **`p1-skills-4`** 기술 태그 hover 툴팁 (사용 기간, 컨텍스트)
 
 ### Career 섹션 (4개)
 
-- [x] **`p1-career-1`** `/data/career.json` 스키마 설계 및 더미 데이터 작성
+- [x] **`p1-career-1`** `src/data/career.json` 스키마 설계 및 더미 데이터 작성
 - [x] **`p1-career-2`** 경력 타임라인 컴포넌트 (최신순, 성과 수치 포함)
 - [x] **`p1-career-3`** 자격증 배지 그리드 (클릭 시 인증 링크 이동)
 - [x] **`p1-career-4`** 학력 / 영어 능력 / 오픈소스 기여 영역

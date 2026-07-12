@@ -115,7 +115,7 @@
 - 탭 또는 아코디언 UI로 카테고리 전환
 - 숙련도 바는 스크롤 진입 시 0 → N% 애니메이션
 - 각 기술 태그 hover 시 "몇 년 사용", "주요 사용 컨텍스트" 툴팁 표시
-- 지표 수치는 `/data/skills.json`으로 외부화하여 코드 수정 없이 업데이트 가능
+- 지표 수치는 `src/data/skills.json`으로 외부화하여 코드 수정 없이 업데이트 가능
 
 ---
 
@@ -213,7 +213,7 @@ createUIMessageStreamResponse / toUIMessageStream
 
 - 타임라인은 최신순 정렬
 - 자격증 배지 클릭 시 공식 인증 링크로 이동
-- 경력 데이터는 `/data/career.json`으로 외부화
+- 경력 데이터는 `src/data/career.json`으로 외부화
 
 ---
 
@@ -351,8 +351,8 @@ createUIMessageStreamResponse / toUIMessageStream
 
 - [ ] 헤드라인 카피 확정 (한국어 + 영어)
 - [ ] 희망 연봉 공개 여부 결정
-- [ ] 스킬별 숙련도 수치 정의 (`/data/skills.json`)
-- [ ] 경력 사항 정리 — 회사명, 기간, 성과 수치 포함 (`/data/career.json`)
+- [ ] 스킬별 숙련도 수치 정의 (`src/data/skills.json`)
+- [ ] 경력 사항 정리 — 회사명, 기간, 성과 수치 포함 (`src/data/career.json`)
 - [ ] 자격증 목록 및 인증 링크
 - [ ] 프로필 사진 (정방형, 최소 400×400px, WebP)
 - [ ] 이력서 PDF (다운로드용)

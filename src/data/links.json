@@ -1,12 +1,12 @@
 {
-  "contactEmail": "hello@example.com",
+  "contactEmail": "tkddnr10222@gmail.com",
   "resumeHref": "/resume.pdf",
   "externalLinks": [
     {
       "id": "github",
       "label": "GitHub",
       "description": "코드 품질과 기여 이력을 확인하세요",
-      "href": "https://github.com/example",
+      "href": "https://github.com/tkddnr1022",
       "icon": "github",
       "showInFooter": true
     },
@@ -14,7 +14,7 @@
       "id": "blog",
       "label": "기술 블로그",
       "description": "사고방식과 글쓰기 능력을 살펴보세요",
-      "href": "https://blog.example.com",
+      "href": "https://velog.io/@tkddnr1022",
       "icon": "blog",
       "showInFooter": true
     },
@@ -22,7 +22,7 @@
       "id": "notion",
       "label": "노션 포트폴리오",
       "description": "프로젝트 상세 문서를 확인하세요",
-      "href": "https://notion.example.com/portfolio",
+      "href": "https://tungsten-word-4ab.notion.site/34c66408a68c80b5826dda28b872816c?pvs=74",
       "icon": "notion",
       "showInFooter": true
     },
