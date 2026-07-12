@@ -12,7 +12,7 @@ type SkillTagProps = {
 };
 
 function formatYears(years: number): string {
-  return years >= 1 ? `${years}년 사용` : `${Math.round(years * 12)}개월 사용`;
+  return years >= 1 ? `${years}년 경험` : `${Math.round(years * 12)}개월 경험`;
 }
 
 export function SkillTag({ skill }: SkillTagProps) {

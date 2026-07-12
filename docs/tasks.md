@@ -54,7 +54,7 @@
 - [x] **`p1-skills-1`** `src/data/skills.json` 스키마 설계 및 더미 데이터 작성
 - [x] **`p1-skills-2`** 5개 카테고리 탭 UI (Frontend / Backend / DevOps / Design / PM)
 - [x] **`p1-skills-3`** 숙련도 바 컴포넌트 + 스크롤 진입 시 0→N% 애니메이션
-- [x] **`p1-skills-4`** 기술 태그 hover 툴팁 (사용 기간, 컨텍스트)
+- [x] **`p1-skills-4`** 기술 태그 hover 툴팁 (사용 경험, 컨텍스트)
 
 ### Career 섹션 (4개)
 
