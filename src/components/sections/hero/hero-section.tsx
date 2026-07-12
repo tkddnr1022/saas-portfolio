@@ -10,7 +10,7 @@ const BRAND_SIGNAL = "Full-Stack Engineer as a Service";
 const HEADLINE = "디자인 시스템부터 CI/CD까지, 한 명으로 끝내는 풀스택";
 
 const SUB_COPY =
-  "프론트엔드·백엔드·DevOps·디자인·PM까지 아우르는 올라운더 엔지니어입니다. 제품 설계부터 배포 파이프라인까지, 팀이 필요로 하는 모든 영역을 책임집니다.";
+  "프론트엔드·백엔드·DevOps·디자인까지 아우르는 올라운더 엔지니어입니다. 제품 설계부터 배포 파이프라인까지, 팀이 필요로 하는 모든 영역을 책임집니다.";
 
 export function HeroSection() {
   return (

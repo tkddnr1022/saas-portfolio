@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
-const SKILL_KEYWORDS = ["Frontend", "Backend", "DevOps", "Design", "PM"] as const;
+const SKILL_KEYWORDS = ["Frontend", "Backend", "DevOps", "Design"] as const;
 
 function SkillTag({ label }: { label: string }) {
   return (

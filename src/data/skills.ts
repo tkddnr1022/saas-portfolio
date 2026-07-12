@@ -4,8 +4,7 @@ export type SkillCategoryId =
   | "frontend"
   | "backend"
   | "devops"
-  | "design"
-  | "pm";
+  | "design";
 
 export type Skill = {
   name: string;

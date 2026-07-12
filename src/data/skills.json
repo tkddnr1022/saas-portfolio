@@ -143,36 +143,6 @@
           "context": "모바일 퍼스트, 유연한 이미지"
         }
       ]
-    },
-    {
-      "id": "pm",
-      "label": "PM",
-      "skills": [
-        {
-          "name": "로드맵 수립",
-          "level": 76,
-          "years": 2,
-          "context": "분기별 목표, 우선순위 정렬"
-        },
-        {
-          "name": "스프린트 운영",
-          "level": 82,
-          "years": 3,
-          "context": "2주 스프린트, 회고·데일리 스크럼"
-        },
-        {
-          "name": "기술 문서화",
-          "level": 85,
-          "years": 3,
-          "context": "ADR, API 문서, 온보딩 가이드"
-        },
-        {
-          "name": "이해관계자 커뮤니케이션",
-          "level": 80,
-          "years": 3,
-          "context": "기획·디자인·QA 간 요구사항 조율"
-        }
-      ]
     }
   ]
 }
