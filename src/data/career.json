@@ -50,18 +50,18 @@
       "context": "기술 문서 독해, RFC·스펙 리뷰"
     }
   ],
-  "openSource": [
+  "projects": [
     {
-      "id": "oss-1",
-      "name": "react-query-toolkit",
-      "description": "React Query 기반 서버 상태 관리 유틸리티 라이브러리",
-      "url": "https://github.com/example/react-query-toolkit"
+      "id": "mealio",
+      "name": "Mealio",
+      "description": "AI 기반 맞춤형 레시피 추천 플랫폼",
+      "url": "https://github.com/tkddnr1022/mealio"
     },
     {
-      "id": "oss-2",
-      "name": "nextjs-starter-kit",
-      "description": "App Router + shadcn/ui 보일러플레이트 템플릿",
-      "url": "https://github.com/example/nextjs-starter-kit"
+      "id": "class-manager",
+      "name": "Class Manager",
+      "description": "위치기반 QR 출석 체크 애플리케이션",
+      "url": "https://github.com/tkddnr1022/Class-Manager"
     }
   ]
 }

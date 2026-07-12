@@ -39,7 +39,7 @@ export type Language = {
   context: string;
 };
 
-export type OpenSource = {
+export type Project = {
   id: string;
   name: string;
   description: string;
@@ -51,7 +51,7 @@ export type CareerData = {
   certifications: Certification[];
   education: Education[];
   languages: Language[];
-  openSource: OpenSource[];
+  projects: Project[];
 };
 
 const data = careerData as CareerData;
@@ -66,7 +66,7 @@ export const EDUCATION: Education[] = data.education;
 
 export const LANGUAGES: Language[] = data.languages;
 
-export const OPEN_SOURCE: OpenSource[] = data.openSource;
+export const PROJECTS: Project[] = data.projects;
 
 export function formatExperiencePeriod(
   startDate: string,

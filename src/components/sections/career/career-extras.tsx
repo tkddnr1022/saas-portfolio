@@ -1,7 +1,7 @@
 import {
   EDUCATION,
   LANGUAGES,
-  OPEN_SOURCE,
+  PROJECTS,
 } from "@/data/career";
 import { cn } from "@/lib/utils";
 
@@ -64,10 +64,10 @@ export function CareerExtras({ className }: CareerExtrasProps) {
 
       <div className="space-y-4">
         <h3 className="font-heading text-h3 font-semibold tracking-tight">
-          오픈소스
+          프로젝트
         </h3>
         <ul className="space-y-4">
-          {OPEN_SOURCE.map((project) => (
+          {PROJECTS.map((project) => (
             <li key={project.id} className="space-y-1">
               <a
                 href={project.url}

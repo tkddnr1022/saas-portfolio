@@ -206,7 +206,7 @@ createUIMessageStreamResponse / toUIMessageStream
 - 자격증 배지 그리드: 취득 연도, 발급 기관 표시
 - 학력 사항
 - 영어 능력: 시험 점수 또는 사용 컨텍스트 (업무 영어, 기술 문서 독해 등)
-- 오픈소스 기여 이력 (GitHub 링크 연동)
+- 프로젝트 이력 (GitHub 링크 연동)
 
 **요구사항**
 

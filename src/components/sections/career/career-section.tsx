@@ -5,7 +5,7 @@ import { CertificationGrid } from "@/components/sections/career/certification-gr
 const SECTION_TITLE = "경력과 자격으로 증명하는 신뢰";
 
 const SECTION_DESCRIPTION =
-  "실무 성과, 공식 자격증, 학력과 오픈소스 기여까지 객관적 지표로 정리했습니다.";
+  "실무 성과, 공식 자격증, 학력과 프로젝트까지 객관적 지표로 정리했습니다.";
 
 export function CareerSection() {
   return (
