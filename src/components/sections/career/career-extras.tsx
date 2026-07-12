@@ -38,7 +38,7 @@ export function CareerExtras({ className }: CareerExtrasProps) {
 
       <div className="space-y-4">
         <h3 className="font-heading text-h3 font-semibold tracking-tight">
-          영어 능력
+          언어 능력
         </h3>
         <ul className="space-y-4">
           {LANGUAGES.map((lang) => (
