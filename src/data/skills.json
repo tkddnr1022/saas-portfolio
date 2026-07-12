@@ -6,33 +6,39 @@
       "skills": [
         {
           "name": "React",
-          "level": 92,
+          "level": 80,
           "years": 4,
-          "context": "대규모 SaaS 대시보드, 디자인 시스템 연동"
+          "context": "디자인 패턴, 상태 관리, 선언형 프로그래밍"
         },
         {
           "name": "Next.js",
-          "level": 88,
+          "level": 75,
           "years": 3,
           "context": "App Router, SSR/ISR, API Route"
         },
         {
           "name": "TypeScript",
-          "level": 90,
-          "years": 4,
-          "context": "엄격 모드, 제네릭 기반 공통 컴포넌트"
+          "level": 80,
+          "years": 3,
+          "context": "제네릭 패턴, 유니온 타입, 유틸리티 타입"
         },
         {
-          "name": "디자인 시스템",
-          "level": 85,
+          "name": "Figma",
+          "level": 70,
           "years": 2,
-          "context": "토큰 정의, 컴포넌트 라이브러리 구축"
+          "context": "디자인 시스템, 컴포넌트 라이브러리, 지속 가능한 디자인"
         },
         {
           "name": "Storybook",
-          "level": 78,
-          "years": 2,
+          "level": 65,
+          "years": 1,
           "context": "컴포넌트 문서화, 시각 회귀 테스트"
+        },
+        {
+          "name": "SEO",
+          "level": 75,
+          "years": 1,
+          "context": "상위 노출, 시맨틱 태그, 코어 웹 바이탈"
         }
       ]
     },
@@ -42,33 +48,33 @@
       "skills": [
         {
           "name": "Node.js",
-          "level": 86,
-          "years": 4,
+          "level": 75,
+          "years": 3,
           "context": "Express, NestJS 기반 REST API"
         },
         {
-          "name": "Python",
-          "level": 72,
-          "years": 2,
-          "context": "데이터 파이프라인, 스크립트 자동화"
+          "name": "Kafka",
+          "level": 60,
+          "years": 0.5,
+          "context": "메시지 큐, 비동기 처리"
         },
         {
-          "name": "REST / GraphQL API",
-          "level": 84,
+          "name": "아키텍처",
+          "level": 70,
           "years": 3,
-          "context": "OpenAPI 스펙, Apollo Server"
+          "context": "이벤트 기반 아키텍처, 데이터 파이프라인, CQRS"
         },
         {
-          "name": "PostgreSQL",
-          "level": 80,
+          "name": "PostgreSQL / MongoDB",
+          "level": 70,
           "years": 3,
-          "context": "스키마 설계, 인덱스 최적화"
+          "context": "데이터 모델링, 트랜잭션, 커넥션 풀"
         },
         {
           "name": "Redis",
-          "level": 75,
-          "years": 2,
-          "context": "캐시, Rate Limiting, 세션 저장"
+          "level": 70,
+          "years": 1,
+          "context": "캐시, Rate Limiting, 세션 관리"
         }
       ]
     },
@@ -78,33 +84,33 @@
       "skills": [
         {
           "name": "Docker",
-          "level": 82,
-          "years": 3,
-          "context": "멀티스테이지 빌드, 로컬 개발 환경"
+          "level": 70,
+          "years": 2,
+          "context": "Docker Compose, 멀티스테이지 빌드, 환경 통일"
         },
         {
-          "name": "Kubernetes",
-          "level": 68,
-          "years": 1,
-          "context": "Helm 차트, 롤링 업데이트"
+          "name": "Prometheus / Grafana",
+          "level": 60,
+          "years": 0.5,
+          "context": "메트릭, 모니터링, 이상 징후 알림"
         },
         {
           "name": "GitHub Actions",
-          "level": 88,
-          "years": 3,
+          "level": 70,
+          "years": 2,
           "context": "CI/CD 파이프라인, 자동 배포"
         },
         {
           "name": "AWS",
-          "level": 76,
+          "level": 60,
           "years": 2,
-          "context": "EC2, S3, Lambda, RDS"
+          "context": "EC2, S3, VPC"
         },
         {
-          "name": "GCP",
-          "level": 65,
+          "name": "Sentry",
+          "level": 60,
           "years": 1,
-          "context": "Cloud Run, Cloud Storage"
+          "context": "에러 추적, 장애 대응"
         }
       ]
     },
@@ -114,27 +120,27 @@
       "skills": [
         {
           "name": "Figma",
-          "level": 80,
-          "years": 3,
-          "context": "와이어프레임, 프로토타입, 핸드오프"
+          "level": 70,
+          "years": 1,
+          "context": "와이어프레임, 오토 레이아웃, 지속 가능한 디자인"
         },
         {
           "name": "디자인 시스템 구축",
-          "level": 78,
-          "years": 2,
-          "context": "토큰·컴포넌트 스펙 정의"
+          "level": 70,
+          "years": 1,
+          "context": "토큰, 컴포넌트 라이브러리, 코드와 디자인 동기화"
         },
         {
-          "name": "UI/UX 프로세스",
-          "level": 74,
-          "years": 2,
-          "context": "사용자 플로우, 접근성 검토"
+          "name": "UI/UX 디자인",
+          "level": 75,
+          "years": 3,
+          "context": "플로우 차트, Optimistic UI, 예측 가능한 UX"
         },
         {
           "name": "반응형 레이아웃",
-          "level": 86,
-          "years": 4,
-          "context": "모바일 퍼스트, 브레이크포인트 설계"
+          "level": 80,
+          "years": 3,
+          "context": "모바일 퍼스트, 유연한 이미지"
         }
       ]
     },
