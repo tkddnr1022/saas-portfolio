@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { SITE_NAME } from "@/data/site";
 import { navLinks } from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
 
@@ -51,7 +52,7 @@ export function Navbar() {
           href="#hero"
           className="font-heading text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary"
         >
-          SaaS Portfolio
+          {SITE_NAME}
         </a>
 
         <nav

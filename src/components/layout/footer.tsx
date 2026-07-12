@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 
 import { FOOTER_LINKS, type LinkIcon } from "@/data/links";
+import { SITE_NAME } from "@/data/site";
 
 const ICON_MAP: Record<LinkIcon, LucideIcon> = {
   github: FolderGit2,
@@ -26,7 +27,7 @@ export function Footer() {
     <footer className="border-t border-border px-6 py-8">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
         <p className="text-muted-foreground text-sm">
-          © {year} SaaS Portfolio
+          © {year} {SITE_NAME}
         </p>
 
         <nav aria-label="Social links" className="flex items-center gap-1">
