@@ -1,3 +1,5 @@
+import pricingData from "./pricing.json";
+
 export type BillingPeriod = "monthly" | "yearly";
 
 export type PlanId = "starter" | "professional" | "enterprise";
@@ -12,45 +14,18 @@ export type Plan = {
   popular?: boolean;
 };
 
-export const YEARLY_SAVINGS_PERCENT = 10;
+export type PricingData = {
+  yearlySavingsPercent: number;
+  plans: Plan[];
+};
+
+const data = pricingData as PricingData;
+
+export const YEARLY_SAVINGS_PERCENT = data.yearlySavingsPercent;
 
 export { CONTACT_EMAIL, CONTACT_HREF } from "@/data/links";
 
-export const PRICING_PLANS: Plan[] = [
-  {
-    id: "starter",
-    name: "Starter",
-    description: "프리랜서 / 단기 계약",
-    features: ["특정 도메인 개발", "코드 리뷰", "프로젝트별 범위 협의"],
-    monthlyPrice: null,
-    yearlyDiscountPercent: YEARLY_SAVINGS_PERCENT,
-  },
-  {
-    id: "professional",
-    name: "Professional",
-    description: "정규직",
-    features: [
-      "FE·BE·DevOps 전 영역",
-      "온보딩 2주 포함",
-      "주 5일 풀타임 투입",
-    ],
-    monthlyPrice: 320,
-    yearlyDiscountPercent: YEARLY_SAVINGS_PERCENT,
-    popular: true,
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
-    description: "정규직 + α",
-    features: [
-      "무한한 잠재력",
-      "빠르게 흡수하는 학습 속도",
-      "정해지지 않은 성장 상한선",
-    ],
-    monthlyPrice: null,
-    yearlyDiscountPercent: YEARLY_SAVINGS_PERCENT,
-  },
-];
+export const PRICING_PLANS: Plan[] = data.plans;
 
 export function getYearlyPrice(plan: Plan): number | null {
   if (plan.monthlyPrice === null) {
