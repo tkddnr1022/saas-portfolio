@@ -71,9 +71,9 @@
 
 ### 반응형 & 배포 (3개)
 
-- [ ] **`p1-responsive-1`** 반응형 전체 검증 (360px / 768px / 1280px), 모바일 헤드라인 32px 확인
-- [ ] **`p1-deploy-1`** GitHub 레포지토리 생성 + Vercel 프로젝트 연결
-- [ ] **`p1-deploy-2`** Vercel 환경 변수 설정 + 커스텀 도메인 연결
+- [x] **`p1-responsive-1`** 반응형 전체 검증 (360px / 768px / 1280px), 모바일 헤드라인 32px 확인
+- [x] **`p1-deploy-1`** GitHub 레포지토리 생성 + Vercel 프로젝트 연결
+- [x] **`p1-deploy-2`** Vercel 환경 변수 설정 + 커스텀 도메인 연결
 
 ---
 
