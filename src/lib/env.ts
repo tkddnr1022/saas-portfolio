@@ -33,21 +33,7 @@ export const serverEnv = {
   get databaseUrl() {
     return requireEnv("DATABASE_URL");
   },
-  get redis() {
-    const restUrl = process.env.UPSTASH_REDIS_REST_URL;
-    const restToken = process.env.UPSTASH_REDIS_REST_TOKEN;
-    const redisUrl = process.env.REDIS_URL;
-
-    if (restUrl && restToken) {
-      return { type: "upstash" as const, url: restUrl, token: restToken };
-    }
-
-    if (redisUrl) {
-      return { type: "url" as const, url: redisUrl };
-    }
-
-    throw new Error(
-      "Redis is not configured. Set UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN, or REDIS_URL.",
-    );
+  get redisUrl() {
+    return requireEnv("REDIS_URL");
   },
 };
