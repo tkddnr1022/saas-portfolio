@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SaaS Portfolio
+
+개발자를 SaaS 제품처럼 소개하는 개인 포트폴리오입니다.  
+희망 연봉을 구독 플랜으로 표현하고, RAG 기반 AI 챗봇으로 방문자와 대화할 수 있습니다.
+
+## Stack
+
+- **Next.js** (App Router) · React · TypeScript · Tailwind CSS
+- **AI SDK** + OpenAI (채팅 / 임베딩)
+- **PostgreSQL** + pgvector (지식베이스)
+- **Redis** (레이트 리밋)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`.env.local`에 API 키·DB·Redis URL을 채운 뒤:
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run db:schema   # documents 테이블 + pgvector
+npm run kb:reindex  # KB 청킹 & 인덱싱
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[http://localhost:3000](http://localhost:3000) 에서 확인합니다.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| 명령어 | 설명 |
+| --- | --- |
+| `npm run dev` | 개발 서버 |
+| `npm run build` / `start` | 프로덕션 빌드·실행 |
+| `npm run db:schema` | DB 스키마 적용 |
+| `npm run kb:reindex` | 지식베이스 재인덱싱 |
+| `npm run kb:verify` | 검색 동작 검증 |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Docs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [PRD](docs/prd.md)
+- [Tasks](docs/tasks.md)
+- [OpenAPI](docs/openapi.yaml)
