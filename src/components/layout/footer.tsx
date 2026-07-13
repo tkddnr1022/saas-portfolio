@@ -1,18 +1,20 @@
 import {
   BookOpen,
   Egg,
-  FolderGit2,
-  NotebookPen,
   type LucideIcon,
 } from "lucide-react";
 
+import { GithubIcon } from "@/components/icons/github-icon";
+import { NotionIcon } from "@/components/icons/notion-icon";
 import { FOOTER_LINKS, type LinkIcon } from "@/data/links";
 import { SITE_NAME } from "@/data/site";
 
-const ICON_MAP: Record<LinkIcon, LucideIcon> = {
-  github: FolderGit2,
+type IconComponent = LucideIcon | typeof GithubIcon | typeof NotionIcon;
+
+const ICON_MAP: Record<LinkIcon, IconComponent> = {
+  github: GithubIcon,
   blog: BookOpen,
-  notion: NotebookPen,
+  notion: NotionIcon,
   mealio: Egg,
 };
 
