@@ -125,8 +125,8 @@
 
 ### SEO (2개)
 
-- [ ] **`p3-seo-1`** 메타태그 설정 (title, description, og:image, Twitter Card)
-- [ ] **`p3-seo-2`** `robots.txt` + `sitemap.xml` 생성
+- [x] **`p3-seo-1`** 메타태그 설정 (title, description, og:image, Twitter Card)
+- [x] **`p3-seo-2`** `robots.txt` + `sitemap.xml` 생성
 
 ### 성능 최적화 (2개)
 
