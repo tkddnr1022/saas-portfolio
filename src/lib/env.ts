@@ -30,6 +30,9 @@ export const serverEnv = {
   get openaiApiKey() {
     return requireEnv("OPENAI_API_KEY");
   },
+  get openaiEmbeddingModel() {
+    return requireEnv("OPENAI_EMBEDDING_MODEL");
+  },
   get databaseUrl() {
     return requireEnv("DATABASE_URL");
   },

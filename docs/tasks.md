@@ -95,9 +95,9 @@
 
 ### 인덱싱 스크립트 (3개)
 
-- [ ] **`p2-script-1`** 청킹 스크립트 구현 (512토큰, 64토큰 오버랩, `source/category/date` 메타데이터)
-- [ ] **`p2-script-2`** AI SDK `embed` / `embedMany` + `text-embedding-3-small` 임베딩 생성 + pgvector 업로드 스크립트
-- [ ] **`p2-script-3`** 인덱싱 실행 및 벡터 검색 정확도 검증
+- [x] **`p2-script-1`** 청킹 스크립트 구현 (512토큰, 64토큰 오버랩, `source/category/date` 메타데이터)
+- [x] **`p2-script-2`** AI SDK `embed` / `embedMany` + `text-embedding-3-small` 임베딩 생성 + pgvector 업로드 스크립트
+- [x] **`p2-script-3`** 인덱싱 실행 및 벡터 검색 정확도 검증
 
 ### API Route 구현 (5개)
 

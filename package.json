@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "db:schema": "node scripts/apply-schema.mjs"
+    "db:schema": "tsx scripts/apply-schema.ts",
+    "kb:chunk": "tsx scripts/chunk-kb.ts",
+    "kb:index": "tsx scripts/index-kb.ts",
+    "kb:verify": "tsx scripts/verify-search.ts",
+    "kb:reindex": "tsx scripts/chunk-kb.ts && tsx scripts/index-kb.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.11",
@@ -18,6 +22,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.2",
+    "js-tiktoken": "^1.0.20",
     "lucide-react": "^1.24.0",
     "next": "16.2.10",
     "pg": "^8.22.0",
@@ -38,6 +43,7 @@
     "eslint-config-next": "16.2.10",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.5",
+    "tsx": "^4.20.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
