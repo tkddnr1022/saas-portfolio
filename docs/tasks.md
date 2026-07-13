@@ -101,11 +101,11 @@
 
 ### API Route 구현 (5개)
 
-- [ ] **`p2-api-1`** `/api/chat` Route Handler — 입력 유효성 검사 (500자 제한, 욕설 필터)
-- [ ] **`p2-api-2`** RAG 파이프라인 — `embed`로 질문 임베딩 → pgvector 유사도 검색 (상위 5개)
-- [ ] **`p2-api-3`** 페르소나 System Prompt 작성 (1인칭, 솔직함, 수치 기반 답변 원칙)
-- [ ] **`p2-api-4`** AI SDK `streamText` (`@ai-sdk/openai` gpt-5.4) + `createUIMessageStreamResponse` / `toUIMessageStream` 응답 (maxOutputTokens 800)
-- [ ] **`p2-api-5`** Redis — IP 기반 Rate Limiting 미들웨어 (20 req/min)
+- [x] **`p2-api-1`** `/api/chat` Route Handler — 입력 유효성 검사 (500자 제한, 욕설 필터)
+- [x] **`p2-api-2`** RAG 파이프라인 — `embed`로 질문 임베딩 → pgvector 유사도 검색 (상위 5개)
+- [x] **`p2-api-3`** 페르소나 System Prompt 작성 (1인칭, 솔직함, 수치 기반 답변 원칙)
+- [x] **`p2-api-4`** AI SDK `streamText` (`@ai-sdk/openai` gpt-5.4) + `createUIMessageStreamResponse` / `toUIMessageStream` 응답 (maxOutputTokens 800)
+- [x] **`p2-api-5`** Redis — IP 기반 Rate Limiting 미들웨어 (20 req/min)
 
 ### 챗봇 UI (4개)
 

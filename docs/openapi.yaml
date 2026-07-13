@@ -1,0 +1,402 @@
+openapi: 3.1.0
+info:
+  title: SaaS Portfolio Chat API
+  version: 1.0.0
+  description: |
+    포트폴리오 사이트 AI 챗봇 API.
+
+    Vercel AI SDK UI Message Stream 프로토콜을 사용하며, `@ai-sdk/react` `useChat`과
+    `DefaultChatTransport({ api: '/api/chat' })`로 연동합니다.
+
+    ## 파이프라인
+
+    1. IP 기반 Rate Limiting (Redis, 20 req/min)
+    2. 입력 검증 (500자 제한, 욕설 필터)
+    3. RAG — 질문 임베딩 → pgvector 유사도 검색 (상위 5개)
+    4. `streamText` (gpt-5.4, maxOutputTokens 800) + UI Message Stream 응답
+
+  contact:
+    name: Portfolio Site
+  license:
+    name: Private
+
+servers:
+  - url: http://localhost:3000
+    description: Local development
+  - url: https://{domain}
+    description: Production
+    variables:
+      domain:
+        default: example.com
+        description: 배포 도메인
+
+tags:
+  - name: Chat
+    description: AI 챗봇 대화
+
+paths:
+  /api/chat:
+    post:
+      operationId: createChatCompletion
+      tags:
+        - Chat
+      summary: AI 챗봇 메시지 전송
+      description: |
+        대화 메시지를 전송하고 AI 응답을 Server-Sent Events(SSE)로 스트리밍합니다.
+
+        - 마지막 `user` 메시지의 `text` 파트만 입력 검증 대상입니다.
+        - Rate limit은 `x-forwarded-for` → `x-real-ip` 순으로 IP를 식별합니다.
+        - 성공 시 `text/event-stream` 본문에 JSON UI message chunk가 전달됩니다.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+            examples:
+              singleTurn:
+                summary: 단일 턴 질문
+                value:
+                  messages:
+                    - id: msg-1
+                      role: user
+                      parts:
+                        - type: text
+                          text: 주요 경력과 역할을 알려줘
+              multiTurn:
+                summary: 멀티 턴 대화
+                value:
+                  messages:
+                    - id: msg-1
+                      role: user
+                      parts:
+                        - type: text
+                          text: 사용하는 기술 스택은?
+                    - id: msg-2
+                      role: assistant
+                      parts:
+                        - type: text
+                          text: React, Next.js, Node.js, PostgreSQL 등을 주로 사용합니다.
+                    - id: msg-3
+                      role: user
+                      parts:
+                        - type: text
+                          text: 백엔드 경험도 있나요?
+      responses:
+        '200':
+          description: |
+            UI Message Stream SSE 응답.
+            각 `data:` 라인은 JSON UI message chunk입니다.
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/event-stream
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            x-vercel-ai-ui-message-stream:
+              schema:
+                type: string
+              description: Vercel AI SDK UI message stream 프로토콜 식별 헤더
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: |
+                  SSE 형식. 각 이벤트는 `data: {json}\n\n` 형태이며, 스트림 종료 시
+                  `data: [DONE]\n\n`이 전송됩니다.
+              examples:
+                stream:
+                  summary: 스트리밍 응답 예시 (일부)
+                  value: |
+                    data: {"type":"start"}
+
+                    data: {"type":"start-step"}
+
+                    data: {"type":"text-start","id":"msg_abc123"}
+
+                    data: {"type":"text-delta","id":"msg_abc123","delta":"안녕"}
+
+                    data: {"type":"text-delta","id":"msg_abc123","delta":"하세요"}
+
+                    data: {"type":"text-end","id":"msg_abc123"}
+
+                    data: {"type":"finish"}
+
+                    data: [DONE]
+        '400':
+          description: 잘못된 요청 (빈 메시지, 500자 초과, 욕설/부적절 표현)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                emptyMessages:
+                  summary: 메시지 배열 누락/비어 있음
+                  value:
+                    error: 유효한 메시지가 필요합니다.
+                emptyText:
+                  summary: 사용자 텍스트 없음
+                  value:
+                    error: 메시지를 입력해 주세요.
+                tooLong:
+                  summary: 500자 초과
+                  value:
+                    error: 메시지는 최대 500자까지 입력할 수 있습니다.
+                profanity:
+                  summary: 부적절 표현
+                  value:
+                    error: 부적절한 표현이 포함되어 있어 요청을 처리할 수 없습니다.
+        '429':
+          description: Rate limit 초과 (IP당 20 req/min)
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+                minimum: 1
+              description: 재시도 가능까지 남은 초
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: 요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.
+        '500':
+          description: 서버 내부 오류
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error: 요청을 처리하는 중 오류가 발생했습니다.
+
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      required:
+        - messages
+      additionalProperties: false
+      properties:
+        messages:
+          type: array
+          minItems: 1
+          description: 대화 히스토리 (세션 단위). `useChat`이 관리하는 UIMessage 배열.
+          items:
+            $ref: '#/components/schemas/UIMessage'
+
+    UIMessage:
+      type: object
+      required:
+        - id
+        - role
+        - parts
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: 메시지 고유 ID
+          example: msg-1
+        role:
+          type: string
+          enum:
+            - user
+            - assistant
+            - system
+          description: |
+            메시지 역할. `system` 메시지는 클라이언트에서 보내지 않는 것을 권장합니다
+            (서버에서 RAG context + 페르소나 system prompt를 주입).
+        metadata:
+          type: object
+          additionalProperties: true
+          description: 선택적 메타데이터
+        parts:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/UIMessagePart'
+
+    UIMessagePart:
+      description: |
+        UI 메시지 파트. 이 API는 `user` 메시지의 `text` 파트만 입력 검증에 사용합니다.
+        `assistant` 메시지는 대화 맥락 유지용으로 전달됩니다.
+      oneOf:
+        - $ref: '#/components/schemas/TextUIPart'
+      discriminator:
+        propertyName: type
+        mapping:
+          text: '#/components/schemas/TextUIPart'
+
+    TextUIPart:
+      type: object
+      required:
+        - type
+        - text
+      additionalProperties: false
+      properties:
+        type:
+          type: string
+          const: text
+        text:
+          type: string
+          maxLength: 500
+          description: 사용자 입력 텍스트 (마지막 user 메시지 기준, trim 후 500자 이하)
+          example: 주요 경력과 역할을 알려줘
+        state:
+          type: string
+          enum:
+            - streaming
+            - done
+          description: 클라이언트 렌더링 상태 (요청 시 생략 가능)
+
+    UIMessageChunk:
+      description: |
+        SSE `data:` 라인에 포함되는 UI message stream chunk.
+        Vercel AI SDK `toUIMessageStream` 출력 형식.
+      oneOf:
+        - $ref: '#/components/schemas/StartChunk'
+        - $ref: '#/components/schemas/StartStepChunk'
+        - $ref: '#/components/schemas/TextStartChunk'
+        - $ref: '#/components/schemas/TextDeltaChunk'
+        - $ref: '#/components/schemas/TextEndChunk'
+        - $ref: '#/components/schemas/FinishChunk'
+        - $ref: '#/components/schemas/ErrorChunk'
+      discriminator:
+        propertyName: type
+        mapping:
+          start: '#/components/schemas/StartChunk'
+          start-step: '#/components/schemas/StartStepChunk'
+          text-start: '#/components/schemas/TextStartChunk'
+          text-delta: '#/components/schemas/TextDeltaChunk'
+          text-end: '#/components/schemas/TextEndChunk'
+          finish: '#/components/schemas/FinishChunk'
+          error: '#/components/schemas/ErrorChunk'
+
+    StartChunk:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: start
+
+    StartStepChunk:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: start-step
+
+    TextStartChunk:
+      type: object
+      required:
+        - type
+        - id
+      properties:
+        type:
+          type: string
+          const: text-start
+        id:
+          type: string
+          description: 응답 텍스트 블록 ID
+
+    TextDeltaChunk:
+      type: object
+      required:
+        - type
+        - id
+        - delta
+      properties:
+        type:
+          type: string
+          const: text-delta
+        id:
+          type: string
+        delta:
+          type: string
+          description: 증분 텍스트
+
+    TextEndChunk:
+      type: object
+      required:
+        - type
+        - id
+      properties:
+        type:
+          type: string
+          const: text-end
+        id:
+          type: string
+
+    FinishChunk:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: finish
+
+    ErrorChunk:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: error
+        errorText:
+          type: string
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      additionalProperties: false
+      properties:
+        error:
+          type: string
+          description: 사용자에게 표시할 오류 메시지 (한국어)
+
+  parameters:
+    ClientIp:
+      name: x-forwarded-for
+      in: header
+      required: false
+      schema:
+        type: string
+      description: |
+        Rate limiting용 클라이언트 IP. Vercel/프록시 환경에서 설정됩니다.
+        없으면 `x-real-ip` → `"unknown"` 순으로 fallback.
+
+  securitySchemes: {}
+
+security: []
+
+x-rateLimit:
+  description: Redis 기반 IP Rate Limiting
+  limit: 20
+  windowSeconds: 60
+  keyPattern: ratelimit:chat:{ip}
+
+x-validation:
+  maxUserMessageLength: 500
+  profanityFilter: true
+  validatedField: last user message text parts (trimmed, joined)
+
+x-rag:
+  embeddingModel: text-embedding-3-small
+  vectorStore: PostgreSQL + pgvector
+  topK: 5
+  chatModel: gpt-5.4
+  maxOutputTokens: 800
+  responseLanguage: ko

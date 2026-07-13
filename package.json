@@ -22,6 +22,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.2",
+    "ioredis": "^5.11.1",
     "js-tiktoken": "^1.0.20",
     "lucide-react": "^1.24.0",
     "next": "16.2.10",
@@ -43,8 +44,8 @@
     "eslint-config-next": "16.2.10",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.5",
-    "tsx": "^4.20.3",
     "tailwindcss": "^4",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }

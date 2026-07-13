@@ -33,6 +33,9 @@ export const serverEnv = {
   get openaiEmbeddingModel() {
     return requireEnv("OPENAI_EMBEDDING_MODEL");
   },
+  get openaiChatModel() {
+    return process.env.OPENAI_CHAT_MODEL ?? "gpt-5.4";
+  },
   get databaseUrl() {
     return requireEnv("DATABASE_URL");
   },
