@@ -1,6 +1,6 @@
 import type { UIMessage } from "ai";
 
-const MAX_MESSAGE_LENGTH = 500;
+export const MAX_MESSAGE_LENGTH = 500;
 
 /** Basic Korean/English profanity and inappropriate terms */
 const BLOCKED_TERMS = [

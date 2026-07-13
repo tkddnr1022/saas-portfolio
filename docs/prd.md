@@ -184,7 +184,6 @@ createUIMessageStreamResponse / toUIMessageStream
 - 추천 질문 버튼 3–4개 제공 (예: "K8s 경험이 있나요?", "리액트 프로젝트 규모는?", "협업 스타일이 어때요?") — `sendMessage`로 전송
 - 스트리밍 응답 지원 (AI SDK UI Message Stream 프로토콜)
 - 대화 기록은 세션 단위로 유지, 새로고침 시 초기화
-- 응답 하단 "이 내용이 도움이 됐나요?" 피드백 버튼 (👍 / 👎)
 - API 키 노출 방지: 모든 모델/임베딩 호출은 서버사이드 Route Handler에서만 실행
 
 #### 4.5 안전 장치
@@ -295,7 +294,7 @@ createUIMessageStreamResponse / toUIMessageStream
 - [ ] pgvector 셋업 및 인덱싱 (PostgreSQL 확장)
 - [ ] `/api/chat` Route Handler — RAG + `streamText` + UI Message Stream 응답
 - [ ] 페르소나 System Prompt 작성 및 튜닝
-- [ ] 챗봇 UI (`useChat`, 스트리밍, 추천 질문, 피드백)
+- [ ] 챗봇 UI (`useChat`, 스트리밍, 추천 질문)
 - [ ] Rate limiting (Redis)
 - [ ] 챗봇 응답 품질 테스트 (20+ 예상 질문 시나리오)
 

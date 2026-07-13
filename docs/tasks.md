@@ -109,10 +109,10 @@
 
 ### 챗봇 UI (4개)
 
-- [ ] **`p2-ui-1`** `@ai-sdk/react` `useChat` 연동 (세션 단위 메시지, 새로고침 시 초기화)
-- [ ] **`p2-ui-2`** 채팅 레이아웃, 메시지 버블 (사용자/AI 구분, `UIMessage` parts 렌더)
-- [ ] **`p2-ui-3`** `useChat` 스트리밍 토큰 렌더 + 로딩/중단(stop) 상태 UI
-- [ ] **`p2-ui-4`** 추천 질문 버튼 3–4개 (`sendMessage`) + 피드백 버튼 (👍/👎) + 에러 처리 UI
+- [x] **`p2-ui-1`** `@ai-sdk/react` `useChat` 연동 (세션 단위 메시지, 새로고침 시 초기화)
+- [x] **`p2-ui-2`** 채팅 레이아웃, 메시지 버블 (사용자/AI 구분, `UIMessage` parts 렌더)
+- [x] **`p2-ui-3`** `useChat` 스트리밍 토큰 렌더 + 로딩/중단(stop) 상태 UI
+- [x] **`p2-ui-4`** 추천 질문 버튼 3–4개 (`sendMessage`) + 에러 처리 UI
 
 ### 품질 테스트 (2개)
 

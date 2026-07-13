@@ -1,4 +1,5 @@
 import { CareerSection } from "@/components/sections/career/career-section";
+import { ChatSection } from "@/components/sections/chat/chat-section";
 import { HeroSection } from "@/components/sections/hero/hero-section";
 import { LinksSection } from "@/components/sections/links/links-section";
 import { PricingSection } from "@/components/sections/pricing/pricing-section";
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <PricingSection />
       <SkillsSection />
+      <ChatSection />
       <CareerSection />
       <LinksSection />
     </main>
