@@ -43,3 +43,6 @@ next-env.d.ts
 
 # kb indexing cache
 /scripts/.cache/
+
+# content
+content/
