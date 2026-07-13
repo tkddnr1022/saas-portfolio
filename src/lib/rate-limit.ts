@@ -3,7 +3,7 @@ import Redis from "ioredis";
 import { serverEnv } from "@/lib/env";
 
 const WINDOW_SECONDS = 60;
-const MAX_REQUESTS = 20;
+const MAX_REQUESTS = 10;
 const KEY_PREFIX = "ratelimit:chat:";
 
 const globalForRedis = globalThis as unknown as {
