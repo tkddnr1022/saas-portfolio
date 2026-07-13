@@ -67,15 +67,19 @@ function TimelineItem({ experience, isLast, index }: TimelineItemProps) {
           {experience.achievements.map((achievement) => (
             <li
               key={achievement.text}
-              className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-body leading-relaxed"
+              className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2 text-body leading-relaxed"
             >
-              <span className="text-muted-foreground">·</span>
-              <span>{achievement.text}</span>
-              {achievement.metric && (
-                <span className="font-mono text-sm font-medium tabular-nums text-primary">
-                  {achievement.metric}
-                </span>
-              )}
+              <span className="text-muted-foreground" aria-hidden="true">
+                ·
+              </span>
+              <span className="min-w-0 break-words">
+                {achievement.text}
+                {achievement.metric && (
+                  <span className="ml-2 inline-block font-mono text-sm font-medium tabular-nums text-primary">
+                    {achievement.metric}
+                  </span>
+                )}
+              </span>
             </li>
           ))}
         </ul>
