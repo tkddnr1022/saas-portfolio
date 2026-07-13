@@ -88,10 +88,10 @@
 
 ### SDK / 인프라 셋업 (4개)
 
-- [ ] **`p2-sdk-1`** Vercel AI SDK 설치 — `ai`, `@ai-sdk/react`, `@ai-sdk/openai` + `OPENAI_API_KEY` 환경 변수
-- [ ] **`p2-infra-1`** PostgreSQL 인스턴스 준비 + pgvector 확장 활성화
-- [ ] **`p2-infra-2`** `documents` 테이블 스키마 생성 (id, content, embedding, metadata)
-- [ ] **`p2-infra-3`** Redis 인스턴스 준비 + 환경 변수 설정
+- [x] **`p2-sdk-1`** Vercel AI SDK 설치 — `ai`, `@ai-sdk/react`, `@ai-sdk/openai` + `OPENAI_API_KEY` 환경 변수
+- [x] **`p2-infra-1`** PostgreSQL 인스턴스 준비 + pgvector 확장 활성화
+- [x] **`p2-infra-2`** `documents` 테이블 스키마 생성 (id, content, embedding, metadata)
+- [x] **`p2-infra-3`** Redis 인스턴스 준비 + 환경 변수 설정
 
 ### 인덱싱 스크립트 (3개)
 
