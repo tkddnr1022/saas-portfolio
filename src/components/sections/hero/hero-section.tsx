@@ -1,6 +1,14 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import {
+  fadeUpTransition,
+  fadeUpVariants,
+  staggerDelay,
+} from "@/lib/motion";
 
 import { HireStatusBadge } from "./hire-status-badge";
 import { SkillTagsMarquee } from "./skill-tags-marquee";
@@ -13,6 +21,9 @@ const SUB_COPY =
   "프론트엔드·백엔드·DevOps·디자인까지 아우르는 올라운더 엔지니어입니다. 제품 설계부터 배포 파이프라인까지, 팀이 필요로 하는 모든 영역을 책임집니다.";
 
 export function HeroSection() {
+  const prefersReducedMotion = useReducedMotion() ?? false;
+  const variants = fadeUpVariants(prefersReducedMotion);
+
   return (
     <section
       id="hero"
@@ -20,17 +31,30 @@ export function HeroSection() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,oklch(0.52_0.12_195/0.12),transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,color-mix(in_oklch,var(--primary)_18%,transparent),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,color-mix(in_oklch,var(--primary)_22%,transparent),transparent)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_100%,oklch(0.52_0.12_195/0.06),transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_100%,color-mix(in_oklch,var(--primary)_8%,transparent),transparent)] dark:bg-[radial-gradient(ellipse_60%_40%_at_80%_100%,color-mix(in_oklch,var(--primary)_12%,transparent),transparent)]"
       />
 
       <div className="relative z-10 flex w-full max-w-3xl flex-col items-center gap-8 text-center">
-        <HireStatusBadge />
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={fadeUpTransition(prefersReducedMotion, staggerDelay(0))}
+        >
+          <HireStatusBadge />
+        </motion.div>
 
-        <div className="space-y-4">
+        <motion.div
+          className="space-y-4"
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={fadeUpTransition(prefersReducedMotion, staggerDelay(1))}
+        >
           <p className="font-mono text-sm font-medium tracking-widest text-primary uppercase">
             {BRAND_SIGNAL}
           </p>
@@ -40,9 +64,15 @@ export function HeroSection() {
           <p className="text-muted-foreground mx-auto max-w-xl text-body leading-relaxed">
             {SUB_COPY}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3">
+        <motion.div
+          className="flex flex-wrap items-center justify-center gap-3"
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={fadeUpTransition(prefersReducedMotion, staggerDelay(2))}
+        >
           <Button
             nativeButton={false}
             render={<a href="#pricing" />}
@@ -60,11 +90,17 @@ export function HeroSection() {
             챗봇에게 물어보기
             <ArrowRight aria-hidden="true" />
           </Button>
-        </div>
+        </motion.div>
 
-        <div className="w-full max-w-lg pt-2">
+        <motion.div
+          className="w-full max-w-lg pt-2"
+          initial="hidden"
+          animate="visible"
+          variants={variants}
+          transition={fadeUpTransition(prefersReducedMotion, staggerDelay(3))}
+        >
           <SkillTagsMarquee />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

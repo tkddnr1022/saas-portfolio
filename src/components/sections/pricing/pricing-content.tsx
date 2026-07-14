@@ -23,10 +23,11 @@ export function PricingContent({ showSalary }: PricingContentProps) {
       />
 
       <div className="grid w-full gap-6 md:grid-cols-3">
-        {PRICING_PLANS.map((plan) => (
+        {PRICING_PLANS.map((plan, index) => (
           <PlanCard
             key={plan.id}
             billingPeriod={billingPeriod}
+            index={index}
             plan={plan}
             showSalary={showSalary}
           />

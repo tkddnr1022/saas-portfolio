@@ -1,5 +1,9 @@
 import { LinkCardGrid } from "@/components/sections/links/link-card-grid";
 import { LinksCta } from "@/components/sections/links/links-cta";
+import {
+  SectionHeader,
+  SectionShell,
+} from "@/components/sections/section-header";
 
 const SECTION_TITLE = "더 자세히 알아보고, 바로 연락하세요";
 
@@ -8,26 +12,14 @@ const SECTION_DESCRIPTION =
 
 export function LinksSection() {
   return (
-    <section
-      id="links"
-      className="scroll-mt-20 border-t border-border px-6 py-16"
-    >
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-        <header className="mx-auto max-w-2xl space-y-3 text-center">
-          <p className="font-mono text-sm font-medium tracking-widest text-primary uppercase">
-            Links
-          </p>
-          <h2 className="font-heading text-h2 font-semibold tracking-tight">
-            {SECTION_TITLE}
-          </h2>
-          <p className="text-muted-foreground text-body leading-relaxed">
-            {SECTION_DESCRIPTION}
-          </p>
-        </header>
-
-        <LinkCardGrid />
-        <LinksCta />
-      </div>
-    </section>
+    <SectionShell id="links">
+      <SectionHeader
+        eyebrow="Links"
+        title={SECTION_TITLE}
+        description={SECTION_DESCRIPTION}
+      />
+      <LinkCardGrid />
+      <LinksCta />
+    </SectionShell>
   );
 }

@@ -1,4 +1,9 @@
 import { ChatPanel } from "@/components/sections/chat/chat-panel";
+import {
+  SectionHeader,
+  SectionShell,
+} from "@/components/sections/section-header";
+import { Reveal } from "@/components/motion/reveal";
 
 const SECTION_TITLE = "이력서 대신, 직접 물어보세요";
 
@@ -7,25 +12,15 @@ const SECTION_DESCRIPTION =
 
 export function ChatSection() {
   return (
-    <section
-      id="chat"
-      className="scroll-mt-20 border-t border-border px-6 py-16"
-    >
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-        <header className="mx-auto max-w-2xl space-y-3 text-center">
-          <p className="font-mono text-sm font-medium tracking-widest text-primary uppercase">
-            Ask Me
-          </p>
-          <h2 className="font-heading text-h2 font-semibold tracking-tight">
-            {SECTION_TITLE}
-          </h2>
-          <p className="text-muted-foreground text-body leading-relaxed">
-            {SECTION_DESCRIPTION}
-          </p>
-        </header>
-
+    <SectionShell id="chat">
+      <SectionHeader
+        eyebrow="Ask Me"
+        title={SECTION_TITLE}
+        description={SECTION_DESCRIPTION}
+      />
+      <Reveal>
         <ChatPanel />
-      </div>
-    </section>
+      </Reveal>
+    </SectionShell>
   );
 }

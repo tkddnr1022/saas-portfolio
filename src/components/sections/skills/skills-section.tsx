@@ -1,4 +1,8 @@
 import { SkillsContent } from "@/components/sections/skills/skills-content";
+import {
+  SectionHeader,
+  SectionShell,
+} from "@/components/sections/section-header";
 
 const SECTION_TITLE = "올라운더 역량, 숫자로 보여드립니다";
 
@@ -7,25 +11,13 @@ const SECTION_DESCRIPTION =
 
 export function SkillsSection() {
   return (
-    <section
-      id="skills"
-      className="scroll-mt-20 border-t border-border px-6 py-16"
-    >
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-        <header className="mx-auto max-w-2xl space-y-3 text-center">
-          <p className="font-mono text-sm font-medium tracking-widest text-primary uppercase">
-            Skills
-          </p>
-          <h2 className="font-heading text-h2 font-semibold tracking-tight">
-            {SECTION_TITLE}
-          </h2>
-          <p className="text-muted-foreground text-body leading-relaxed">
-            {SECTION_DESCRIPTION}
-          </p>
-        </header>
-
-        <SkillsContent />
-      </div>
-    </section>
+    <SectionShell id="skills">
+      <SectionHeader
+        eyebrow="Skills"
+        title={SECTION_TITLE}
+        description={SECTION_DESCRIPTION}
+      />
+      <SkillsContent />
+    </SectionShell>
   );
 }

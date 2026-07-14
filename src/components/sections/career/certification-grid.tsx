@@ -1,3 +1,6 @@
+"use client";
+
+import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { CERTIFICATIONS } from "@/data/career";
 import { cn } from "@/lib/utils";
@@ -13,13 +16,13 @@ export function CertificationGrid({ className }: CertificationGridProps) {
         자격증
       </h3>
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {CERTIFICATIONS.map((cert) => (
-          <li key={cert.id}>
+        {CERTIFICATIONS.map((cert, index) => (
+          <Reveal key={cert.id} as="li" index={index}>
             <a
               href={cert.credentialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-full flex-col gap-2 rounded-lg border border-border px-4 py-3 transition-colors hover:border-primary/40 hover:bg-muted/50"
+              className="group flex h-full flex-col gap-2 rounded-lg border border-border px-4 py-3 transition-colors duration-300 hover:border-primary/40 hover:bg-muted/50"
             >
               <span className="font-medium leading-snug group-hover:text-primary">
                 {cert.name}
@@ -31,7 +34,7 @@ export function CertificationGrid({ className }: CertificationGridProps) {
                 {cert.year}
               </Badge>
             </a>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </div>

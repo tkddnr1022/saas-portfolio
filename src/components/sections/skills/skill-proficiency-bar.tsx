@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import { SkillTag } from "@/components/sections/skills/skill-tag";
 import type { Skill } from "@/data/skills";
+import { EASE_OUT_EXPO, VIEWPORT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type SkillProficiencyBarProps = {
@@ -34,11 +35,11 @@ export function SkillProficiencyBar({
           className="h-full rounded-full bg-primary"
           initial={{ width: prefersReducedMotion ? `${skill.level}%` : "0%" }}
           whileInView={{ width: `${skill.level}%` }}
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={VIEWPORT}
           transition={
             prefersReducedMotion
               ? { duration: 0 }
-              : { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+              : { duration: 0.8, ease: EASE_OUT_EXPO }
           }
         />
       </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { Reveal } from "@/components/motion/reveal";
 import {
   EDUCATION,
   LANGUAGES,
@@ -17,7 +20,7 @@ export function CareerExtras({ className }: CareerExtrasProps) {
         className,
       )}
     >
-      <div className="space-y-4">
+      <Reveal index={0} className="space-y-4">
         <h3 className="font-heading text-h3 font-semibold tracking-tight">
           학력
         </h3>
@@ -34,9 +37,9 @@ export function CareerExtras({ className }: CareerExtrasProps) {
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
 
-      <div className="space-y-4">
+      <Reveal index={1} className="space-y-4">
         <h3 className="font-heading text-h3 font-semibold tracking-tight">
           언어 능력
         </h3>
@@ -60,9 +63,9 @@ export function CareerExtras({ className }: CareerExtrasProps) {
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
 
-      <div className="space-y-4">
+      <Reveal index={2} className="space-y-4">
         <h3 className="font-heading text-h3 font-semibold tracking-tight">
           프로젝트
         </h3>
@@ -83,7 +86,7 @@ export function CareerExtras({ className }: CareerExtrasProps) {
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
     </div>
   );
 }

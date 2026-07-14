@@ -7,6 +7,12 @@ import {
   formatExperiencePeriod,
   type Experience,
 } from "@/data/career";
+import {
+  fadeUpTransition,
+  fadeUpVariants,
+  staggerDelay,
+  VIEWPORT,
+} from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type CareerTimelineProps = {
@@ -25,14 +31,11 @@ function TimelineItem({ experience, isLast, index }: TimelineItemProps) {
   return (
     <motion.li
       className="relative grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 pb-10 last:pb-0"
-      initial={{ opacity: prefersReducedMotion ? 1 : 0, y: prefersReducedMotion ? 0 : 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={
-        prefersReducedMotion
-          ? { duration: 0 }
-          : { duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }
-      }
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT}
+      variants={fadeUpVariants(prefersReducedMotion)}
+      transition={fadeUpTransition(prefersReducedMotion, staggerDelay(index))}
     >
       <div className="flex flex-col items-center">
         <span

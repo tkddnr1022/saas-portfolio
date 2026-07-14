@@ -1,5 +1,8 @@
+"use client";
+
 import { Download, Mail } from "lucide-react";
 
+import { Reveal } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { CONTACT_HREF, RESUME_HREF } from "@/data/links";
 import { cn } from "@/lib/utils";
@@ -10,7 +13,7 @@ type LinksCtaProps = {
 
 export function LinksCta({ className }: LinksCtaProps) {
   return (
-    <div
+    <Reveal
       className={cn(
         "flex flex-wrap items-center justify-center gap-3",
         className,
@@ -33,6 +36,6 @@ export function LinksCta({ className }: LinksCtaProps) {
         <Download aria-hidden="true" />
         이력서 다운로드
       </Button>
-    </div>
+    </Reveal>
   );
 }

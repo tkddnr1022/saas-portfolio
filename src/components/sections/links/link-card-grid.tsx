@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BookOpen,
   Egg,
@@ -7,6 +9,7 @@ import {
 
 import { GithubIcon } from "@/components/icons/github-icon";
 import { NotionIcon } from "@/components/icons/notion-icon";
+import { Reveal } from "@/components/motion/reveal";
 import {
   EXTERNAL_LINKS,
   type LinkIcon,
@@ -38,18 +41,18 @@ export function LinkCardGrid({ className }: LinkCardGridProps) {
         className,
       )}
     >
-      {EXTERNAL_LINKS.map((link) => {
+      {EXTERNAL_LINKS.map((link, index) => {
         const Icon = ICON_MAP[link.icon];
         const external = isExternalHref(link.href);
 
         return (
-          <li key={link.id}>
+          <Reveal key={link.id} as="li" index={index}>
             <a
               href={link.href}
               {...(external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="group relative flex h-full items-center gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40 hover:bg-[linear-gradient(to_bottom,oklch(0.52_0.12_195/0.04),var(--card))] lg:min-h-56 lg:flex-col lg:items-stretch lg:gap-5 lg:p-6"
+              className="group relative flex h-full items-center gap-3 rounded-xl border border-border bg-card p-4 transition-colors duration-300 hover:border-primary/40 hover:bg-[linear-gradient(to_bottom,color-mix(in_oklch,var(--primary)_6%,transparent),var(--card))] lg:min-h-56 lg:flex-col lg:items-stretch lg:gap-5 lg:p-6"
             >
               <div className="flex shrink-0 items-center justify-between lg:w-full">
                 <span className="flex size-9 items-center justify-center rounded-lg bg-muted text-primary lg:size-11">
@@ -75,7 +78,7 @@ export function LinkCardGrid({ className }: LinkCardGridProps) {
                 className="size-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100 lg:hidden"
               />
             </a>
-          </li>
+          </Reveal>
         );
       })}
     </ul>
