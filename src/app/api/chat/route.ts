@@ -55,7 +55,8 @@ export async function POST(request: Request) {
     return createUIMessageStreamResponse({
       stream: toUIMessageStream({ stream: result.stream }),
     });
-  } catch {
+  } catch (error) {
+    console.error(error);
     return jsonError("요청을 처리하는 중 오류가 발생했습니다.", 500);
   }
 }
