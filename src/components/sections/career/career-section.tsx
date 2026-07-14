@@ -15,6 +15,7 @@ export function CareerSection() {
   return (
     <SectionShell id="career">
       <SectionHeader
+        sectionId="career"
         eyebrow="Career"
         title={SECTION_TITLE}
         description={SECTION_DESCRIPTION}

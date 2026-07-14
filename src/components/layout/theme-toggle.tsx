@@ -25,6 +25,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
+      aria-pressed={isDark}
       disabled={!isClient}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >

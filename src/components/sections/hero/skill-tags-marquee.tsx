@@ -45,7 +45,7 @@ function MarqueeTrack({
 function StaticSkillTags() {
   return (
     <div
-      aria-label="Skill categories"
+      aria-label="스킬 카테고리"
       className="flex flex-wrap items-center justify-center gap-3"
     >
       {SKILL_KEYWORDS.map((keyword) => (
@@ -68,7 +68,7 @@ export function SkillTagsMarquee() {
   return (
     <div
       ref={containerRef}
-      aria-label="Skill categories"
+      aria-label="스킬 카테고리"
       className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
     >
       <motion.div

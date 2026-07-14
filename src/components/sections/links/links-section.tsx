@@ -14,6 +14,7 @@ export function LinksSection() {
   return (
     <SectionShell id="links">
       <SectionHeader
+        sectionId="links"
         eyebrow="Links"
         title={SECTION_TITLE}
         description={SECTION_DESCRIPTION}

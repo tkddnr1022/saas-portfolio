@@ -141,8 +141,8 @@
 
 ### 접근성 / 보안 (2개)
 
-- [ ] **`p3-a11y-1`** WCAG 2.1 AA 점검 — `aria-label`, 시맨틱 HTML, 색상 대비, 키보드 네비게이션
-- [ ] **`p3-security-1`** Content Security Policy 헤더 설정 + 챗봇 입력 500자 제한 최종 확인
+- [x] **`p3-a11y-1`** WCAG 2.1 AA 점검 — `aria-label`, 시맨틱 HTML, 색상 대비, 키보드 네비게이션
+- [x] **`p3-security-1`** Content Security Policy 헤더 설정 + 챗봇 입력 500자 제한 최종 확인
 
 ### 애널리틱스 / 모니터링 / 문서화 (3개)
 

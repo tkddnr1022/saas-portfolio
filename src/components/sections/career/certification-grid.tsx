@@ -22,10 +22,11 @@ export function CertificationGrid({ className }: CertificationGridProps) {
               href={cert.credentialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex h-full flex-col gap-2 rounded-lg border border-border px-4 py-3 transition-colors duration-300 hover:border-primary/40 hover:bg-muted/50"
+              className="group flex h-full flex-col gap-2 rounded-lg border border-border px-4 py-3 transition-colors duration-300 hover:border-primary/40 hover:bg-muted/50 focus-visible:border-primary/40 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
             >
               <span className="font-medium leading-snug group-hover:text-primary">
                 {cert.name}
+                <span className="sr-only"> (새 창에서 열림)</span>
               </span>
               <span className="text-muted-foreground text-sm">
                 {cert.issuer}

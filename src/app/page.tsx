@@ -7,7 +7,7 @@ import { SkillsSection } from "@/components/sections/skills/skills-section";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <HeroSection />
       <PricingSection />
       <SkillsSection />

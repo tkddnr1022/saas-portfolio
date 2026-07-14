@@ -14,6 +14,7 @@ export function ChatSection() {
   return (
     <SectionShell id="chat">
       <SectionHeader
+        sectionId="chat"
         eyebrow="Ask Me"
         title={SECTION_TITLE}
         description={SECTION_DESCRIPTION}

@@ -32,7 +32,11 @@ export function BillingToggle({
       </span>
 
       <Switch
-        aria-label="월간 또는 연간 요금제 선택"
+        aria-label={
+          isYearly
+            ? "연간 요금제 선택됨. 월간으로 전환"
+            : "월간 요금제 선택됨. 연간으로 전환"
+        }
         checked={isYearly}
         onCheckedChange={(checked) =>
           onBillingPeriodChange(checked ? "yearly" : "monthly")

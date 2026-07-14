@@ -15,6 +15,7 @@ export function PricingSection() {
   return (
     <SectionShell id="pricing">
       <SectionHeader
+        sectionId="pricing"
         eyebrow="Pricing"
         title={SECTION_TITLE}
         description={SECTION_DESCRIPTION}

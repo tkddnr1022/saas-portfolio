@@ -52,7 +52,7 @@ export function LinkCardGrid({ className }: LinkCardGridProps) {
               {...(external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="group relative flex h-full items-center gap-3 rounded-xl border border-border bg-card p-4 transition-colors duration-300 hover:border-primary/40 hover:bg-[linear-gradient(to_bottom,color-mix(in_oklch,var(--primary)_6%,transparent),var(--card))] lg:min-h-56 lg:flex-col lg:items-stretch lg:gap-5 lg:p-6"
+              className="group relative flex h-full items-center gap-3 rounded-xl border border-border bg-card p-4 transition-colors duration-300 hover:border-primary/40 hover:bg-[linear-gradient(to_bottom,color-mix(in_oklch,var(--primary)_6%,transparent),var(--card))] focus-visible:border-primary/40 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none lg:min-h-56 lg:flex-col lg:items-stretch lg:gap-5 lg:p-6"
             >
               <div className="flex shrink-0 items-center justify-between lg:w-full">
                 <span className="flex size-9 items-center justify-center rounded-lg bg-muted text-primary lg:size-11">
@@ -67,6 +67,9 @@ export function LinkCardGrid({ className }: LinkCardGridProps) {
               <div className="min-w-0 flex-1 space-y-0.5 lg:space-y-2">
                 <p className="font-heading font-semibold tracking-tight">
                   {link.label}
+                  {external ? (
+                    <span className="sr-only"> (새 창에서 열림)</span>
+                  ) : null}
                 </p>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {link.description}

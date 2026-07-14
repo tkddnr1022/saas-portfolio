@@ -27,6 +27,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-heading"
       className="relative scroll-mt-20 flex min-h-dvh flex-col items-center justify-center gap-8 overflow-hidden px-6 py-16"
     >
       <div
@@ -58,7 +59,10 @@ export function HeroSection() {
           <p className="font-mono text-sm font-medium tracking-widest text-primary uppercase">
             {BRAND_SIGNAL}
           </p>
-          <h1 className="font-heading text-h2 font-semibold tracking-tight sm:text-h1 lg:text-display">
+          <h1
+            id="hero-heading"
+            className="font-heading text-h2 font-semibold tracking-tight sm:text-h1 lg:text-display"
+          >
             {HEADLINE}
           </h1>
           <p className="text-muted-foreground mx-auto max-w-xl text-body leading-relaxed">

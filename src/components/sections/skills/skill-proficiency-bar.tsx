@@ -28,7 +28,11 @@ export function SkillProficiencyBar({
       </div>
 
       <div
-        aria-hidden="true"
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={skill.level}
+        aria-label={`${skill.name} 숙련도 ${skill.level}%`}
         className="h-2 overflow-hidden rounded-full bg-muted"
       >
         <motion.div

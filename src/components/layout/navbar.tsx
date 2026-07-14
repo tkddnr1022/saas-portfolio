@@ -51,21 +51,21 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a
           href="#hero"
-          className="font-heading text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary"
+          className="font-heading text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none rounded-lg"
         >
           {SITE_NAME}
         </a>
 
         <div className="flex items-center gap-1">
           <nav
-            aria-label="Main navigation"
+            aria-label="주요 메뉴"
             className="hidden items-center gap-1 md:flex"
           >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
               >
                 {link.label}
               </a>
@@ -81,18 +81,21 @@ export function Navbar() {
                   variant="ghost"
                   size="icon"
                   className="md:hidden"
-                  aria-label="Open menu"
+                  aria-label="메뉴 열기"
+                  aria-expanded={isOpen}
+                  aria-controls="mobile-navigation"
                 />
               }
             >
-              <MenuIcon />
+              <MenuIcon aria-hidden="true" />
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-xs">
               <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
+                <SheetTitle>메뉴</SheetTitle>
               </SheetHeader>
               <nav
-                aria-label="Mobile navigation"
+                id="mobile-navigation"
+                aria-label="모바일 메뉴"
                 className="flex flex-col gap-1 px-4"
               >
                 {navLinks.map((link) => (
@@ -100,7 +103,7 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={handleNavClick}
-                    className="rounded-lg px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
+                    className="rounded-lg px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
                   >
                     {link.label}
                   </a>

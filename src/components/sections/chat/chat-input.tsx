@@ -59,13 +59,16 @@ export function ChatInput({
         <textarea
           ref={textareaRef}
           value={value}
-          onChange={(event) => onChange(event.target.value)}
+          onChange={(event) =>
+            onChange(event.target.value.slice(0, MAX_MESSAGE_LENGTH))
+          }
           onKeyDown={handleKeyDown}
           disabled={isBusy}
           rows={1}
           maxLength={MAX_MESSAGE_LENGTH}
           placeholder="질문을 입력하세요…"
           aria-label="채팅 메시지 입력"
+          aria-describedby="chat-input-hint chat-input-count"
           aria-invalid={Boolean(validationError)}
           className={cn(
             "border-input bg-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 min-h-9 max-h-24 min-w-0 flex-1 resize-none overflow-y-auto rounded-lg border px-3 py-1.5 text-sm leading-5 outline-none focus-visible:ring-3 disabled:cursor-not-allowed disabled:opacity-50",
@@ -99,13 +102,23 @@ export function ChatInput({
 
       <div className="mt-1.5 flex min-h-4 items-center justify-between gap-3">
         {validationError ? (
-          <p className="text-destructive truncate text-xs" role="alert">
+          <p
+            id="chat-input-hint"
+            className="text-destructive truncate text-xs"
+            role="alert"
+          >
             {validationError}
           </p>
         ) : (
-          <span className="text-muted-foreground text-xs">Enter로 전송 · Shift+Enter 줄바꿈</span>
+          <span
+            id="chat-input-hint"
+            className="text-muted-foreground text-xs"
+          >
+            Enter로 전송 · Shift+Enter 줄바꿈
+          </span>
         )}
         <p
+          id="chat-input-count"
           className={cn(
             "text-muted-foreground shrink-0 text-xs tabular-nums",
             value.length >= MAX_MESSAGE_LENGTH && "text-destructive",

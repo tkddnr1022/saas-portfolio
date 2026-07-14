@@ -105,7 +105,11 @@ export function ChatPanel() {
   };
 
   return (
-    <div className="border-border bg-muted/30 flex h-[min(480px,70dvh)] flex-col overflow-hidden rounded-xl border">
+    <div
+      role="region"
+      aria-label="AI 채팅"
+      className="border-border bg-muted/30 flex h-[min(480px,70dvh)] flex-col overflow-hidden rounded-xl border"
+    >
       {error ? (
         <ChatError
           message={getErrorMessage(error)}
