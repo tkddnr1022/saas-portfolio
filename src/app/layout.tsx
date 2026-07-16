@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geologica, Gothic_A1 } from "next/font/google";
 
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
@@ -18,13 +18,16 @@ import "./globals.css";
 
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const gothicA1 = Gothic_A1({
+  variable: "--font-gothic-a1",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  preload: false,
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geologica = Geologica({
+  variable: "--font-geologica",
   subsets: ["latin"],
 });
 
@@ -66,7 +69,7 @@ export default function RootLayout({
     <html
       lang="ko"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${gothicA1.variable} ${geologica.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <ThemeProvider>
