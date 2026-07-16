@@ -28,7 +28,7 @@ export function HeroSection() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="relative scroll-mt-20 flex min-h-dvh flex-col items-center justify-center gap-8 overflow-hidden px-6 py-16"
+      className="relative scroll-mt-20 flex min-h-svh flex-col items-center justify-center gap-8 overflow-hidden px-6 py-16"
     >
       <div
         aria-hidden="true"
