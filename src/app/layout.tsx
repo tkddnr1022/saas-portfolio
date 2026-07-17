@@ -68,6 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${gothicA1.variable} ${geologica.variable} h-full antialiased`}
     >
