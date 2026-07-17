@@ -55,13 +55,13 @@
       "id": "mealio",
       "name": "Mealio",
       "description": "AI 기반 맞춤형 레시피 추천 플랫폼",
-      "url": "https://github.com/tkddnr1022/mealio"
+      "url": "/projects/mealio"
     },
     {
       "id": "class-manager",
       "name": "Class Manager",
       "description": "위치기반 QR 출석 체크 애플리케이션",
-      "url": "https://github.com/tkddnr1022/Class-Manager"
+      "url": "/projects/class-manager"
     }
   ]
 }

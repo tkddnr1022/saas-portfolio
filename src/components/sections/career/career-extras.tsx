@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { Reveal } from "@/components/motion/reveal";
 import {
   EDUCATION,
@@ -7,6 +9,10 @@ import {
   PROJECTS,
 } from "@/data/career";
 import { cn } from "@/lib/utils";
+
+function isExternalHref(href: string) {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
 
 type CareerExtrasProps = {
   className?: string;
@@ -70,21 +76,34 @@ export function CareerExtras({ className }: CareerExtrasProps) {
           프로젝트
         </h3>
         <ul className="space-y-4">
-          {PROJECTS.map((project) => (
-            <li key={project.id} className="space-y-1">
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-primary underline-offset-4 hover:underline"
-              >
-                {project.name}
-              </a>
-              <p className="text-muted-foreground text-body leading-relaxed">
-                {project.description}
-              </p>
-            </li>
-          ))}
+          {PROJECTS.map((project) => {
+            const external = isExternalHref(project.url);
+            const linkClassName =
+              "font-medium text-primary underline-offset-4 hover:underline";
+
+            return (
+              <li key={project.id} className="space-y-1">
+                {external ? (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClassName}
+                  >
+                    {project.name}
+                    <span className="sr-only"> (새 창에서 열림)</span>
+                  </a>
+                ) : (
+                  <Link href={project.url} className={linkClassName}>
+                    {project.name}
+                  </Link>
+                )}
+                <p className="text-muted-foreground text-body leading-relaxed">
+                  {project.description}
+                </p>
+              </li>
+            );
+          })}
         </ul>
       </Reveal>
     </div>
