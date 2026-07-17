@@ -50,7 +50,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a
-          href="#hero"
+          href="/#hero"
           className="font-heading text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none rounded-lg"
         >
           {SITE_NAME}
