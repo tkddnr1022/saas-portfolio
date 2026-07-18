@@ -53,7 +53,7 @@ export function ImageLightbox({
         />
         <Dialog.Popup
           className={cn(
-            "fixed top-1/2 left-1/2 z-50 w-[min(96vw,90rem)] -translate-x-1/2 -translate-y-1/2 outline-none",
+            "pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-3 outline-none sm:p-4",
             "transition duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
           )}
         >
@@ -62,8 +62,8 @@ export function ImageLightbox({
             render={
               <Button
                 variant="ghost"
-                size="icon"
-                className="absolute -top-12 right-0 text-white hover:bg-white/10 hover:text-white sm:-top-2 sm:-right-12"
+                size="icon-lg"
+                className="pointer-events-auto fixed top-4 right-4 z-10 size-12 text-white hover:bg-white/10 hover:text-white [&_svg:not([class*='size-'])]:size-7"
               />
             }
           >
@@ -76,7 +76,7 @@ export function ImageLightbox({
             width={width}
             height={height}
             sizes="100vw"
-            className="mx-auto h-auto max-h-[85vh] w-auto max-w-full object-contain"
+            className="pointer-events-auto h-auto max-h-full w-auto max-w-full object-contain"
             priority
           />
         </Dialog.Popup>
