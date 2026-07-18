@@ -6,6 +6,7 @@ export type ProjectModule = {
   summary: string;
   problem: string;
   points: string[];
+  image?: string;
 };
 
 export type ProjectDetail = {
