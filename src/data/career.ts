@@ -39,19 +39,11 @@ export type Language = {
   context: string;
 };
 
-export type Project = {
-  id: string;
-  name: string;
-  description: string;
-  url: string;
-};
-
 export type CareerData = {
   experiences: Experience[];
   certifications: Certification[];
   education: Education[];
   languages: Language[];
-  projects: Project[];
 };
 
 const data = careerData as CareerData;
@@ -65,8 +57,6 @@ export const CERTIFICATIONS: Certification[] = data.certifications;
 export const EDUCATION: Education[] = data.education;
 
 export const LANGUAGES: Language[] = data.languages;
-
-export const PROJECTS: Project[] = data.projects;
 
 export function formatExperiencePeriod(
   startDate: string,

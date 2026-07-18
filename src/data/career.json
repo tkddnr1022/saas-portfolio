@@ -49,19 +49,5 @@
       "score": "TOEIC 835",
       "context": "기술 문서 독해, RFC·스펙 리뷰"
     }
-  ],
-  "projects": [
-    {
-      "id": "mealio",
-      "name": "Mealio",
-      "description": "AI 기반 맞춤형 레시피 추천 플랫폼",
-      "url": "/projects/mealio"
-    },
-    {
-      "id": "class-manager",
-      "name": "Class Manager",
-      "description": "위치기반 QR 출석 체크 애플리케이션",
-      "url": "/projects/class-manager"
-    }
   ]
 }

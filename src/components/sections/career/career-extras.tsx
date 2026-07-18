@@ -1,18 +1,13 @@
 "use client";
 
-import Link from "next/link";
-
 import { Reveal } from "@/components/motion/reveal";
+import { Badge } from "@/components/ui/badge";
 import {
+  CERTIFICATIONS,
   EDUCATION,
   LANGUAGES,
-  PROJECTS,
 } from "@/data/career";
 import { cn } from "@/lib/utils";
-
-function isExternalHref(href: string) {
-  return href.startsWith("http://") || href.startsWith("https://");
-}
 
 type CareerExtrasProps = {
   className?: string;
@@ -27,6 +22,35 @@ export function CareerExtras({ className }: CareerExtrasProps) {
       )}
     >
       <Reveal index={0} className="space-y-4">
+        <h3 className="font-heading text-h3 font-semibold tracking-tight">
+          자격증
+        </h3>
+        <ul className="space-y-4">
+          {CERTIFICATIONS.map((cert) => (
+            <li key={cert.id}>
+              <a
+                href={cert.credentialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-2 rounded-lg border border-border px-4 py-3 transition-colors duration-300 hover:border-primary/40 hover:bg-muted/50 focus-visible:border-primary/40 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+              >
+                <span className="font-medium leading-snug group-hover:text-primary">
+                  {cert.name}
+                  <span className="sr-only"> (새 창에서 열림)</span>
+                </span>
+                <span className="text-muted-foreground text-sm">
+                  {cert.issuer}
+                </span>
+                <Badge variant="outline" className="w-fit">
+                  {cert.year}
+                </Badge>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <Reveal index={1} className="space-y-4">
         <h3 className="font-heading text-h3 font-semibold tracking-tight">
           학력
         </h3>
@@ -45,7 +69,7 @@ export function CareerExtras({ className }: CareerExtrasProps) {
         </ul>
       </Reveal>
 
-      <Reveal index={1} className="space-y-4">
+      <Reveal index={2} className="space-y-4">
         <h3 className="font-heading text-h3 font-semibold tracking-tight">
           언어 능력
         </h3>
@@ -68,42 +92,6 @@ export function CareerExtras({ className }: CareerExtrasProps) {
               </p>
             </li>
           ))}
-        </ul>
-      </Reveal>
-
-      <Reveal index={2} className="space-y-4">
-        <h3 className="font-heading text-h3 font-semibold tracking-tight">
-          프로젝트
-        </h3>
-        <ul className="space-y-4">
-          {PROJECTS.map((project) => {
-            const external = isExternalHref(project.url);
-            const linkClassName =
-              "font-medium text-primary underline-offset-4 hover:underline";
-
-            return (
-              <li key={project.id} className="space-y-1">
-                {external ? (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkClassName}
-                  >
-                    {project.name}
-                    <span className="sr-only"> (새 창에서 열림)</span>
-                  </a>
-                ) : (
-                  <Link href={project.url} className={linkClassName}>
-                    {project.name}
-                  </Link>
-                )}
-                <p className="text-muted-foreground text-body leading-relaxed">
-                  {project.description}
-                </p>
-              </li>
-            );
-          })}
         </ul>
       </Reveal>
     </div>

@@ -63,11 +63,11 @@ export function ProjectCta({ project }: ProjectCtaProps) {
           ) : null}
           <Button
             nativeButton={false}
-            render={<Link href="/#career" />}
+            render={<Link href="/#projects" />}
             variant="ghost"
             size="lg"
           >
-            다른 경력 보기
+            다른 프로젝트 보기
           </Button>
         </div>
       </Reveal>

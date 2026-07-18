@@ -46,13 +46,13 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         >
           <Button
             nativeButton={false}
-            render={<Link href="/#career" />}
+            render={<Link href="/#projects" />}
             variant="ghost"
             size="sm"
             className="-ml-2 text-muted-foreground"
           >
             <ArrowLeft aria-hidden="true" />
-            Career로 돌아가기
+            Projects로 돌아가기
           </Button>
         </motion.div>
 
