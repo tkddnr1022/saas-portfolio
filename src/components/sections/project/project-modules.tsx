@@ -1,9 +1,9 @@
 "use client";
 
 import { Check } from "lucide-react";
-import Image from "next/image";
 
 import { Reveal } from "@/components/motion/reveal";
+import { ImageLightbox } from "@/components/ui/image-lightbox";
 import type { ProjectModule } from "@/data/projects";
 
 type ProjectModulesProps = {
@@ -45,20 +45,20 @@ export function ProjectModules({ modules }: ProjectModulesProps) {
                   </div>
                 </div>
 
-                {module.image ? (
-                    <figure>
-                      <Image
-                        src={module.image}
-                        alt={`${module.title} 관련 이미지`}
-                        width={1600}
-                        height={900}
-                        sizes="(max-width: 768px) 100vw, 48rem"
-                        className="h-auto w-full object-cover"
-                      />
-                    </figure>
-                  ) : null}
-
                 <p className="text-body leading-relaxed">{module.problem}</p>
+
+                {module.image ? (
+                  <figure>
+                    <ImageLightbox
+                      src={module.image}
+                      alt={`${module.title} 관련 이미지`}
+                      width={1600}
+                      height={900}
+                      sizes="(max-width: 768px) 100vw, 48rem"
+                      className="h-auto w-full object-cover"
+                    />
+                  </figure>
+                ) : null}
 
                 <ul className="flex flex-col gap-3 border-l border-border pl-4">
                   {module.points.map((point) => (

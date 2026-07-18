@@ -1,13 +1,13 @@
 "use client";
 
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { GithubIcon } from "@/components/icons/github-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ImageLightbox } from "@/components/ui/image-lightbox";
 import type { ProjectDetail } from "@/data/projects";
 import {
   fadeUpTransition,
@@ -132,7 +132,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           variants={variants}
           transition={fadeUpTransition(prefersReducedMotion, staggerDelay(3))}
         >
-          <Image
+          <ImageLightbox
             src={project.banner}
             alt={`${project.name} 프로모션 배너`}
             width={2048}
