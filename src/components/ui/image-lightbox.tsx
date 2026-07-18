@@ -53,7 +53,7 @@ export function ImageLightbox({
         />
         <Dialog.Popup
           className={cn(
-            "pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-3 outline-none sm:p-4",
+            "pointer-events-none fixed inset-0 z-50 flex items-center justify-center px-8 sm:px-12 md:px-16 outline-none",
             "transition duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
           )}
         >
