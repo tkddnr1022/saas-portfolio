@@ -18,6 +18,7 @@
       ],
       "githubUrl": "https://github.com/tkddnr1022/mealio",
       "liveUrl": "https://mealio.site",
+      "docsUrl": "https://docs.mealio.site",
       "banner": "/images/mealio/banner.png",
       "modules": [
         {
@@ -116,6 +117,7 @@
       "role": "기획, 설계, 개발",
       "stack": ["React Native", "Nest.js", "MongoDB"],
       "githubUrl": "https://github.com/tkddnr1022/Class-Manager",
+      "docsUrl": "https://powerful-aries-478.notion.site/8f9462fd3f6641c2b224bc0a5b3a12de?pvs=4",
       "banner": "/images/class-manager/banner.png",
       "modules": [
         {

@@ -103,6 +103,23 @@ export function ProjectHero({ project }: ProjectHeroProps) {
               <ExternalLink aria-hidden="true" />
             </Button>
           ) : null}
+                    {project.docsUrl ? (
+            <Button
+              nativeButton={false}
+              render={
+                <a
+                  href={project.docsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+              variant="outline"
+              size="lg"
+            >
+              문서 보기
+              <ArrowUpRight aria-hidden="true" />
+            </Button>
+          ) : null}
           {project.githubUrl ? (
             <Button
               nativeButton={false}

@@ -19,6 +19,7 @@ export type ProjectDetail = {
   stack: string[];
   githubUrl?: string;
   liveUrl?: string;
+  docsUrl?: string;
   banner?: string;
   modules: ProjectModule[];
 };
