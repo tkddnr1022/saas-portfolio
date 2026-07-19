@@ -33,7 +33,7 @@ export function SkillTag({ skill }: SkillTagProps) {
           />
         }
       >
-        {skill.name}
+        <span>{skill.name}</span>
       </TooltipTrigger>
       <TooltipContent side="top" className="max-w-xs text-center">
         <p>
