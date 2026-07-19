@@ -71,7 +71,7 @@ export function ChatInput({
           aria-describedby="chat-input-hint chat-input-count"
           aria-invalid={Boolean(validationError)}
           className={cn(
-            "border-input bg-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 min-h-9 max-h-24 min-w-0 flex-1 resize-none overflow-y-auto rounded-lg border px-3 py-1.5 text-sm leading-5 outline-none focus-visible:ring-3 disabled:cursor-not-allowed disabled:opacity-50",
+            "border-input bg-background placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 min-h-9 max-h-24 min-w-0 flex-1 resize-none overflow-y-auto rounded-lg border px-3 pt-2 pb-1.5 text-sm leading-5 outline-none focus-visible:ring-3 disabled:cursor-not-allowed disabled:opacity-50",
             validationError && "border-destructive",
           )}
         />

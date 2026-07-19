@@ -28,7 +28,7 @@ export function SuggestedQuestions({
           onClick={() => onSelect(question)}
           className="h-auto whitespace-normal px-3 py-2 text-left text-xs leading-snug"
         >
-          {question}
+          <span>{question}</span>
         </Button>
       ))}
     </div>

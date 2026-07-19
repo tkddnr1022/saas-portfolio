@@ -41,7 +41,7 @@ export function ProjectCta({ project }: ProjectCtaProps) {
             render={<a href={CONTACT_HREF} />}
             size="lg"
           >
-            문의하기
+            <span>문의하기</span>
             <ArrowRight aria-hidden="true" />
           </Button>
           {project.githubUrl ? (
@@ -57,7 +57,7 @@ export function ProjectCta({ project }: ProjectCtaProps) {
               variant="outline"
               size="lg"
             >
-              코드 보기
+              <span>코드 보기</span>
               <ArrowUpRight aria-hidden="true" />
             </Button>
           ) : null}
@@ -67,7 +67,7 @@ export function ProjectCta({ project }: ProjectCtaProps) {
             variant="ghost"
             size="lg"
           >
-            다른 프로젝트 보기
+            <span>다른 프로젝트 보기</span>
           </Button>
         </div>
       </Reveal>

@@ -27,7 +27,7 @@ export function ChatError({ message, onDismiss, onRetry }: ChatErrorProps) {
             onClick={onRetry}
             className="border-destructive/40 text-destructive hover:bg-destructive/10"
           >
-            다시 시도
+            <span>다시 시도</span>
           </Button>
         ) : null}
       </div>

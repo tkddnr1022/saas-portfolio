@@ -82,7 +82,7 @@ export function HeroSection() {
             render={<a href="#pricing" />}
             size="lg"
           >
-            플랜 보기
+            <span>플랜 보기</span>
             <ArrowRight aria-hidden="true" />
           </Button>
           <Button
@@ -91,7 +91,7 @@ export function HeroSection() {
             variant="outline"
             size="lg"
           >
-            챗봇에게 물어보기
+            <span>챗봇에게 물어보기</span>
             <ArrowRight aria-hidden="true" />
           </Button>
         </motion.div>

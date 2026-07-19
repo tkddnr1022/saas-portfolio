@@ -52,7 +52,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
             className="-ml-2 text-muted-foreground"
           >
             <ArrowLeft aria-hidden="true" />
-            Projects로 돌아가기
+            <span>Projects로 돌아가기</span>
           </Button>
         </motion.div>
 
@@ -99,7 +99,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
               }
               size="lg"
             >
-              라이브 보기
+              <span>라이브 보기</span>
               <ExternalLink aria-hidden="true" />
             </Button>
           ) : null}
@@ -116,7 +116,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
               variant="outline"
               size="lg"
             >
-              문서 보기
+              <span>문서 보기</span>
               <ArrowUpRight aria-hidden="true" />
             </Button>
           ) : null}
@@ -134,7 +134,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
               size="lg"
             >
               <GithubIcon aria-hidden="true" className="size-4" />
-              GitHub
+              <span>GitHub</span>
               <ArrowUpRight aria-hidden="true" />
             </Button>
           ) : null}

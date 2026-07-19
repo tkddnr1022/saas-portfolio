@@ -155,6 +155,72 @@
   :focus:not(:focus-visible) {
     outline: none;
   }
+
+  /*
+   * CJK 폰트(Gothic A1) 수직 메트릭 보정:
+   * inline-flex + items-center 안 텍스트가 광학적으로 위로 뜨는 문제를
+   * 폰트 크기별 padding-top으로 교정. 텍스트는 span 등으로 감싸야 적용된다.
+   * 기준: text-sm(0.875rem) → 3px, 이후 토큰 크기에 비례.
+   */
+  .inline-flex.items-center {
+    --optical-text-pt: 3px;
+  }
+  .inline-flex.items-center.text-xs {
+    --optical-text-pt: 2.5px; /* 0.75rem */
+  }
+  .inline-flex.items-center.text-\[0\.8rem\] {
+    --optical-text-pt: 2.5px; /* button size=sm */
+  }
+  .inline-flex.items-center.text-sm {
+    --optical-text-pt: 3px; /* 0.875rem */
+  }
+  .inline-flex.items-center:is(.text-body, .text-base) {
+    --optical-text-pt: 3.5px; /* 1rem */
+  }
+  .inline-flex.items-center.text-h3 {
+    --optical-text-pt: 5px; /* 1.5rem */
+  }
+  .inline-flex.items-center.text-h2 {
+    --optical-text-pt: 7px; /* 2rem */
+  }
+  .inline-flex.items-center.text-h1 {
+    --optical-text-pt: 8.5px; /* 2.5rem */
+  }
+  .inline-flex.items-center.text-display {
+    --optical-text-pt: 10px; /* 3rem */
+  }
+
+  .inline-flex.items-center > :where(span, p, label, strong, em, small).text-xs {
+    --optical-text-pt: 2.5px;
+  }
+  .inline-flex.items-center > :where(span, p, label, strong, em, small).text-sm {
+    --optical-text-pt: 3px;
+  }
+  .inline-flex.items-center
+    > :where(span, p, label, strong, em, small):is(.text-body, .text-base) {
+    --optical-text-pt: 3.5px;
+  }
+  .inline-flex.items-center > :where(span, p, label, strong, em, small).text-h3 {
+    --optical-text-pt: 5px;
+  }
+  .inline-flex.items-center > :where(span, p, label, strong, em, small).text-h2 {
+    --optical-text-pt: 7px;
+  }
+  .inline-flex.items-center > :where(span, p, label, strong, em, small).text-h1 {
+    --optical-text-pt: 8.5px;
+  }
+  .inline-flex.items-center
+    > :where(span, p, label, strong, em, small).text-display {
+    --optical-text-pt: 10px;
+  }
+
+  .inline-flex.items-center
+    > :where(span, p, label, strong, em, small):not(
+      [aria-hidden="true"],
+      [class*="size-"]
+    ) {
+    padding-top: var(--optical-text-pt);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

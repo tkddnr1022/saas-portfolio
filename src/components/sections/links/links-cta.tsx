@@ -25,7 +25,7 @@ export function LinksCta({ className }: LinksCtaProps) {
         size="lg"
       >
         <Mail aria-hidden="true" />
-        지금 연락하기
+        <span>지금 연락하기</span>
       </Button>
       <Button
         nativeButton={false}
@@ -34,7 +34,7 @@ export function LinksCta({ className }: LinksCtaProps) {
         size="lg"
       >
         <Download aria-hidden="true" />
-        이력서 다운로드
+        <span>이력서 다운로드</span>
       </Button>
     </Reveal>
   );

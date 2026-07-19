@@ -95,7 +95,7 @@ export function PlanCard({
           render={<a href={CONTACT_HREF} />}
           variant={plan.popular ? "default" : "outline"}
         >
-          문의하기
+          <span>문의하기</span>
         </Button>
       </div>
     </Reveal>
