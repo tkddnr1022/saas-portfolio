@@ -17,14 +17,14 @@ export function BillingToggle({
   const isYearly = billingPeriod === "yearly";
 
   return (
-    <div className="flex w-full flex-wrap items-center justify-end gap-3">
+    <div className="flex w-full flex-wrap items-center justify-end gap-3 h-6">
       {isYearly ? (
         <Badge variant="secondary">{YEARLY_SAVINGS_PERCENT}% 절약</Badge>
       ) : null}
 
       <span
         className={cn(
-          "text-sm font-medium transition-colors",
+          "text-sm font-medium transition-colors pt-[3px]",
           !isYearly ? "text-foreground" : "text-muted-foreground",
         )}
       >
@@ -45,7 +45,7 @@ export function BillingToggle({
 
       <span
         className={cn(
-          "text-sm font-medium transition-colors",
+          "text-sm font-medium transition-colors pt-[3px]",
           isYearly ? "text-foreground" : "text-muted-foreground",
         )}
       >
