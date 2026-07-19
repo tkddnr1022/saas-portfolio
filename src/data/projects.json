@@ -109,25 +109,47 @@
     },
     {
       "slug": "class-manager",
-      "name": "Class Manager",
+      "name": "Class-Manager",
       "tagline": "위치 기반 QR 출석 서비스",
       "overview": "강의 출석을 모바일로 간편하고 정확하게 처리하는 목표로 진행한 프로젝트입니다. QR코드 스캐너와 딥링크 활용으로 편리한 사용자 경험을 제공하고자 하였고, 부정 출석 방지 절차로 신뢰성 있는 출석 프로세스를 구현하기 위해 노력하였습니다.",
       "type": "개인 프로젝트",
       "role": "기획, 설계, 개발",
       "stack": ["React Native", "Nest.js", "MongoDB"],
       "githubUrl": "https://github.com/tkddnr1022/Class-Manager",
+      "banner": "/images/class-manager/banner.png",
       "modules": [
         {
-          "id": "mobile-attendance",
-          "title": "모바일 출석 경험",
-          "summary": "Native API와 인증·권한으로 신뢰할 수 있는 출석 흐름 구축",
-          "problem": "강의실에서 빠르고 정확한 출석이 가능하면서도, 위치·디바이스 정보를 활용해 부정 출석을 줄이는 것이 핵심 과제였습니다.",
+          "id": "db-design",
+          "title": "DB 설계",
+          "summary": "참조 분리와 검증으로 맞춘 출석 도메인 무결성",
+          "problem": "사용자·수업·출석 기록이 서로 참조하면서도 조회 규칙이 달라, 스키마와 애플리케이션 제약으로 무결성을 맞추는 데 초점을 두었습니다.",
+          "image": "/images/class-manager/db-design.svg",
           "points": [
-            "카메라, 위치, 디바이스 정보 등 Native API 활용",
-            "인증 절차와 역할 기반 제어 구현",
-            "NoSQL 인덱스를 활용하여 수업 정보 조회 쿼리 반환 시간을 10ms 수준으로 확보",
-            "OAuth 기초 이해 및 소셜 로그인 구현",
-            "Refresh Token 전략 적용"
+            "수업 문서에 출석 기록을 임베딩하는 대신 별도의 출석 문서로 학생·수업을 참조해, 학생 이력 조회 시 전체 수업 문서 순회를 피하고 양측 필터링·인덱스 활용이 가능하도록 설계",
+            "MongoDB ObjectId를 참조키로 사용하기 위해 HTTP 요청 시 ValidationPipe 검사로 계층 간 타입 불일치 완화"
+          ]
+        },
+        {
+          "id": "location-qr-attendance",
+          "title": "위치 기반 QR 출석",
+          "summary": "다층 검증으로 부정 출석을 차단하는 QR 출석",
+          "problem": "단순 QR 스캔만으로는 대리 출석·원격 출석을 막기 어렵다고 판단했습니다. QR·딥링크로 수업 식별을 단순화하되, 서버에서 시간·위치·유저·디바이스를 다층 검증해 부정 출석을 차단하는 구조를 목표로 했습니다.",
+          "image": "/images/class-manager/location-qr-attendance.svg",
+          "points": [
+            "정적 QR의 URL 노출·원격 출석 취약점을 보완하기 위해 수업 별 QR 생성 방식을 채택하여 현장 출석 맥락을 강화",
+            "서버에서 동일 유저 중복, 출석 가능 시간 window, 거리 기반 허용 반경, 디바이스 식별자 중복을 순차 검증해 대리·부정 출석을 차단",
+            "위치 범위 밖·시간 외·중복 출석 등 실패 케이스를 명시적 에러 코드로 구분해 클라이언트에 안내"
+          ]
+        },
+        {
+          "id": "operations",
+          "title": "운영",
+          "summary": "헬스체크·인가·예외 코드로 갖춘 운영 품질",
+          "problem": "서비스 장애와 올바르지 않은 접근에 대처하여 운영 품질을 높일 수 있도록 하였습니다.",
+          "points": [
+            "DB ping 헬스체크로 외부 DB 장애를 앱 진입 전에 감지",
+            "역할·소유권 검증 기반 인가로 악의적 요청 차단",
+            "입력 검증과 도메인 예외 코드로 잘못된 요청·비즈니스 실패를 구분"
           ]
         }
       ]
