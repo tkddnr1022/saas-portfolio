@@ -155,6 +155,9 @@
   :focus:not(:focus-visible) {
     outline: none;
   }
+  button {
+    cursor: pointer;
+  }
 
   /*
    * CJK 폰트(Gothic A1) 수직 메트릭 보정:
