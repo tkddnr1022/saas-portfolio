@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { MenuIcon } from "lucide-react";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
@@ -43,12 +44,12 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a
+        <Link
           href="/#hero"
           className="font-heading text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-primary focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none rounded-lg"
         >
           {SITE_NAME}
-        </a>
+        </Link>
 
         <div className="flex items-center gap-1">
           <nav aria-label="주요 메뉴" className="hidden items-center gap-1 md:flex">
