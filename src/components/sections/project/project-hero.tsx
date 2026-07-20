@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { FigmaIcon } from "@/components/icons/figma-icon";
 import { GithubIcon } from "@/components/icons/github-icon";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -103,7 +104,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
               <ExternalLink aria-hidden="true" />
             </Button>
           ) : null}
-                    {project.docsUrl ? (
+          {project.docsUrl ? (
             <Button
               nativeButton={false}
               render={
@@ -117,6 +118,24 @@ export function ProjectHero({ project }: ProjectHeroProps) {
               size="lg"
             >
               <span>문서 보기</span>
+              <ArrowUpRight aria-hidden="true" />
+            </Button>
+          ) : null}
+          {project.figmaUrl ? (
+            <Button
+              nativeButton={false}
+              render={
+                <a
+                  href={project.figmaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+              variant="outline"
+              size="lg"
+            >
+              <FigmaIcon aria-hidden="true" className="size-4" />
+              <span>Figma</span>
               <ArrowUpRight aria-hidden="true" />
             </Button>
           ) : null}

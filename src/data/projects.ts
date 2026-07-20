@@ -20,6 +20,7 @@ export type ProjectDetail = {
   githubUrl?: string;
   liveUrl?: string;
   docsUrl?: string;
+  figmaUrl?: string;
   banner?: string;
   modules: ProjectModule[];
 };
