@@ -59,7 +59,7 @@ export function CareerExtras({ className }: CareerExtrasProps) {
             <li key={edu.id} className="space-y-1">
               <p className="font-medium">{edu.school}</p>
               <p className="text-muted-foreground text-body">
-                {edu.degree} · {edu.field}
+              {edu.field} · {edu.degree}
               </p>
               <p className="font-mono text-sm tabular-nums text-muted-foreground">
                 {edu.startYear} – {edu.endYear}
