@@ -12,15 +12,11 @@ type PricingContentProps = {
 };
 
 export function PricingContent({ showSalary }: PricingContentProps) {
-  const [billingPeriod, setBillingPeriod] =
-    useState<BillingPeriod>("yearly");
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("yearly");
 
   return (
     <div className="flex w-full flex-col gap-10">
-      <BillingToggle
-        billingPeriod={billingPeriod}
-        onBillingPeriodChange={setBillingPeriod}
-      />
+      <BillingToggle billingPeriod={billingPeriod} onBillingPeriodChange={setBillingPeriod} />
 
       <div className="grid w-full gap-6 md:grid-cols-3">
         {PRICING_PLANS.map((plan, index) => (

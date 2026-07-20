@@ -16,9 +16,7 @@ const BLOCKED_TERMS = [
   "asshole",
 ] as const;
 
-export type ValidationResult =
-  | { ok: true; text: string }
-  | { ok: false; error: string };
+export type ValidationResult = { ok: true; text: string } | { ok: false; error: string };
 
 function extractLastUserText(messages: UIMessage[]): string {
   for (let i = messages.length - 1; i >= 0; i -= 1) {

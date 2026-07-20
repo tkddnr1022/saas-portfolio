@@ -21,11 +21,7 @@ type PlanCardProps = {
   index?: number;
 };
 
-function getPriceLabel(
-  plan: Plan,
-  billingPeriod: BillingPeriod,
-  showSalary: boolean,
-): string {
+function getPriceLabel(plan: Plan, billingPeriod: BillingPeriod, showSalary: boolean): string {
   if (!showSalary) {
     return "협의";
   }
@@ -36,18 +32,12 @@ function getPriceLabel(
     return "협의";
   }
 
-  const amount =
-    billingPeriod === "monthly" ? plan.monthlyPrice : yearlyPrice;
+  const amount = billingPeriod === "monthly" ? plan.monthlyPrice : yearlyPrice;
 
   return formatPrice(amount, billingPeriod);
 }
 
-export function PlanCard({
-  plan,
-  billingPeriod,
-  showSalary,
-  index = 0,
-}: PlanCardProps) {
+export function PlanCard({ plan, billingPeriod, showSalary, index = 0 }: PlanCardProps) {
   const priceLabel = getPriceLabel(plan, billingPeriod, showSalary);
 
   return (
@@ -61,29 +51,20 @@ export function PlanCard({
         )}
       >
         {plan.popular ? (
-          <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
-            Most Popular
-          </Badge>
+          <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">Most Popular</Badge>
         ) : null}
 
         <div className="space-y-1">
-          <h3 className="font-heading text-h3 font-semibold tracking-tight">
-            {plan.name}
-          </h3>
+          <h3 className="font-heading text-h3 font-semibold tracking-tight">{plan.name}</h3>
           <p className="text-muted-foreground text-sm">{plan.description}</p>
         </div>
 
-        <p className="mt-6 font-heading text-h2 font-semibold tracking-tight">
-          {priceLabel}
-        </p>
+        <p className="mt-6 font-heading text-h2 font-semibold tracking-tight">{priceLabel}</p>
 
         <ul className="mt-6 flex flex-1 flex-col gap-3">
           {plan.features.map((feature) => (
             <li key={feature} className="flex items-start gap-2 text-sm">
-              <Check
-                aria-hidden="true"
-                className="mt-0.5 size-4 shrink-0 text-primary"
-              />
+              <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-primary" />
               <span>{feature}</span>
             </li>
           ))}

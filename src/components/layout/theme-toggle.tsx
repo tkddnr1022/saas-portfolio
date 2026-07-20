@@ -11,7 +11,11 @@ function subscribe() {
 }
 
 function useIsClient() {
-  return useSyncExternalStore(subscribe, () => true, () => false);
+  return useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false,
+  );
 }
 
 export function ThemeToggle() {
@@ -29,11 +33,7 @@ export function ThemeToggle() {
       disabled={!isClient}
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {isDark ? (
-        <SunIcon aria-hidden="true" />
-      ) : (
-        <MoonIcon aria-hidden="true" />
-      )}
+      {isDark ? <SunIcon aria-hidden="true" /> : <MoonIcon aria-hidden="true" />}
     </Button>
   );
 }

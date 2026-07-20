@@ -3,12 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
-import {
-  fadeUpTransition,
-  fadeUpVariants,
-  staggerDelay,
-  VIEWPORT,
-} from "@/lib/motion";
+import { fadeUpTransition, fadeUpVariants, staggerDelay, VIEWPORT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type RevealTag = "div" | "li" | "article" | "header";
@@ -27,12 +22,7 @@ const motionTags = {
   header: motion.header,
 } as const;
 
-export function Reveal({
-  children,
-  className,
-  index = 0,
-  as = "div",
-}: RevealProps) {
+export function Reveal({ children, className, index = 0, as = "div" }: RevealProps) {
   const prefersReducedMotion = useReducedMotion() ?? false;
   const Component = motionTags[as];
 

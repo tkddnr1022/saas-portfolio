@@ -1,8 +1,5 @@
 import { ChatPanel } from "@/components/sections/chat/chat-panel";
-import {
-  SectionHeader,
-  SectionShell,
-} from "@/components/sections/section-header";
+import { SectionHeader, SectionShell } from "@/components/sections/section-header";
 import { Reveal } from "@/components/motion/reveal";
 
 const SECTION_TITLE = "이력서 대신, 직접 물어보세요";

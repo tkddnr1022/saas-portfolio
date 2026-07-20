@@ -4,11 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
-import {
-  fadeUpTransition,
-  fadeUpVariants,
-  staggerDelay,
-} from "@/lib/motion";
+import { fadeUpTransition, fadeUpVariants, staggerDelay } from "@/lib/motion";
 
 import { HireStatusBadge } from "./hire-status-badge";
 import { SkillTagsMarquee } from "./skill-tags-marquee";
@@ -77,20 +73,11 @@ export function HeroSection() {
           variants={variants}
           transition={fadeUpTransition(prefersReducedMotion, staggerDelay(2))}
         >
-          <Button
-            nativeButton={false}
-            render={<a href="#pricing" />}
-            size="lg"
-          >
+          <Button nativeButton={false} render={<a href="#pricing" />} size="lg">
             <span>플랜 보기</span>
             <ArrowRight aria-hidden="true" />
           </Button>
-          <Button
-            nativeButton={false}
-            render={<a href="#chat" />}
-            variant="outline"
-            size="lg"
-          >
+          <Button nativeButton={false} render={<a href="#chat" />} variant="outline" size="lg">
             <span>챗봇에게 물어보기</span>
             <ArrowRight aria-hidden="true" />
           </Button>

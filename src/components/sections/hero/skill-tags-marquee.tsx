@@ -21,10 +21,7 @@ function MarqueeTrack({
   "aria-hidden"?: boolean | "true" | "false";
 }) {
   return (
-    <div
-      aria-hidden={ariaHidden}
-      className="flex shrink-0 items-center gap-3 pr-3"
-    >
+    <div aria-hidden={ariaHidden} className="flex shrink-0 items-center gap-3 pr-3">
       {SKILL_KEYWORDS.map((keyword) => (
         <SkillTag key={keyword} label={keyword} />
       ))}
@@ -34,10 +31,7 @@ function MarqueeTrack({
 
 function StaticSkillTags() {
   return (
-    <div
-      aria-label="스킬 카테고리"
-      className="flex flex-wrap items-center justify-center gap-3"
-    >
+    <div aria-label="스킬 카테고리" className="flex flex-wrap items-center justify-center gap-3">
       {SKILL_KEYWORDS.map((keyword) => (
         <SkillTag key={keyword} label={keyword} />
       ))}

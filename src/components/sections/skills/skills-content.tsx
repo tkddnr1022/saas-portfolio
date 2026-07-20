@@ -3,10 +3,7 @@
 import { Reveal } from "@/components/motion/reveal";
 import { SkillProficiencyBar } from "@/components/sections/skills/skill-proficiency-bar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  DEFAULT_SKILL_CATEGORY_ID,
-  SKILL_CATEGORIES,
-} from "@/data/skills";
+import { DEFAULT_SKILL_CATEGORY_ID, SKILL_CATEGORIES } from "@/data/skills";
 
 export function SkillsContent() {
   return (

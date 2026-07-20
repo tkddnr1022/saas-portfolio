@@ -11,15 +11,10 @@ type ChatMessagesProps = {
   onSuggestedQuestion: (question: string) => void;
 };
 
-export function ChatMessages({
-  messages,
-  status,
-  onSuggestedQuestion,
-}: ChatMessagesProps) {
+export function ChatMessages({ messages, status, onSuggestedQuestion }: ChatMessagesProps) {
   const isBusy = status === "submitted" || status === "streaming";
   const lastMessage = messages.at(-1);
-  const showStreamingPlaceholder =
-    isBusy && lastMessage?.role !== "assistant";
+  const showStreamingPlaceholder = isBusy && lastMessage?.role !== "assistant";
 
   return (
     <div

@@ -38,9 +38,7 @@ export function getClientIp(request: Request): string {
   return "unknown";
 }
 
-export type RateLimitResult =
-  | { ok: true; remaining: number }
-  | { ok: false; retryAfter: number };
+export type RateLimitResult = { ok: true; remaining: number } | { ok: false; retryAfter: number };
 
 export async function checkChatRateLimit(ip: string): Promise<RateLimitResult> {
   const redis = getRedis();

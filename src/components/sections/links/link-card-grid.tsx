@@ -1,19 +1,11 @@
 "use client";
 
-import {
-  BookOpen,
-  Egg,
-  ExternalLink,
-  type LucideIcon,
-} from "lucide-react";
+import { BookOpen, Egg, ExternalLink, type LucideIcon } from "lucide-react";
 
 import { GithubIcon } from "@/components/icons/github-icon";
 import { KakaoIcon } from "@/components/icons/kakao-icon";
 import { Reveal } from "@/components/motion/reveal";
-import {
-  EXTERNAL_LINKS,
-  type LinkIcon,
-} from "@/data/links";
+import { EXTERNAL_LINKS, type LinkIcon } from "@/data/links";
 import { cn } from "@/lib/utils";
 
 type IconComponent = LucideIcon | typeof GithubIcon | typeof KakaoIcon;
@@ -25,7 +17,6 @@ const ICON_MAP: Record<LinkIcon, IconComponent> = {
   mealio: Egg,
 };
 
-
 type LinkCardGridProps = {
   className?: string;
 };
@@ -36,12 +27,7 @@ function isExternalHref(href: string) {
 
 export function LinkCardGrid({ className }: LinkCardGridProps) {
   return (
-    <ul
-      className={cn(
-        "grid w-full grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-4",
-        className,
-      )}
-    >
+    <ul className={cn("grid w-full grid-cols-1 gap-3 lg:grid-cols-4 lg:gap-4", className)}>
       {EXTERNAL_LINKS.map((link, index) => {
         const Icon = ICON_MAP[link.icon];
         const external = isExternalHref(link.href);
@@ -50,9 +36,7 @@ export function LinkCardGrid({ className }: LinkCardGridProps) {
           <Reveal key={link.id} as="li" index={index}>
             <a
               href={link.href}
-              {...(external
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
+              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="group relative flex h-full items-center gap-3 rounded-xl border border-border bg-card p-4 transition-colors duration-300 hover:border-primary/40 hover:bg-[linear-gradient(to_bottom,color-mix(in_oklch,var(--primary)_6%,transparent),var(--card))] focus-visible:border-primary/40 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none lg:min-h-56 lg:flex-col lg:items-stretch lg:gap-5 lg:p-6"
             >
               <div className="flex shrink-0 items-center justify-between lg:w-full">
@@ -68,13 +52,9 @@ export function LinkCardGrid({ className }: LinkCardGridProps) {
               <div className="min-w-0 flex-1 space-y-0.5 lg:space-y-2">
                 <p className="font-heading font-semibold tracking-tight">
                   {link.label}
-                  {external ? (
-                    <span className="sr-only"> (새 창에서 열림)</span>
-                  ) : null}
+                  {external ? <span className="sr-only"> (새 창에서 열림)</span> : null}
                 </p>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {link.description}
-                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{link.description}</p>
               </div>
 
               <ExternalLink

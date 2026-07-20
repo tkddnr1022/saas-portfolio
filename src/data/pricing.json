@@ -13,11 +13,7 @@
       "id": "professional",
       "name": "Professional",
       "description": "정규직",
-      "features": [
-        "FE·BE·DevOps 전 영역",
-        "온보딩 기간 포함",
-        "주 5일 풀타임 투입"
-      ],
+      "features": ["FE·BE·DevOps 전 영역", "온보딩 기간 포함", "주 5일 풀타임 투입"],
       "monthlyPrice": 320,
       "yearlyDiscountPercent": 10,
       "popular": true
@@ -26,11 +22,7 @@
       "id": "enterprise",
       "name": "Enterprise",
       "description": "정규직 + α",
-      "features": [
-        "무한한 잠재력",
-        "빠르게 흡수하는 학습 속도",
-        "정해지지 않은 성장 상한선"
-      ],
+      "features": ["무한한 잠재력", "빠르게 흡수하는 학습 속도", "정해지지 않은 성장 상한선"],
       "monthlyPrice": null,
       "yearlyDiscountPercent": 10
     }

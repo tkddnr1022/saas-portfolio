@@ -19,10 +19,7 @@ export function getSiteUrl(): string {
     return fromEnv;
   }
 
-  const production = process.env.VERCEL_PROJECT_PRODUCTION_URL?.replace(
-    /\/$/,
-    "",
-  );
+  const production = process.env.VERCEL_PROJECT_PRODUCTION_URL?.replace(/\/$/, "");
   if (production) {
     return `https://${production}`;
   }

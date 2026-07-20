@@ -10,11 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ImageLightbox } from "@/components/ui/image-lightbox";
 import type { ProjectDetail } from "@/data/projects";
-import {
-  fadeUpTransition,
-  fadeUpVariants,
-  staggerDelay,
-} from "@/lib/motion";
+import { fadeUpTransition, fadeUpVariants, staggerDelay } from "@/lib/motion";
 
 type ProjectHeroProps = {
   project: ProjectDetail;
@@ -91,13 +87,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           {project.liveUrl ? (
             <Button
               nativeButton={false}
-              render={
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />
-              }
+              render={<a href={project.liveUrl} target="_blank" rel="noopener noreferrer" />}
               size="lg"
             >
               <span>라이브 보기</span>
@@ -107,13 +97,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           {project.docsUrl ? (
             <Button
               nativeButton={false}
-              render={
-                <a
-                  href={project.docsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />
-              }
+              render={<a href={project.docsUrl} target="_blank" rel="noopener noreferrer" />}
               variant="outline"
               size="lg"
             >
@@ -124,13 +108,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           {project.figmaUrl ? (
             <Button
               nativeButton={false}
-              render={
-                <a
-                  href={project.figmaUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />
-              }
+              render={<a href={project.figmaUrl} target="_blank" rel="noopener noreferrer" />}
               variant="outline"
               size="lg"
             >
@@ -142,13 +120,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           {project.githubUrl ? (
             <Button
               nativeButton={false}
-              render={
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />
-              }
+              render={<a href={project.githubUrl} target="_blank" rel="noopener noreferrer" />}
               variant={project.liveUrl ? "outline" : "default"}
               size="lg"
             >
@@ -185,10 +157,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         initial="hidden"
         animate="visible"
         variants={variants}
-        transition={fadeUpTransition(
-          prefersReducedMotion,
-          staggerDelay(project.banner ? 4 : 3),
-        )}
+        transition={fadeUpTransition(prefersReducedMotion, staggerDelay(project.banner ? 4 : 3))}
       >
         <div className="space-y-1">
           <dt className="font-mono text-xs tracking-widest text-muted-foreground uppercase">

@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ProjectPageView } from "@/components/sections/project/project-page";
-import {
-  getAllProjectSlugs,
-  getProjectBySlug,
-} from "@/data/projects";
+import { getAllProjectSlugs, getProjectBySlug } from "@/data/projects";
 import { SITE_NAME } from "@/data/site";
 
 type ProjectPageProps = {
@@ -16,9 +13,7 @@ export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 

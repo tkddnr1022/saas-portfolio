@@ -2,17 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import {
-  EXPERIENCES,
-  formatExperiencePeriod,
-  type Experience,
-} from "@/data/career";
-import {
-  fadeUpTransition,
-  fadeUpVariants,
-  staggerDelay,
-  VIEWPORT,
-} from "@/lib/motion";
+import { EXPERIENCES, formatExperiencePeriod, type Experience } from "@/data/career";
+import { fadeUpTransition, fadeUpVariants, staggerDelay, VIEWPORT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type CareerTimelineProps = {
@@ -42,12 +33,7 @@ function TimelineItem({ experience, isLast, index }: TimelineItemProps) {
           aria-hidden="true"
           className="mt-1.5 size-3 shrink-0 rounded-full border-2 border-primary bg-background"
         />
-        {!isLast && (
-          <span
-            aria-hidden="true"
-            className="mt-1 w-px flex-1 bg-border"
-          />
-        )}
+        {!isLast && <span aria-hidden="true" className="mt-1 w-px flex-1 bg-border" />}
       </div>
 
       <div className="space-y-3 pb-2">
@@ -57,10 +43,7 @@ function TimelineItem({ experience, isLast, index }: TimelineItemProps) {
               {experience.company}
             </h3>
             <span className="font-mono text-sm tabular-nums text-muted-foreground">
-              {formatExperiencePeriod(
-                experience.startDate,
-                experience.endDate,
-              )}
+              {formatExperiencePeriod(experience.startDate, experience.endDate)}
             </span>
           </div>
           <p className="text-muted-foreground text-body">{experience.role}</p>
@@ -94,9 +77,7 @@ function TimelineItem({ experience, isLast, index }: TimelineItemProps) {
 export function CareerTimeline({ className }: CareerTimelineProps) {
   return (
     <div className={cn("w-full", className)}>
-      <h3 className="mb-6 font-heading text-h3 font-semibold tracking-tight">
-        경력
-      </h3>
+      <h3 className="mb-6 font-heading text-h3 font-semibold tracking-tight">경력</h3>
       <ol className="relative">
         {EXPERIENCES.map((experience, index) => (
           <TimelineItem

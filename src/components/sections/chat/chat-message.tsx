@@ -56,9 +56,7 @@ export function ChatMessage({ message, isStreaming = false }: ChatMessageProps) 
       <div
         className={cn(
           "max-w-[85%] rounded-lg px-4 py-2.5 text-sm leading-relaxed sm:max-w-[75%]",
-          isUser
-            ? "bg-primary text-primary-foreground"
-            : "bg-muted text-foreground",
+          isUser ? "bg-primary text-primary-foreground" : "bg-muted text-foreground",
         )}
       >
         {isUser ? (

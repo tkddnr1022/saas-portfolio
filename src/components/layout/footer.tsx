@@ -1,8 +1,4 @@
-import {
-  BookOpen,
-  Egg,
-  type LucideIcon,
-} from "lucide-react";
+import { BookOpen, Egg, type LucideIcon } from "lucide-react";
 
 import { GithubIcon } from "@/components/icons/github-icon";
 import { KakaoIcon } from "@/components/icons/kakao-icon";
@@ -17,7 +13,6 @@ const ICON_MAP: Record<LinkIcon, IconComponent> = {
   kakao: KakaoIcon,
   mealio: Egg,
 };
-
 
 function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");
@@ -42,12 +37,8 @@ export function Footer() {
               <a
                 key={link.id}
                 href={link.href}
-                {...(external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                aria-label={
-                  external ? `${link.label} (새 창에서 열림)` : link.label
-                }
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                aria-label={external ? `${link.label} (새 창에서 열림)` : link.label}
                 className="inline-flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
               >
                 <Icon aria-hidden="true" className="size-4" />

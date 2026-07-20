@@ -90,7 +90,9 @@ async function main() {
       const top = rows[0]!;
       if (top.similarity < LOW_SIMILARITY_THRESHOLD) {
         warnings += 1;
-        console.log(`  WARN: top similarity ${top.similarity.toFixed(3)} < ${LOW_SIMILARITY_THRESHOLD}`);
+        console.log(
+          `  WARN: top similarity ${top.similarity.toFixed(3)} < ${LOW_SIMILARITY_THRESHOLD}`,
+        );
       }
 
       for (const [index, row] of rows.entries()) {

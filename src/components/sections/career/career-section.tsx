@@ -1,9 +1,6 @@
 import { CareerExtras } from "@/components/sections/career/career-extras";
 import { CareerTimeline } from "@/components/sections/career/career-timeline";
-import {
-  SectionHeader,
-  SectionShell,
-} from "@/components/sections/section-header";
+import { SectionHeader, SectionShell } from "@/components/sections/section-header";
 
 const SECTION_TITLE = "경력과 자격으로 증명하는 신뢰";
 

@@ -51,17 +51,12 @@ export function ChatInput({
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="border-t border-border bg-background px-4 py-3"
-    >
+    <form onSubmit={handleSubmit} className="border-t border-border bg-background px-4 py-3">
       <div className="flex items-end gap-2">
         <textarea
           ref={textareaRef}
           value={value}
-          onChange={(event) =>
-            onChange(event.target.value.slice(0, MAX_MESSAGE_LENGTH))
-          }
+          onChange={(event) => onChange(event.target.value.slice(0, MAX_MESSAGE_LENGTH))}
           onKeyDown={handleKeyDown}
           disabled={isBusy}
           rows={1}
@@ -102,18 +97,11 @@ export function ChatInput({
 
       <div className="mt-1.5 flex min-h-4 items-center justify-between gap-3">
         {validationError ? (
-          <p
-            id="chat-input-hint"
-            className="text-destructive truncate text-xs"
-            role="alert"
-          >
+          <p id="chat-input-hint" className="text-destructive truncate text-xs" role="alert">
             {validationError}
           </p>
         ) : (
-          <span
-            id="chat-input-hint"
-            className="text-muted-foreground text-xs"
-          >
+          <span id="chat-input-hint" className="text-muted-foreground text-xs">
             Enter로 전송 · Shift+Enter 줄바꿈
           </span>
         )}

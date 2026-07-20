@@ -209,8 +209,7 @@
   .inline-flex.items-center > :where(span, p, label, strong, em, small).text-sm {
     --optical-text-pt: 3px;
   }
-  .inline-flex.items-center
-    > :where(span, p, label, strong, em, small):is(.text-body, .text-base) {
+  .inline-flex.items-center > :where(span, p, label, strong, em, small):is(.text-body, .text-base) {
     --optical-text-pt: 3.5px;
   }
   .inline-flex.items-center > :where(span, p, label, strong, em, small).text-h3 {
@@ -222,16 +221,12 @@
   .inline-flex.items-center > :where(span, p, label, strong, em, small).text-h1 {
     --optical-text-pt: 8.5px;
   }
-  .inline-flex.items-center
-    > :where(span, p, label, strong, em, small).text-display {
+  .inline-flex.items-center > :where(span, p, label, strong, em, small).text-display {
     --optical-text-pt: 10px;
   }
 
   .inline-flex.items-center
-    > :where(span, p, label, strong, em, small):not(
-      [aria-hidden="true"],
-      [class*="size-"]
-    ) {
+    > :where(span, p, label, strong, em, small):not([aria-hidden="true"], [class*="size-"]) {
     padding-top: var(--optical-text-pt);
   }
 }

@@ -81,11 +81,11 @@
 
 **플랜 구성**
 
-| 플랜         | 형태                    | 금액 (예시)     | 포함 내용                             |
-| ------------ | ----------------------- | --------------- | ------------------------------------- |
-| Starter      | 프리랜서 / 단기 계약    | 프로젝트별 협의 | 특정 도메인 개발, 코드 리뷰           |
-| Professional | 정규직        | 월 XXX만원      | FE·BE·DevOps 전 영역, 온보딩 2주 포함 |
-| Enterprise   | 정규직 + α | 협의     | 무한한 잠재력      |
+| 플랜         | 형태                 | 금액 (예시)     | 포함 내용                             |
+| ------------ | -------------------- | --------------- | ------------------------------------- |
+| Starter      | 프리랜서 / 단기 계약 | 프로젝트별 협의 | 특정 도메인 개발, 코드 리뷰           |
+| Professional | 정규직               | 월 XXX만원      | FE·BE·DevOps 전 영역, 온보딩 2주 포함 |
+| Enterprise   | 정규직 + α           | 협의            | 무한한 잠재력                         |
 
 **요구사항**
 
@@ -102,12 +102,12 @@
 
 **4개 역량 카테고리**
 
-| 카테고리 | 주요 기술 스택                                                   | 지표 표현 방식                 |
-| -------- | ---------------------------------------------------------------- | ------------------------------ |
-| Frontend | React, Next.js, TypeScript, 디자인 시스템, Storybook             | 숙련도 바 + 대표 프로젝트 링크 |
-| Backend  | Node.js, Python, REST/GraphQL API, PostgreSQL, Redis             | 숙련도 바 + 대표 프로젝트 링크 |
-| DevOps   | Docker, Kubernetes, CI/CD (GitHub Actions), AWS/GCP              | 숙련도 바 + 자격증 배지        |
-| Design   | Figma, 디자인 시스템 구축, UI/UX 프로세스                        | 숙련도 바 + 작업물 썸네일      |
+| 카테고리 | 주요 기술 스택                                       | 지표 표현 방식                 |
+| -------- | ---------------------------------------------------- | ------------------------------ |
+| Frontend | React, Next.js, TypeScript, 디자인 시스템, Storybook | 숙련도 바 + 대표 프로젝트 링크 |
+| Backend  | Node.js, Python, REST/GraphQL API, PostgreSQL, Redis | 숙련도 바 + 대표 프로젝트 링크 |
+| DevOps   | Docker, Kubernetes, CI/CD (GitHub Actions), AWS/GCP  | 숙련도 바 + 자격증 배지        |
+| Design   | Figma, 디자인 시스템 구축, UI/UX 프로세스            | 숙련도 바 + 작업물 썸네일      |
 
 **요구사항**
 
@@ -241,24 +241,24 @@ createUIMessageStreamResponse / toUIMessageStream
 
 ### 3.1 프론트엔드
 
-| 항목       | 선택                          | 선택 이유                                              |
-| ---------- | ----------------------------- | ------------------------------------------------------ |
-| 프레임워크 | Next.js 14+ (App Router)      | SSR/SSG 혼합, API Route 내장, Vercel 최적화            |
-| 언어       | TypeScript                    | 타입 안정성, 유지보수성                                |
-| 스타일링   | Tailwind CSS + shadcn/ui      | SaaS UI 컴포넌트 즉시 활용 가능                        |
-| 애니메이션 | Framer Motion                 | 스킬 바, 스크롤 트리거, 페이지 전환                    |
+| 항목         | 선택                        | 선택 이유                                            |
+| ------------ | --------------------------- | ---------------------------------------------------- |
+| 프레임워크   | Next.js 14+ (App Router)    | SSR/SSG 혼합, API Route 내장, Vercel 최적화          |
+| 언어         | TypeScript                  | 타입 안정성, 유지보수성                              |
+| 스타일링     | Tailwind CSS + shadcn/ui    | SaaS UI 컴포넌트 즉시 활용 가능                      |
+| 애니메이션   | Framer Motion               | 스킬 바, 스크롤 트리거, 페이지 전환                  |
 | 챗봇 UI 상태 | `@ai-sdk/react` (`useChat`) | 스트리밍·메시지 히스토리·전송 상태를 SDK가 일괄 관리 |
 
 ### 3.2 백엔드 / AI
 
-| 항목              | 선택                                      | 선택 이유                                                        |
-| ----------------- | ----------------------------------------- | ---------------------------------------------------------------- |
-| AI 프레임워크     | Vercel AI SDK (`ai`)                      | `streamText` / `embed` 통합, Next.js 스트리밍 프로토콜 네이티브 |
-| React 바인딩      | `@ai-sdk/react`                           | `useChat`으로 챗 UI 상태·스트리밍 렌더                           |
-| 모델 Provider     | `@ai-sdk/openai` (gpt-5.4)                | OpenAI 연동을 SDK Provider로 추상화, 응답 품질·스트리밍 지원     |
-| 임베딩            | AI SDK `embed` + text-embedding-3-small   | 비용 효율, 한국어 품질, 인덱싱·질의 경로 통일                    |
-| 벡터 DB           | PostgreSQL + pgvector                     | RAG 임베딩 저장·유사도 검색, 기존 RDB 스택과 통합 운영           |
-| API Rate Limiting | Redis                                     | 서버리스 환경에서 IP 기반 제한                                   |
+| 항목              | 선택                                    | 선택 이유                                                       |
+| ----------------- | --------------------------------------- | --------------------------------------------------------------- |
+| AI 프레임워크     | Vercel AI SDK (`ai`)                    | `streamText` / `embed` 통합, Next.js 스트리밍 프로토콜 네이티브 |
+| React 바인딩      | `@ai-sdk/react`                         | `useChat`으로 챗 UI 상태·스트리밍 렌더                          |
+| 모델 Provider     | `@ai-sdk/openai` (gpt-5.4)              | OpenAI 연동을 SDK Provider로 추상화, 응답 품질·스트리밍 지원    |
+| 임베딩            | AI SDK `embed` + text-embedding-3-small | 비용 효율, 한국어 품질, 인덱싱·질의 경로 통일                   |
+| 벡터 DB           | PostgreSQL + pgvector                   | RAG 임베딩 저장·유사도 검색, 기존 RDB 스택과 통합 운영          |
+| API Rate Limiting | Redis                                   | 서버리스 환경에서 IP 기반 제한                                  |
 
 ### 3.3 인프라
 
@@ -333,13 +333,13 @@ createUIMessageStreamResponse / toUIMessageStream
 
 ### 비용 관리
 
-| 항목            | 예상 월 비용                  |
-| --------------- | ----------------------------- |
-| Vercel (Hobby)  | $0 (트래픽 적을 때)           |
+| 항목                  | 예상 월 비용                    |
+| --------------------- | ------------------------------- |
+| Vercel (Hobby)        | $0 (트래픽 적을 때)             |
 | PostgreSQL + pgvector | $0 (무료 티어 또는 셀프 호스팅) |
-| OpenAI API      | $5–20 (방문자 수에 따라 변동) |
-| 도메인          | ~$15/년                       |
-| **합계**        | **$5–20/월**                  |
+| OpenAI API            | $5–20 (방문자 수에 따라 변동)   |
+| 도메인                | ~$15/년                         |
+| **합계**              | **$5–20/월**                    |
 
 ---
 

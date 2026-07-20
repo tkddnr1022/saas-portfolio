@@ -2,11 +2,7 @@
 
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
-import {
-  CERTIFICATIONS,
-  EDUCATION,
-  LANGUAGES,
-} from "@/data/career";
+import { CERTIFICATIONS, EDUCATION, LANGUAGES } from "@/data/career";
 import { cn } from "@/lib/utils";
 
 type CareerExtrasProps = {
@@ -15,16 +11,9 @@ type CareerExtrasProps = {
 
 export function CareerExtras({ className }: CareerExtrasProps) {
   return (
-    <div
-      className={cn(
-        "grid w-full gap-10 md:grid-cols-3 md:gap-8",
-        className,
-      )}
-    >
+    <div className={cn("grid w-full gap-10 md:grid-cols-3 md:gap-8", className)}>
       <Reveal index={0} className="space-y-4">
-        <h3 className="font-heading text-h3 font-semibold tracking-tight">
-          자격증
-        </h3>
+        <h3 className="font-heading text-h3 font-semibold tracking-tight">자격증</h3>
         <ul className="space-y-4">
           {CERTIFICATIONS.map((cert) => (
             <li key={cert.id}>
@@ -38,9 +27,7 @@ export function CareerExtras({ className }: CareerExtrasProps) {
                   {cert.name}
                   <span className="sr-only"> (새 창에서 열림)</span>
                 </span>
-                <span className="text-muted-foreground text-sm">
-                  {cert.issuer}
-                </span>
+                <span className="text-muted-foreground text-sm">{cert.issuer}</span>
                 <Badge variant="outline" className="w-fit">
                   {cert.year}
                 </Badge>
@@ -51,15 +38,13 @@ export function CareerExtras({ className }: CareerExtrasProps) {
       </Reveal>
 
       <Reveal index={1} className="space-y-4">
-        <h3 className="font-heading text-h3 font-semibold tracking-tight">
-          학력
-        </h3>
+        <h3 className="font-heading text-h3 font-semibold tracking-tight">학력</h3>
         <ul className="space-y-4">
           {EDUCATION.map((edu) => (
             <li key={edu.id} className="space-y-1">
               <p className="font-medium">{edu.school}</p>
               <p className="text-muted-foreground text-body">
-              {edu.field} · {edu.degree}
+                {edu.field} · {edu.degree}
               </p>
               <p className="font-mono text-sm tabular-nums text-muted-foreground">
                 {edu.startYear} – {edu.endYear}
@@ -70,26 +55,18 @@ export function CareerExtras({ className }: CareerExtrasProps) {
       </Reveal>
 
       <Reveal index={2} className="space-y-4">
-        <h3 className="font-heading text-h3 font-semibold tracking-tight">
-          언어 능력
-        </h3>
+        <h3 className="font-heading text-h3 font-semibold tracking-tight">언어 능력</h3>
         <ul className="space-y-4">
           {LANGUAGES.map((lang) => (
             <li key={lang.id} className="space-y-1">
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                 <p className="font-medium">{lang.name}</p>
-                <span className="text-muted-foreground text-sm">
-                  {lang.level}
-                </span>
+                <span className="text-muted-foreground text-sm">{lang.level}</span>
                 {lang.score && (
-                  <span className="font-mono text-sm tabular-nums text-primary">
-                    {lang.score}
-                  </span>
+                  <span className="font-mono text-sm tabular-nums text-primary">{lang.score}</span>
                 )}
               </div>
-              <p className="text-muted-foreground text-body leading-relaxed">
-                {lang.context}
-              </p>
+              <p className="text-muted-foreground text-body leading-relaxed">{lang.context}</p>
             </li>
           ))}
         </ul>

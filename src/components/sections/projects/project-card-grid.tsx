@@ -13,12 +13,7 @@ type ProjectCardGridProps = {
 
 export function ProjectCardGrid({ className }: ProjectCardGridProps) {
   return (
-    <ul
-      className={cn(
-        "grid w-full grid-cols-1 gap-6 md:grid-cols-2",
-        className,
-      )}
-    >
+    <ul className={cn("grid w-full grid-cols-1 gap-6 md:grid-cols-2", className)}>
       {PROJECT_DETAILS.map((project, index) => (
         <Reveal key={project.slug} as="li" index={index}>
           <Link
@@ -46,9 +41,7 @@ export function ProjectCardGrid({ className }: ProjectCardGridProps) {
               <h3 className="font-heading text-h3 font-semibold tracking-tight transition-colors group-hover:text-primary">
                 {project.name}
               </h3>
-              <p className="text-muted-foreground text-body leading-relaxed">
-                {project.tagline}
-              </p>
+              <p className="text-muted-foreground text-body leading-relaxed">{project.tagline}</p>
             </div>
           </Link>
         </Reveal>

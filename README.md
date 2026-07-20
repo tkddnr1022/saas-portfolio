@@ -29,13 +29,13 @@ npm run dev
 
 ## Scripts
 
-| 명령어 | 설명 |
-| --- | --- |
-| `npm run dev` | 개발 서버 |
-| `npm run build` / `start` | 프로덕션 빌드·실행 |
-| `npm run db:schema` | DB 스키마 적용 |
-| `npm run kb:reindex` | 지식베이스 재인덱싱 |
-| `npm run kb:verify` | 검색 동작 검증 |
+| 명령어                    | 설명                |
+| ------------------------- | ------------------- |
+| `npm run dev`             | 개발 서버           |
+| `npm run build` / `start` | 프로덕션 빌드·실행  |
+| `npm run db:schema`       | DB 스키마 적용      |
+| `npm run kb:reindex`      | 지식베이스 재인덱싱 |
+| `npm run kb:verify`       | 검색 동작 검증      |
 
 ## Docs
 

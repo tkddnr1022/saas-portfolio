@@ -2,7 +2,6 @@ import linksData from "./links.json";
 
 export type LinkIcon = "github" | "blog" | "kakao" | "mealio";
 
-
 export type ExternalLink = {
   id: string;
   label: string;

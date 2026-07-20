@@ -12,19 +12,14 @@ type SkillProficiencyBarProps = {
   className?: string;
 };
 
-export function SkillProficiencyBar({
-  skill,
-  className,
-}: SkillProficiencyBarProps) {
+export function SkillProficiencyBar({ skill, className }: SkillProficiencyBarProps) {
   const prefersReducedMotion = useReducedMotion() ?? false;
 
   return (
     <div className={cn("space-y-2", className)}>
       <div className="flex items-center justify-between gap-4">
         <SkillTag skill={skill} />
-        <span className="font-mono text-sm tabular-nums text-muted-foreground">
-          {skill.level}%
-        </span>
+        <span className="font-mono text-sm tabular-nums text-muted-foreground">{skill.level}%</span>
       </div>
 
       <div
@@ -41,9 +36,7 @@ export function SkillProficiencyBar({
           whileInView={{ width: `${skill.level}%` }}
           viewport={VIEWPORT}
           transition={
-            prefersReducedMotion
-              ? { duration: 0 }
-              : { duration: 0.8, ease: EASE_OUT_EXPO }
+            prefersReducedMotion ? { duration: 0 } : { duration: 0.8, ease: EASE_OUT_EXPO }
           }
         />
       </div>

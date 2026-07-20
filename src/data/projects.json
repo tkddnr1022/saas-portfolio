@@ -7,15 +7,7 @@
       "overview": "보유 재료와 대화 맥락을 바탕으로 레시피를 추천하는 AI 챗봇 서비스를 풀스택으로 설계·개발하는 개인 프로젝트입니다. CRUD 구현에 그치지 않고 실서비스에서 마주치는 아키텍처 문제들을 직접 풀어보는 것이 목표였습니다. 이벤트 기반 비동기 처리, 다중 DB 전략, LLM 활용, 캐시 무효화 등 규모 있는 서비스에서 다루는 설계 과제들을 각 레이어에 적용하였습니다.",
       "type": "개인 프로젝트",
       "role": "기획, 설계, 개발",
-      "stack": [
-        "Next.js",
-        "NestJS",
-        "PostgreSQL",
-        "MongoDB",
-        "Redis",
-        "Kafka",
-        "OpenAI API"
-      ],
+      "stack": ["Next.js", "NestJS", "PostgreSQL", "MongoDB", "Redis", "Kafka", "OpenAI API"],
       "githubUrl": "https://github.com/tkddnr1022/mealio",
       "liveUrl": "https://mealio.site",
       "docsUrl": "https://docs.mealio.site",

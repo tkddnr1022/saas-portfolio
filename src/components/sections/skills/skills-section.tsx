@@ -1,8 +1,5 @@
 import { SkillsContent } from "@/components/sections/skills/skills-content";
-import {
-  SectionHeader,
-  SectionShell,
-} from "@/components/sections/section-header";
+import { SectionHeader, SectionShell } from "@/components/sections/section-header";
 
 const SECTION_TITLE = "올라운더 역량, 숫자로 보여드립니다";
 

@@ -1,18 +1,13 @@
 import type { Transition, Variants } from "framer-motion";
 
 /** Shared ease — matches skill bars & timeline. */
-export const EASE_OUT_EXPO: [number, number, number, number] = [
-  0.22, 1, 0.36, 1,
-];
+export const EASE_OUT_EXPO: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export const VIEWPORT = { once: true, amount: 0.25 } as const;
 
 export const FADE_UP_Y = 16;
 
-export function fadeUpTransition(
-  prefersReducedMotion: boolean,
-  delay = 0,
-): Transition {
+export function fadeUpTransition(prefersReducedMotion: boolean, delay = 0): Transition {
   if (prefersReducedMotion) {
     return { duration: 0 };
   }

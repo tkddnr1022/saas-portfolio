@@ -10,17 +10,12 @@ type BillingToggleProps = {
   onBillingPeriodChange: (period: BillingPeriod) => void;
 };
 
-export function BillingToggle({
-  billingPeriod,
-  onBillingPeriodChange,
-}: BillingToggleProps) {
+export function BillingToggle({ billingPeriod, onBillingPeriodChange }: BillingToggleProps) {
   const isYearly = billingPeriod === "yearly";
 
   return (
     <div className="flex w-full flex-wrap items-center justify-end gap-3 h-6">
-      {isYearly ? (
-        <Badge variant="secondary">{YEARLY_SAVINGS_PERCENT}% 절약</Badge>
-      ) : null}
+      {isYearly ? <Badge variant="secondary">{YEARLY_SAVINGS_PERCENT}% 절약</Badge> : null}
 
       <span
         className={cn(
@@ -33,14 +28,10 @@ export function BillingToggle({
 
       <Switch
         aria-label={
-          isYearly
-            ? "연간 요금제 선택됨. 월간으로 전환"
-            : "월간 요금제 선택됨. 연간으로 전환"
+          isYearly ? "연간 요금제 선택됨. 월간으로 전환" : "월간 요금제 선택됨. 연간으로 전환"
         }
         checked={isYearly}
-        onCheckedChange={(checked) =>
-          onBillingPeriodChange(checked ? "yearly" : "monthly")
-        }
+        onCheckedChange={(checked) => onBillingPeriodChange(checked ? "yearly" : "monthly")}
       />
 
       <span

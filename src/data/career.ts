@@ -48,8 +48,8 @@ export type CareerData = {
 
 const data = careerData as CareerData;
 
-export const EXPERIENCES: Experience[] = [...data.experiences].sort(
-  (a, b) => b.startDate.localeCompare(a.startDate),
+export const EXPERIENCES: Experience[] = [...data.experiences].sort((a, b) =>
+  b.startDate.localeCompare(a.startDate),
 );
 
 export const CERTIFICATIONS: Certification[] = data.certifications;
@@ -58,10 +58,7 @@ export const EDUCATION: Education[] = data.education;
 
 export const LANGUAGES: Language[] = data.languages;
 
-export function formatExperiencePeriod(
-  startDate: string,
-  endDate: string | null,
-): string {
+export function formatExperiencePeriod(startDate: string, endDate: string | null): string {
   const format = (date: string) => {
     const [year, month] = date.split("-");
     return `${year}.${month}`;

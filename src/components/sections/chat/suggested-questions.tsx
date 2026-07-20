@@ -8,16 +8,9 @@ type SuggestedQuestionsProps = {
   disabled?: boolean;
 };
 
-export function SuggestedQuestions({
-  onSelect,
-  disabled = false,
-}: SuggestedQuestionsProps) {
+export function SuggestedQuestions({ onSelect, disabled = false }: SuggestedQuestionsProps) {
   return (
-    <div
-      className="flex flex-wrap justify-center gap-2"
-      role="group"
-      aria-label="추천 질문"
-    >
+    <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="추천 질문">
       {SUGGESTED_QUESTIONS.map((question) => (
         <Button
           key={question}

@@ -1,7 +1,4 @@
-import {
-  SectionHeader,
-  SectionShell,
-} from "@/components/sections/section-header";
+import { SectionHeader, SectionShell } from "@/components/sections/section-header";
 import { showSalary } from "@/lib/env";
 
 import { PricingContent } from "./pricing-content";

@@ -5,13 +5,7 @@ import { MenuIcon } from "lucide-react";
 
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { SITE_NAME } from "@/data/site";
 import { navLinks } from "@/lib/nav-links";
 import { cn } from "@/lib/utils";
@@ -57,10 +51,7 @@ export function Navbar() {
         </a>
 
         <div className="flex items-center gap-1">
-          <nav
-            aria-label="주요 메뉴"
-            className="hidden items-center gap-1 md:flex"
-          >
+          <nav aria-label="주요 메뉴" className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}

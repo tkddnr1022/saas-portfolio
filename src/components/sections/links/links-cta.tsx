@@ -13,17 +13,8 @@ type LinksCtaProps = {
 
 export function LinksCta({ className }: LinksCtaProps) {
   return (
-    <Reveal
-      className={cn(
-        "flex flex-wrap items-center justify-center gap-3",
-        className,
-      )}
-    >
-      <Button
-        nativeButton={false}
-        render={<a href={CONTACT_HREF} />}
-        size="lg"
-      >
+    <Reveal className={cn("flex flex-wrap items-center justify-center gap-3", className)}>
+      <Button nativeButton={false} render={<a href={CONTACT_HREF} />} size="lg">
         <Mail aria-hidden="true" />
         <span>지금 연락하기</span>
       </Button>

@@ -7,12 +7,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { SkipToContent } from "@/components/layout/skip-to-content";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import {
-  SITE_DESCRIPTION,
-  SITE_NAME,
-  SITE_TITLE,
-  getSiteUrl,
-} from "@/data/site";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, getSiteUrl } from "@/data/site";
 
 import "./globals.css";
 

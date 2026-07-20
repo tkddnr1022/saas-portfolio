@@ -52,7 +52,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChatRequest'
+              $ref: "#/components/schemas/ChatRequest"
             examples:
               singleTurn:
                 summary: 단일 턴 질문
@@ -83,7 +83,7 @@ paths:
                         - type: text
                           text: 백엔드 경험도 있나요?
       responses:
-        '200':
+        "200":
           description: |
             UI Message Stream SSE 응답.
             각 `data:` 라인은 JSON UI message chunk입니다.
@@ -130,12 +130,12 @@ paths:
                     data: {"type":"finish"}
 
                     data: [DONE]
-        '400':
+        "400":
           description: 잘못된 요청 (빈 메시지, 500자 초과, 욕설/부적절 표현)
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
               examples:
                 emptyMessages:
                   summary: 메시지 배열 누락/비어 있음
@@ -153,7 +153,7 @@ paths:
                   summary: 부적절 표현
                   value:
                     error: 부적절한 표현이 포함되어 있어 요청을 처리할 수 없습니다.
-        '429':
+        "429":
           description: Rate limit 초과 (IP당 20 req/min)
           headers:
             Retry-After:
@@ -164,15 +164,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
               example:
                 error: 요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.
-        '500':
+        "500":
           description: 서버 내부 오류
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: "#/components/schemas/ErrorResponse"
               example:
                 error: 요청을 처리하는 중 오류가 발생했습니다.
 
@@ -189,7 +189,7 @@ components:
           minItems: 1
           description: 대화 히스토리 (세션 단위). `useChat`이 관리하는 UIMessage 배열.
           items:
-            $ref: '#/components/schemas/UIMessage'
+            $ref: "#/components/schemas/UIMessage"
 
     UIMessage:
       type: object
@@ -220,18 +220,18 @@ components:
           type: array
           minItems: 1
           items:
-            $ref: '#/components/schemas/UIMessagePart'
+            $ref: "#/components/schemas/UIMessagePart"
 
     UIMessagePart:
       description: |
         UI 메시지 파트. 이 API는 `user` 메시지의 `text` 파트만 입력 검증에 사용합니다.
         `assistant` 메시지는 대화 맥락 유지용으로 전달됩니다.
       oneOf:
-        - $ref: '#/components/schemas/TextUIPart'
+        - $ref: "#/components/schemas/TextUIPart"
       discriminator:
         propertyName: type
         mapping:
-          text: '#/components/schemas/TextUIPart'
+          text: "#/components/schemas/TextUIPart"
 
     TextUIPart:
       type: object
@@ -260,23 +260,23 @@ components:
         SSE `data:` 라인에 포함되는 UI message stream chunk.
         Vercel AI SDK `toUIMessageStream` 출력 형식.
       oneOf:
-        - $ref: '#/components/schemas/StartChunk'
-        - $ref: '#/components/schemas/StartStepChunk'
-        - $ref: '#/components/schemas/TextStartChunk'
-        - $ref: '#/components/schemas/TextDeltaChunk'
-        - $ref: '#/components/schemas/TextEndChunk'
-        - $ref: '#/components/schemas/FinishChunk'
-        - $ref: '#/components/schemas/ErrorChunk'
+        - $ref: "#/components/schemas/StartChunk"
+        - $ref: "#/components/schemas/StartStepChunk"
+        - $ref: "#/components/schemas/TextStartChunk"
+        - $ref: "#/components/schemas/TextDeltaChunk"
+        - $ref: "#/components/schemas/TextEndChunk"
+        - $ref: "#/components/schemas/FinishChunk"
+        - $ref: "#/components/schemas/ErrorChunk"
       discriminator:
         propertyName: type
         mapping:
-          start: '#/components/schemas/StartChunk'
-          start-step: '#/components/schemas/StartStepChunk'
-          text-start: '#/components/schemas/TextStartChunk'
-          text-delta: '#/components/schemas/TextDeltaChunk'
-          text-end: '#/components/schemas/TextEndChunk'
-          finish: '#/components/schemas/FinishChunk'
-          error: '#/components/schemas/ErrorChunk'
+          start: "#/components/schemas/StartChunk"
+          start-step: "#/components/schemas/StartStepChunk"
+          text-start: "#/components/schemas/TextStartChunk"
+          text-delta: "#/components/schemas/TextDeltaChunk"
+          text-end: "#/components/schemas/TextEndChunk"
+          finish: "#/components/schemas/FinishChunk"
+          error: "#/components/schemas/ErrorChunk"
 
     StartChunk:
       type: object
