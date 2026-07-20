@@ -8,7 +8,8 @@ import {
 const SECTION_TITLE = "더 자세히 알아보고, 바로 연락하세요";
 
 const SECTION_DESCRIPTION =
-  "GitHub·블로그·노션·Mealio를 살펴본 뒤, 이메일로 문의하거나 이력서를 내려받을 수 있습니다.";
+  "작업물과 글을 둘러보신 후, 이메일이나 오픈채팅으로 편하게 연락해 주세요.";
+
 
 export function LinksSection() {
   return (

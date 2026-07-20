@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 import { GithubIcon } from "@/components/icons/github-icon";
-import { NotionIcon } from "@/components/icons/notion-icon";
+import { KakaoIcon } from "@/components/icons/kakao-icon";
 import { Reveal } from "@/components/motion/reveal";
 import {
   EXTERNAL_LINKS,
@@ -16,14 +16,15 @@ import {
 } from "@/data/links";
 import { cn } from "@/lib/utils";
 
-type IconComponent = LucideIcon | typeof GithubIcon | typeof NotionIcon;
+type IconComponent = LucideIcon | typeof GithubIcon | typeof KakaoIcon;
 
 const ICON_MAP: Record<LinkIcon, IconComponent> = {
   github: GithubIcon,
   blog: BookOpen,
-  notion: NotionIcon,
+  kakao: KakaoIcon,
   mealio: Egg,
 };
+
 
 type LinkCardGridProps = {
   className?: string;

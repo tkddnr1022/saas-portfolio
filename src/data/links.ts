@@ -1,6 +1,7 @@
 import linksData from "./links.json";
 
-export type LinkIcon = "github" | "blog" | "notion" | "mealio";
+export type LinkIcon = "github" | "blog" | "kakao" | "mealio";
+
 
 export type ExternalLink = {
   id: string;

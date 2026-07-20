@@ -19,11 +19,11 @@
       "showInFooter": true
     },
     {
-      "id": "notion",
-      "label": "노션 포트폴리오",
-      "description": "프로젝트 상세 문서를 확인하세요",
-      "href": "https://tungsten-word-4ab.notion.site/34c66408a68c80b5826dda28b872816c?pvs=74",
-      "icon": "notion",
+      "id": "kakao",
+      "label": "카카오톡 오픈채팅",
+      "description": "편하게 메시지를 남겨주세요",
+      "href": "https://open.kakao.com/o/sPHdIREi",
+      "icon": "kakao",
       "showInFooter": true
     },
     {

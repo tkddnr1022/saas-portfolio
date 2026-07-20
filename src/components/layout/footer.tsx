@@ -5,18 +5,19 @@ import {
 } from "lucide-react";
 
 import { GithubIcon } from "@/components/icons/github-icon";
-import { NotionIcon } from "@/components/icons/notion-icon";
+import { KakaoIcon } from "@/components/icons/kakao-icon";
 import { FOOTER_LINKS, type LinkIcon } from "@/data/links";
 import { SITE_NAME } from "@/data/site";
 
-type IconComponent = LucideIcon | typeof GithubIcon | typeof NotionIcon;
+type IconComponent = LucideIcon | typeof GithubIcon | typeof KakaoIcon;
 
 const ICON_MAP: Record<LinkIcon, IconComponent> = {
   github: GithubIcon,
   blog: BookOpen,
-  notion: NotionIcon,
+  kakao: KakaoIcon,
   mealio: Egg,
 };
+
 
 function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");
