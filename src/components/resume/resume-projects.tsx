@@ -30,10 +30,16 @@ function ProjectEntry({ project }: { project: ProjectDetail }) {
           {project.role}
           <span className="mx-1.5 text-neutral-300">·</span>
           {project.stack.join(", ")}
-          {liveHost ? (
+          {liveHost && project.liveUrl ? (
             <>
               <span className="mx-1.5 text-neutral-300">·</span>
-              <span>{liveHost}</span>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {liveHost}
+              </a>
             </>
           ) : null}
         </p>
