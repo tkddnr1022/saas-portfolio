@@ -246,12 +246,36 @@
 .resume-document a {
   color: inherit;
   text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.resume-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  margin-bottom: 0.55em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #d4d4d4;
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #111;
+}
+
+.resume-section-accent {
+  display: block;
+  width: 3px;
+  height: 0.85em;
+  flex-shrink: 0;
+  background: #0f6e6e;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 @media print {
   @page {
     size: A4;
-    margin: 14mm;
+    margin: 12mm 14mm;
   }
 
   html,

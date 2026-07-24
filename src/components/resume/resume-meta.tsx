@@ -5,61 +5,55 @@ import {
   formatEducationPeriod,
   formatResumeDate,
 } from "@/data/career";
+import { ResumeSection } from "@/components/resume/resume-section";
 
 export function ResumeMeta() {
   return (
-    <div className="space-y-4">
-      <section className="resume-section">
-        <h2 className="resume-section-title mb-2 border-b border-[#444] pb-1 text-[12pt] font-bold">
-          학력
-        </h2>
-        <ul className="space-y-2">
+    <div className="grid grid-cols-3 gap-4">
+      <ResumeSection title="학력" className="mb-0">
+        <ul className="space-y-1.5">
           {EDUCATION.map((edu) => (
             <li key={edu.id} className="resume-entry break-inside-avoid text-[9.5pt]">
-              <p>
-                <strong className="font-bold">{edu.school}</strong>
-                <span className="text-[#333]">
-                  {" "}
-                  {edu.field} 전공({edu.degree})
-                </span>
+              <p className="font-bold">{edu.school}</p>
+              <p className="mt-0.5 text-[#444]">
+                {edu.field} · {edu.degree}
               </p>
-              <p className="mt-0.5 tabular-nums text-[#555]">
+              <p className="mt-0.5 tabular-nums text-[8.5pt] text-[#777]">
                 {formatEducationPeriod(edu.startDate, edu.endDate)}
               </p>
             </li>
           ))}
         </ul>
-      </section>
+      </ResumeSection>
 
-      <section className="resume-section">
-        <h2 className="resume-section-title mb-2 border-b border-[#444] pb-1 text-[12pt] font-bold">
-          어학 능력
-        </h2>
-        <ul className="space-y-2">
+      <ResumeSection title="어학" className="mb-0">
+        <ul className="space-y-1.5">
           {LANGUAGES.map((lang) => (
             <li key={lang.id} className="resume-entry break-inside-avoid text-[9.5pt]">
-              <p className="font-semibold">{lang.score ?? lang.name}</p>
+              <p className="font-bold">{lang.score ?? lang.name}</p>
               {lang.date ? (
-                <p className="mt-0.5 tabular-nums text-[#555]">{formatResumeDate(lang.date)}</p>
+                <p className="mt-0.5 tabular-nums text-[8.5pt] text-[#777]">
+                  {formatResumeDate(lang.date)}
+                </p>
               ) : null}
             </li>
           ))}
         </ul>
-      </section>
+      </ResumeSection>
 
-      <section className="resume-section">
-        <h2 className="resume-section-title mb-2 border-b border-[#444] pb-1 text-[12pt] font-bold">
-          자격증
-        </h2>
-        <ul className="space-y-2">
+      <ResumeSection title="자격증" className="mb-0">
+        <ul className="space-y-1.5">
           {CERTIFICATIONS.map((cert) => (
             <li key={cert.id} className="resume-entry break-inside-avoid text-[9.5pt]">
-              <p className="font-semibold">{cert.name}</p>
-              <p className="mt-0.5 tabular-nums text-[#555]">{formatResumeDate(cert.date)}</p>
+              <p className="font-bold">{cert.name}</p>
+              <p className="mt-0.5 text-[#444]">{cert.issuer}</p>
+              <p className="mt-0.5 tabular-nums text-[8.5pt] text-[#777]">
+                {formatResumeDate(cert.date)}
+              </p>
             </li>
           ))}
         </ul>
-      </section>
+      </ResumeSection>
     </div>
   );
 }

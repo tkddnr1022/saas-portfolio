@@ -31,12 +31,10 @@
           "problem": "챗봇 응답 생성, 행동 이벤트 집계처럼 처리 시간이 긴 작업을 API 응답 과정에서 배제하고자 하였습니다. 실시간 요청 처리와 이벤트 기반 비동기 처리를 분리하는 것을 핵심 설계 과제로 삼았고, 백엔드를 API 서버와 이벤트 처리 워커로 나누어 Kafka로 연결했습니다.",
           "image": "/images/mealio/architecture.svg",
           "points": [
-            "프론트엔드: 레시피 목록·상세는 ISR, 검색은 SSR, 챗봇·보관함은 CSR 등 화면 특성에 맞는 렌더링 전략 수행",
-            "API 서버: Redis 캐시 우선 조회로 DB 부하 절감, 챗봇 요청 접수 및 스트림 채널 발급, Kafka 이벤트 발행",
-            "이벤트 워커: Kafka 토픽 구독, 추천 점수 재계산·조회수 집계·캐시 무효화 등 비동기 처리, LLM 호출 및 Redis로 스트리밍 결과 전달",
-            "모노레포 구성: Prisma·Mongoose·Redis 클라이언트·공통 타입을 공용 패키지로 공유해 API 서버·워커가 동일 계약을 사용하도록 구성",
-            "인프라: Kafka로 서버·워커 간 이벤트 핸드오프, Redis로 캐시·Pub/Sub 이중 활용, PostgreSQL·MongoDB 이중 DB로 정형·비정형 데이터 분리 저장",
-            "배포: Joi 기반 env 검증, 컨테이너 헬스체크, GitHub Actions 기반 EC2 CD로 배포 안정성 확보, NAT Instance로 IPv4 할당 비용 절감"
+            "프론트엔드: 레시피·챗봇·보관함·마이페이지 UI 렌더링, 챗봇 SSE 스트림 수신",
+            "API 서버: 클라이언트 요청 실시간 처리, OAuth·JWT 인증, 챗봇 SSE 채널 발급, Kafka 이벤트 발행",
+            "이벤트 워커: Kafka 토픽 구독, 추천 점수 갱신·조회수 집계·캐시 무효화, LLM Function Calling, 챗봇 SSE Publish",
+            "인프라: Kafka로 서버·워커 간 이벤트 중계, Redis로 캐시·Pub/Sub 채널 제공, PostgreSQL·MongoDB로 정형·비정형 데이터 저장"
           ]
         },
         {
@@ -76,7 +74,7 @@
           "points": [
             "독립적인 각 단계 job과 메시지 브로커·cron으로 E2E 파이프라인 구축",
             "Optimistic Lock을 적용해 각 단계에서 메시지 재전달·cron 중복 실행 시 이중 처리 방지",
-            "OpenAI Batch API로 공공데이터 원본을 대량 비동기 변환 후 일정 주기로 폴링하여 API 비용 절감",
+            "OpenAI Batch API로 공공데이터 원본을 대량 비동기 변환 후 일정 주기로 폴링하여 동기 대비 API 비용 50% 절감",
             "난이도·조리시간·인분·단위·재료 정규화 규칙과 예시를 프롬프트에 주입해 DB 매칭 정확도 확보",
             "LLM의 파싱 신뢰도 평가를 바탕으로 고품질 레시피만 게시하여 서비스 품질 확보",
             "단계별 latency·실패율·토큰 사용량을 Pushgateway로 수집해 품질·비용 이상을 조기 탐지"
@@ -96,17 +94,18 @@
           ]
         },
         {
-          "id": "observability",
-          "title": "관측성·운영 품질",
-          "summary": "메트릭·KPI 모니터링과 장애 대응을 전제로 한 운영 품질",
-          "problem": "메트릭·KPI 모니터링과 장애 대응을 전제로 실제 운영 가능한 서비스를 목표하였습니다.",
+          "id": "operations",
+          "title": "배포·운영",
+          "summary": "비용 최적화와 관측성을 전제로 한 배포·운영",
+          "problem": "2개의 AWS EC2 인스턴스와 PaaS 조합으로 비용 최적화와 배포 안정성을 확보하고, 메트릭·KPI 모니터링과 장애 대응을 전제로 실제 운영 가능한 서비스를 목표하였습니다.",
           "points": [
             "Prometheus 메트릭 수집으로 HTTP·DB 지연·inflight·슬로우 쿼리 모니터링",
             "Grafana 알림과 Slack 채널을 연결하여 KPI 임계 신호와 장애를 조기 감지",
             "Consumer Lag 폴링으로 Kafka 병목 상시 감시",
             "제품/플랫폼 KPI 운영으로 퍼널과 시스템 건강도 추적",
             "Correlation ID 전 구간 추적으로 장애 역추적 기반 마련",
-            "시크릿 값으로 내부 SSR 트래픽과 외부 트래픽을 구분하여 rate limit 차등 적용"
+            "시크릿 값으로 내부 SSR 트래픽과 외부 트래픽을 구분하여 rate limit 차등 적용",
+            "AWS EC2 NAT Instance로 Public IPv4 비용 50% 절감"
           ]
         }
       ],

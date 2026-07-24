@@ -1,12 +1,10 @@
 import { RESUME_SUMMARY } from "@/data/career";
+import { ResumeSection } from "@/components/resume/resume-section";
 
 export function ResumeSummary() {
   return (
-    <section className="resume-section mb-5">
-      <h2 className="resume-section-title mb-2 border-b border-[#444] pb-1 text-[12pt] font-bold">
-        소개
-      </h2>
-      <p className="text-[9.5pt] leading-relaxed">{RESUME_SUMMARY}</p>
-    </section>
+    <ResumeSection title="소개">
+      <p className="text-[9.5pt] leading-relaxed text-[#222]">{RESUME_SUMMARY}</p>
+    </ResumeSection>
   );
 }

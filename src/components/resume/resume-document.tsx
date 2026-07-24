@@ -20,7 +20,7 @@ export function ResumeDocument() {
         </Button>
       </div>
 
-      <article className="resume-document bg-white px-[14mm] py-[12mm] text-[#111] shadow-sm print:px-0 print:py-0 print:shadow-none">
+      <article className="resume-document bg-white px-[14mm] py-[12mm] text-[#111] shadow-[0_1px_3px_rgba(0,0,0,0.06)] ring-1 ring-black/5 print:px-0 print:py-0 print:shadow-none print:ring-0">
         <ResumeHeader />
         <ResumeSummary />
         <ResumeSkills />

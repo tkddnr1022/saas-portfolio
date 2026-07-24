@@ -1,5 +1,4 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
 
 import { EXTERNAL_LINKS } from "@/data/links";
 import {
@@ -20,74 +19,69 @@ function displayUrl(href: string): string {
   return href.replace(/^https?:\/\//, "");
 }
 
-type InfoRow = {
-  label: string;
-  value: ReactNode;
-};
-
 export function ResumeHeader() {
   const blogHref = contactHref("blog");
 
-  const rows: InfoRow[] = [
+  const contacts = [
     {
-      label: "직무 / 경력",
-      value: (
-        <>
-          {SITE_JOB_TITLE} / {SITE_YEARS_OF_EXPERIENCE}년차
-        </>
-      ),
+      key: "email",
+      node: <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>,
     },
     {
-      label: "이메일",
-      value: (
-        <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
-      ),
-    },
-    {
-      label: "GitHub",
-      value: (
+      key: "github",
+      node: (
         <a href={SITE_GITHUB_URL} target="_blank" rel="noopener noreferrer">
-          {SITE_GITHUB_ID}
+          github.com/{SITE_GITHUB_ID}
         </a>
       ),
     },
+    ...(blogHref
+      ? [
+          {
+            key: "blog",
+            node: (
+              <a href={blogHref} target="_blank" rel="noopener noreferrer">
+                {displayUrl(blogHref)}
+              </a>
+            ),
+          },
+        ]
+      : []),
   ];
 
-  if (blogHref) {
-    rows.push({
-      label: "Blog",
-      value: (
-        <a href={blogHref} target="_blank" rel="noopener noreferrer">
-          {displayUrl(blogHref)}
-        </a>
-      ),
-    });
-  }
-
   return (
-    <header className="resume-block mb-5 flex gap-5 border-b border-[#222] pb-4">
-      <div className="relative h-[28mm] w-[22mm] shrink-0 overflow-hidden bg-[#e8e8e8] print:h-[28mm] print:w-[22mm]">
+    <header className="resume-block mb-5 flex gap-5 border-b-2 border-[#1a1a1a] pb-4">
+      <div className="relative h-[30mm] w-[24mm] shrink-0 overflow-hidden bg-[#e8e8e8] ring-1 ring-[#d0d0d0]">
         <Image
           src={SITE_PHOTO_SRC}
           alt={`${SITE_FULL_NAME} 프로필`}
           fill
           className="object-cover"
-          sizes="83px"
+          sizes="90px"
           priority
         />
       </div>
 
-      <div className="min-w-0 flex-1">
-        <h1 className="mb-3 text-[22pt] leading-none font-bold tracking-tight">{SITE_FULL_NAME}</h1>
+      <div className="flex min-w-0 flex-1 flex-col justify-center">
+        <h1 className="text-[24pt] leading-none font-bold tracking-tight">{SITE_FULL_NAME}</h1>
+        <p className="mt-1.5 text-[11pt] font-medium text-[#0f6e6e]">
+          {SITE_JOB_TITLE}
+          <span className="mx-1.5 font-normal text-[#999]">·</span>
+          <span className="font-normal text-[#444]">{SITE_YEARS_OF_EXPERIENCE}년차</span>
+        </p>
 
-        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-[9.5pt] leading-snug">
-          {rows.map((row) => (
-            <div key={row.label} className="contents">
-              <dt className="font-semibold text-[#333]">{row.label}</dt>
-              <dd className="min-w-0 break-all">{row.value}</dd>
-            </div>
+        <ul className="mt-2.5 flex flex-wrap items-center gap-x-0 gap-y-1 text-[9pt] text-[#333]">
+          {contacts.map((item, index) => (
+            <li key={item.key} className="flex items-center">
+              {index > 0 ? (
+                <span className="mx-2 select-none text-[#bbb]" aria-hidden="true">
+                  |
+                </span>
+              ) : null}
+              {item.node}
+            </li>
           ))}
-        </dl>
+        </ul>
       </div>
     </header>
   );

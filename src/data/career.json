@@ -4,12 +4,12 @@
     {
       "id": "frontend",
       "label": "Frontend",
-      "items": ["React", "Next.js", "TypeScript", "Storybook", "Figma"]
+      "items": ["Next.js", "TypeScript", "Storybook", "Figma"]
     },
     {
       "id": "backend",
       "label": "Backend",
-      "items": ["Node.js", "NestJS", "Express", "Kafka", "OpenAI API"]
+      "items": ["Node.js", "NestJS", "Kafka", "OpenAI API"]
     },
     {
       "id": "infra",
