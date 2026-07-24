@@ -9,8 +9,13 @@ export type Experience = {
   id: string;
   company: string;
   role: string;
+  tenureLabel: string;
   startDate: string;
   endDate: string | null;
+  summary: string;
+  employmentType: string;
+  stack: string[];
+  responsibilities: string[];
   achievements: Achievement[];
 };
 
@@ -19,6 +24,7 @@ export type Certification = {
   name: string;
   issuer: string;
   year: number;
+  date: string;
   credentialUrl: string;
 };
 
@@ -27,8 +33,8 @@ export type Education = {
   school: string;
   degree: string;
   field: string;
-  startYear: number;
-  endYear: number;
+  startDate: string;
+  endDate: string;
 };
 
 export type Language = {
@@ -36,6 +42,7 @@ export type Language = {
   name: string;
   level: string;
   score?: string;
+  date?: string;
   context: string;
 };
 
@@ -58,12 +65,24 @@ export const EDUCATION: Education[] = data.education;
 
 export const LANGUAGES: Language[] = data.languages;
 
-export function formatExperiencePeriod(startDate: string, endDate: string | null): string {
-  const format = (date: string) => {
-    const [year, month] = date.split("-");
-    return `${year}.${month}`;
-  };
+function formatYearMonth(date: string): string {
+  const [year, month] = date.split("-");
+  return `${year}.${month}`;
+}
 
-  const end = endDate ? format(endDate) : "Present";
-  return `${format(startDate)} – ${end}`;
+export function formatExperiencePeriod(startDate: string, endDate: string | null): string {
+  const end = endDate ? formatYearMonth(endDate) : "Present";
+  return `${formatYearMonth(startDate)} – ${end}`;
+}
+
+export function formatEducationPeriod(startDate: string, endDate: string): string {
+  return `${formatYearMonth(startDate)} ~ ${formatYearMonth(endDate)}`;
+}
+
+export function formatEducationYears(startDate: string, endDate: string): string {
+  return `${startDate.slice(0, 4)} – ${endDate.slice(0, 4)}`;
+}
+
+export function formatResumeDate(date: string): string {
+  return formatYearMonth(date);
 }

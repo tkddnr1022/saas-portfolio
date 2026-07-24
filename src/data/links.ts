@@ -1,4 +1,5 @@
 import linksData from "./links.json";
+import { SITE_EMAIL } from "./site";
 
 export type LinkIcon = "github" | "blog" | "kakao" | "mealio";
 
@@ -12,14 +13,13 @@ export type ExternalLink = {
 };
 
 export type LinksData = {
-  contactEmail: string;
   resumeHref: string;
   externalLinks: ExternalLink[];
 };
 
 const data = linksData as LinksData;
 
-export const CONTACT_EMAIL = data.contactEmail;
+export const CONTACT_EMAIL = SITE_EMAIL;
 
 export const CONTACT_HREF = `mailto:${CONTACT_EMAIL}`;
 

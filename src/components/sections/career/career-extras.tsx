@@ -2,7 +2,12 @@
 
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
-import { CERTIFICATIONS, EDUCATION, LANGUAGES } from "@/data/career";
+import {
+  CERTIFICATIONS,
+  EDUCATION,
+  LANGUAGES,
+  formatEducationYears,
+} from "@/data/career";
 import { cn } from "@/lib/utils";
 
 type CareerExtrasProps = {
@@ -47,7 +52,7 @@ export function CareerExtras({ className }: CareerExtrasProps) {
                 {edu.field} · {edu.degree}
               </p>
               <p className="font-mono text-sm tabular-nums text-muted-foreground">
-                {edu.startYear} – {edu.endYear}
+                {formatEducationYears(edu.startDate, edu.endDate)}
               </p>
             </li>
           ))}

@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Geologica, Gothic_A1 } from "next/font/google";
 
-import { Footer } from "@/components/layout/footer";
-import { Navbar } from "@/components/layout/navbar";
-import { SkipToContent } from "@/components/layout/skip-to-content";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, getSiteUrl } from "@/data/site";
@@ -69,12 +66,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <ThemeProvider>
-          <TooltipProvider>
-            <SkipToContent />
-            <Navbar />
-            <div className="flex-1">{children}</div>
-            <Footer />
-          </TooltipProvider>
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
       {gaMeasurementId ? <GoogleAnalytics gaId={gaMeasurementId} /> : null}

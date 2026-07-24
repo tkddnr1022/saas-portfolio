@@ -3,9 +3,20 @@
     {
       "id": "allcon",
       "company": "올콘텐츠앤에이아이",
-      "role": "Junior Full-Stack Engineer",
+      "role": "Full-Stack Engineer",
+      "tenureLabel": "1년",
       "startDate": "2024-12",
       "endDate": "2025-12",
+      "summary": "AI 콘텐츠 산업 기업에서 신규 프로젝트에 대한 클라이언트/서버 설계 및 개발, UX 기획, 인프라 관리 직무를 수행하였습니다.",
+      "employmentType": "정규직",
+      "stack": ["Next.js", "Node.js", "MySQL", "AWS"],
+      "responsibilities": [
+        "프론트엔드: Next.js 기반 플랫폼/CMS 클라이언트 설계 및 개발",
+        "백엔드: Node.js 기반 API/파일 서버 설계 및 개발",
+        "클라우드: AWS EC2/S3/Elasticache 인스턴스 관리",
+        "인프라: GPU 서버/NAS/UPS 설치 및 관리",
+        "기획: 신규 프로젝트 UX 기획 참여"
+      ],
       "achievements": [
         {
           "text": "기존 플랫폼 SSR Placeholder, 스켈레톤 UI 구현으로 CLS 개선",
@@ -34,6 +45,7 @@
       "name": "정보처리기사",
       "issuer": "한국산업인력공단",
       "year": 2025,
+      "date": "2025-12",
       "credentialUrl": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320"
     }
   ],
@@ -43,8 +55,8 @@
       "school": "전북대학교",
       "degree": "학사",
       "field": "컴퓨터공학",
-      "startYear": 2019,
-      "endYear": 2025
+      "startDate": "2019-03",
+      "endDate": "2025-08"
     }
   ],
   "languages": [
@@ -53,6 +65,7 @@
       "name": "영어",
       "level": "Business",
       "score": "TOEIC 835",
+      "date": "2024-08",
       "context": "기술 문서 독해, RFC·스펙 리뷰"
     }
   ]

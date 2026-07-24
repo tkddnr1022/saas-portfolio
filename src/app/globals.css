@@ -236,3 +236,50 @@
     scroll-behavior: auto;
   }
 }
+
+/* Resume print stylesheet */
+.resume-document {
+  font-family: var(--font-gothic-a1), "Malgun Gothic", sans-serif;
+  color: #111;
+}
+
+.resume-document a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .resume-root {
+    background: #fff !important;
+  }
+
+  .resume-document {
+    box-shadow: none !important;
+    max-width: none !important;
+  }
+
+  .resume-section-title,
+  .resume-entry {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+  .resume-document a {
+    text-decoration: underline !important;
+  }
+}
+

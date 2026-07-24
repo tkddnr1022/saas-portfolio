@@ -4,6 +4,12 @@ export type SiteData = {
   name: string;
   title: string;
   description: string;
+  fullName: string;
+  jobTitle: string;
+  yearsOfExperience: number;
+  photoSrc: string;
+  email: string;
+  githubId: string;
 };
 
 const data = siteData as SiteData;
@@ -11,6 +17,13 @@ const data = siteData as SiteData;
 export const SITE_NAME = data.name;
 export const SITE_TITLE = data.title;
 export const SITE_DESCRIPTION = data.description;
+export const SITE_FULL_NAME = data.fullName;
+export const SITE_JOB_TITLE = data.jobTitle;
+export const SITE_YEARS_OF_EXPERIENCE = data.yearsOfExperience;
+export const SITE_PHOTO_SRC = data.photoSrc;
+export const SITE_EMAIL = data.email;
+export const SITE_GITHUB_ID = data.githubId;
+export const SITE_GITHUB_URL = `https://github.com/${data.githubId}`;
 
 /** Absolute site origin for metadata, sitemap, and robots. */
 export function getSiteUrl(): string {
