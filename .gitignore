@@ -46,3 +46,6 @@ next-env.d.ts
 
 # content
 content/
+
+# resume pdf
+/public/resume.pdf
