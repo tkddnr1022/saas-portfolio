@@ -94,7 +94,7 @@ async function stopServer(child: ChildProcess | null): Promise<void> {
   });
 }
 
-async function ensureChromium(): Promise<void> {
+async function ensurePlaywrightChromium(): Promise<void> {
   const { execFileSync } = await import("node:child_process");
   const playwrightCli = path.join(
     process.cwd(),
@@ -109,11 +109,34 @@ async function ensureChromium(): Promise<void> {
   });
 }
 
+async function launchBrowser(): Promise<Browser> {
+  // Vercel build/runtime lacks Playwright Chromium system libs (e.g. libnspr4.so).
+  if (process.env.VERCEL) {
+    const sparticuz = (await import("@sparticuz/chromium")).default;
+    sparticuz.setGraphicsMode = false;
+
+    const executablePath = await sparticuz.executablePath();
+    const execDir = path.dirname(executablePath);
+    process.env.LD_LIBRARY_PATH = process.env.LD_LIBRARY_PATH
+      ? `${execDir}${path.delimiter}${process.env.LD_LIBRARY_PATH}`
+      : execDir;
+
+    return chromium.launch({
+      args: sparticuz.args,
+      executablePath,
+      headless: true,
+    });
+  }
+
+  await ensurePlaywrightChromium();
+  return chromium.launch({ headless: true });
+}
+
 async function printResumePdf(baseUrl: string): Promise<void> {
   let browser: Browser | null = null;
 
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await launchBrowser();
     const page = await browser.newPage();
 
     await page.emulateMedia({ media: "print" });
@@ -142,8 +165,6 @@ async function main(): Promise<void> {
   let startedServer = false;
 
   try {
-    await ensureChromium();
-
     if (!(await isResumeReady(baseUrl))) {
       console.log(`Starting next start on port ${port}…`);
       server = startNextServer(port);
