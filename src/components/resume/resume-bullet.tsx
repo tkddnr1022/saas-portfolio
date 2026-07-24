@@ -6,8 +6,8 @@ type ResumeBulletProps = {
 };
 
 const MARKER = {
-  accent: { char: "▸", className: "text-[#0f6e6e]" },
-  muted: { char: "·", className: "text-[#888]" },
+  accent: { char: "▸", className: "resume-accent" },
+  muted: { char: "·", className: "text-neutral-500" },
 } as const;
 
 export function ResumeBullet({ children, marker = "accent" }: ResumeBulletProps) {

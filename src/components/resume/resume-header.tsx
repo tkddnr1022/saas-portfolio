@@ -50,8 +50,8 @@ export function ResumeHeader() {
   ];
 
   return (
-    <header className="resume-block mb-5 flex gap-5 border-b-2 border-[#1a1a1a] pb-4">
-      <div className="relative h-[30mm] w-[24mm] shrink-0 overflow-hidden bg-[#e8e8e8] ring-1 ring-[#d0d0d0]">
+    <header className="resume-block mb-6 flex gap-6 border-b-2 border-neutral-900 pb-5">
+      <div className="resume-photo relative shrink-0 overflow-hidden bg-neutral-200 ring-1 ring-neutral-300">
         <Image
           src={SITE_PHOTO_SRC}
           alt={`${SITE_FULL_NAME} 프로필`}
@@ -63,18 +63,18 @@ export function ResumeHeader() {
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col justify-center">
-        <h1 className="text-[24pt] leading-none font-bold tracking-tight">{SITE_FULL_NAME}</h1>
-        <p className="mt-1.5 text-[11pt] font-medium text-[#0f6e6e]">
+        <h1 className="resume-name leading-none font-bold tracking-tight">{SITE_FULL_NAME}</h1>
+        <p className="resume-job mt-2 font-medium">
           {SITE_JOB_TITLE}
-          <span className="mx-1.5 font-normal text-[#999]">·</span>
-          <span className="font-normal text-[#444]">{SITE_YEARS_OF_EXPERIENCE}년차</span>
+          <span className="mx-1.5 font-normal text-neutral-400">·</span>
+          <span className="font-normal text-neutral-700">{SITE_YEARS_OF_EXPERIENCE}년차</span>
         </p>
 
-        <ul className="mt-2.5 flex flex-wrap items-center gap-x-0 gap-y-1 text-[9pt] text-[#333]">
+        <ul className="resume-contact mt-3 flex flex-wrap items-center gap-x-0 gap-y-1 text-neutral-700">
           {contacts.map((item, index) => (
             <li key={item.key} className="flex items-center">
               {index > 0 ? (
-                <span className="mx-2 select-none text-[#bbb]" aria-hidden="true">
+                <span className="mx-2 select-none text-neutral-400" aria-hidden="true">
                   |
                 </span>
               ) : null}

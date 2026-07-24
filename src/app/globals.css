@@ -238,9 +238,14 @@
 }
 
 /* Resume print stylesheet */
+.resume-shell {
+  max-width: 210mm;
+}
+
 .resume-document {
   font-family: var(--font-gothic-a1), "Malgun Gothic", sans-serif;
   color: #111;
+  padding: 14mm 16mm;
 }
 
 .resume-document a {
@@ -249,12 +254,54 @@
   text-underline-offset: 2px;
 }
 
+.resume-photo {
+  width: 24mm;
+  height: 30mm;
+}
+
+.resume-name {
+  font-size: 24pt;
+}
+
+.resume-job {
+  font-size: 11pt;
+  color: #0f6e6e;
+}
+
+.resume-contact {
+  font-size: 9pt;
+}
+
+.resume-text {
+  font-size: 9.5pt;
+}
+
+.resume-text-sm {
+  font-size: 9pt;
+}
+
+.resume-text-xs {
+  font-size: 8.5pt;
+}
+
+.resume-title {
+  font-size: 11pt;
+}
+
+.resume-label {
+  width: 4.2em;
+}
+
+.resume-accent {
+  color: #0f6e6e;
+}
+
 .resume-section-title {
   display: flex;
   align-items: center;
-  gap: 0.45em;
-  margin-bottom: 0.55em;
-  padding-bottom: 0.3em;
+  gap: 0.5em;
+  margin-bottom: 0.65em;
+  padding-bottom: 0.35em;
   border-bottom: 1px solid #d4d4d4;
   font-size: 11pt;
   font-weight: 700;
@@ -275,7 +322,7 @@
 @media print {
   @page {
     size: A4;
-    margin: 12mm 14mm;
+    margin: 14mm 16mm;
   }
 
   html,
@@ -289,6 +336,7 @@
   }
 
   .resume-document {
+    padding: 0 !important;
     box-shadow: none !important;
     max-width: none !important;
   }

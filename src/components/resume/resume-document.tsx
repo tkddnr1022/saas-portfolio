@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 
 export function ResumeDocument() {
   return (
-    <div className="mx-auto flex w-full max-w-[210mm] flex-col gap-4 px-4 py-6 print:max-w-none print:gap-0 print:p-0">
+    <div className="resume-shell mx-auto flex w-full flex-col gap-4 px-4 py-6 print:max-w-none print:gap-0 print:p-0">
       <div className="print:hidden flex justify-end">
         <Button type="button" size="lg" onClick={() => window.print()}>
           <Printer aria-hidden="true" />
@@ -20,7 +20,7 @@ export function ResumeDocument() {
         </Button>
       </div>
 
-      <article className="resume-document bg-white px-[14mm] py-[12mm] text-[#111] shadow-[0_1px_3px_rgba(0,0,0,0.06)] ring-1 ring-black/5 print:px-0 print:py-0 print:shadow-none print:ring-0">
+      <article className="resume-document bg-white text-neutral-900 shadow-sm ring-1 ring-black/5 print:shadow-none print:ring-0">
         <ResumeHeader />
         <ResumeSummary />
         <ResumeSkills />

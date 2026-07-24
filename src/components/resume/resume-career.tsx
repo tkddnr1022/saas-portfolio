@@ -6,44 +6,42 @@ import { ResumeSection } from "@/components/resume/resume-section";
 export function ResumeCareer() {
   return (
     <ResumeSection title="경력">
-      <ul className="space-y-4">
+      <ul className="space-y-5">
         {EXPERIENCES.map((experience) => (
           <li key={experience.id} className="resume-entry break-inside-avoid">
-            <div className="mb-1.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+            <div className="mb-2 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
               <div className="flex flex-wrap items-baseline gap-x-2">
-                <strong className="text-[11pt] font-bold">{experience.company}</strong>
-                <span className="text-[9.5pt] text-[#555]">
+                <strong className="resume-title font-bold">{experience.company}</strong>
+                <span className="resume-text text-neutral-600">
                   {experience.role}
-                  <span className="mx-1 text-[#ccc]">·</span>
+                  <span className="mx-1 text-neutral-300">·</span>
                   {experience.employmentType}
-                  <span className="mx-1 text-[#ccc]">·</span>
+                  <span className="mx-1 text-neutral-300">·</span>
                   {experience.tenureLabel}
                 </span>
               </div>
-              <span className="shrink-0 text-[9pt] tabular-nums text-[#666]">
+              <span className="resume-text-sm shrink-0 tabular-nums text-neutral-500">
                 {formatResumePeriod(experience.startDate, experience.endDate)}
               </span>
             </div>
 
-            <p className="text-[9.5pt] leading-relaxed text-[#333]">{experience.summary}</p>
+            <p className="resume-text leading-relaxed text-neutral-700">{experience.summary}</p>
 
-            <p className="mt-1 text-[8.5pt] text-[#666]">
-              <span className="font-semibold text-[#444]">Stack</span>
-              <span className="mx-1.5 text-[#ccc]">·</span>
+            <p className="resume-text-xs mt-1 text-neutral-500">
+              <span className="font-semibold text-neutral-700">Stack</span>
+              <span className="mx-1.5 text-neutral-300">·</span>
               {experience.stack.join(", ")}
             </p>
 
             {experience.achievements.length > 0 ? (
               <div className="mt-2">
-                <p className="mb-0.5 text-[9pt] font-bold text-[#1a1a1a]">주요 성과</p>
-                <ul className="space-y-0.5 text-[9.5pt] leading-relaxed">
+                <p className="resume-text-sm mb-0.5 font-bold text-neutral-900">주요 성과</p>
+                <ul className="resume-text space-y-0.5 leading-relaxed">
                   {experience.achievements.map((item) => (
                     <ResumeBullet key={item.text}>
                       {item.text}
                       {item.metric ? (
-                        <span className="ml-1 font-semibold text-[#0f6e6e]">
-                          ({item.metric})
-                        </span>
+                        <span className="resume-accent ml-1 font-semibold">({item.metric})</span>
                       ) : null}
                     </ResumeBullet>
                   ))}
@@ -53,8 +51,8 @@ export function ResumeCareer() {
 
             {experience.responsibilities.length > 0 ? (
               <div className="mt-2">
-                <p className="mb-0.5 text-[9pt] font-bold text-[#1a1a1a]">담당 업무</p>
-                <ul className="space-y-0.5 text-[9.5pt] leading-relaxed">
+                <p className="resume-text-sm mb-0.5 font-bold text-neutral-900">담당 업무</p>
+                <ul className="resume-text space-y-0.5 leading-relaxed">
                   {experience.responsibilities.map((item) => (
                     <ResumeBullet key={item} marker="muted">
                       {item}
