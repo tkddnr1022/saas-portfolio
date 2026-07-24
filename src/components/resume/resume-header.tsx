@@ -57,7 +57,7 @@ export function ResumeHeader() {
           alt={`${SITE_FULL_NAME} 프로필`}
           fill
           className="object-cover"
-          sizes="90px"
+          unoptimized
           priority
         />
       </div>
