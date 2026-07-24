@@ -46,7 +46,15 @@ export type Language = {
   context: string;
 };
 
+export type ResumeStack = {
+  id: string;
+  label: string;
+  items: string[];
+};
+
 export type CareerData = {
+  summary: string;
+  stacks: ResumeStack[];
   experiences: Experience[];
   certifications: Certification[];
   education: Education[];
@@ -54,6 +62,10 @@ export type CareerData = {
 };
 
 const data = careerData as CareerData;
+
+export const RESUME_SUMMARY = data.summary;
+
+export const RESUME_STACKS: ResumeStack[] = data.stacks;
 
 export const EXPERIENCES: Experience[] = [...data.experiences].sort((a, b) =>
   b.startDate.localeCompare(a.startDate),

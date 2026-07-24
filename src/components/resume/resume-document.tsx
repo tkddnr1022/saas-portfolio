@@ -6,6 +6,8 @@ import { ResumeCareer } from "@/components/resume/resume-career";
 import { ResumeHeader } from "@/components/resume/resume-header";
 import { ResumeMeta } from "@/components/resume/resume-meta";
 import { ResumeProjects } from "@/components/resume/resume-projects";
+import { ResumeSkills } from "@/components/resume/resume-skills";
+import { ResumeSummary } from "@/components/resume/resume-summary";
 import { Button } from "@/components/ui/button";
 
 export function ResumeDocument() {
@@ -20,6 +22,8 @@ export function ResumeDocument() {
 
       <article className="resume-document bg-white px-[14mm] py-[12mm] text-[#111] shadow-sm print:px-0 print:py-0 print:shadow-none">
         <ResumeHeader />
+        <ResumeSummary />
+        <ResumeSkills />
         <ResumeCareer />
         <ResumeProjects />
         <ResumeMeta />

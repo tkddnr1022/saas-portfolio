@@ -1,4 +1,27 @@
 {
+  "summary": "Next.js/Node.js 기반 풀스택 실무 1년. 대용량 파일 처리 파이프라인, 이벤트 기반 아키텍처, LLM 연동 서비스를 설계·구현했습니다. 프론트엔드부터 API·인프라까지 제품 전 구간을 책임지며, 성능·확장성·운영 안정성을 함께 고려합니다.",
+  "stacks": [
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "Storybook", "Figma"]
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "items": ["Node.js", "NestJS", "Express", "Kafka", "OpenAI API"]
+    },
+    {
+      "id": "infra",
+      "label": "Infra",
+      "items": ["Docker", "AWS", "Prometheus", "Grafana", "Sentry"]
+    },
+    {
+      "id": "db",
+      "label": "DB",
+      "items": ["PostgreSQL", "MongoDB", "Redis"]
+    }
+  ],
   "experiences": [
     {
       "id": "allcon",
