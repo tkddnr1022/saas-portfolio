@@ -1,6 +1,7 @@
 import {
   formatResumePeriod,
   getPointText,
+  isResumeModule,
   isResumePoint,
   RESUME_PROJECTS,
   type ProjectDetail,
@@ -10,6 +11,7 @@ import { ResumeSection } from "@/components/resume/resume-section";
 
 function ProjectEntry({ project }: { project: ProjectDetail }) {
   const liveHost = project.liveUrl?.replace(/^https?:\/\//, "");
+  const resumeModules = project.modules.filter(isResumeModule);
 
   return (
     <li className="resume-entry space-y-2 border-t border-neutral-200 pt-4 first:border-t-0 first:pt-0">
@@ -47,9 +49,9 @@ function ProjectEntry({ project }: { project: ProjectDetail }) {
         </p>
       </div>
 
-      {project.modules.length > 0 ? (
+      {resumeModules.length > 0 ? (
         <ul className="mt-2 space-y-2">
-          {project.modules.map((module) => (
+          {resumeModules.map((module) => (
             <li key={module.id} className="break-inside-avoid">
               <p className="resume-text font-bold text-neutral-900">{module.title}</p>
               <p className="resume-text-sm mt-0.5 leading-relaxed text-neutral-600">

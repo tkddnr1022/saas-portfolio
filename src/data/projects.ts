@@ -14,6 +14,7 @@ export type ProjectModule = {
   problem: string;
   points: ProjectPoint[];
   image?: string;
+  showResume?: boolean;
 };
 
 export function getPointText(point: ProjectPoint): string {
@@ -22,6 +23,10 @@ export function getPointText(point: ProjectPoint): string {
 
 export function isResumePoint(point: ProjectPoint): boolean {
   return typeof point === "string" ? true : point.showResume !== false;
+}
+
+export function isResumeModule(module: ProjectModule): boolean {
+  return module.showResume !== false;
 }
 
 export type ProjectDetail = {
