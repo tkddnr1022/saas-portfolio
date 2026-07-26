@@ -9,9 +9,24 @@ import {
 import { ResumeBullet } from "@/components/resume/resume-bullet";
 import { ResumeSection } from "@/components/resume/resume-section";
 
+const PROJECT_LINK_LABELS = [
+  { key: "liveUrl", label: "Live" },
+  { key: "figmaUrl", label: "Figma" },
+  { key: "githubUrl", label: "GitHub" },
+] as const;
+
 function ProjectEntry({ project }: { project: ProjectDetail }) {
-  const liveHost = project.liveUrl?.replace(/^https?:\/\//, "");
   const resumeModules = project.modules.filter(isResumeModule);
+  const projectLinks = [
+    ...PROJECT_LINK_LABELS.flatMap(({ key, label }) => {
+      const href = project[key];
+      return href ? [{ label, href }] : [];
+    }),
+    ...(project.blogPosts ?? []).map((post) => ({
+      label: post.title,
+      href: post.href,
+    })),
+  ];
 
   return (
     <li className="resume-entry space-y-2 border-t border-neutral-200 pt-4 first:border-t-0 first:pt-0">
@@ -31,21 +46,15 @@ function ProjectEntry({ project }: { project: ProjectDetail }) {
         <p className="resume-text-xs mt-1 leading-snug text-neutral-500">
           <span className="font-semibold text-neutral-700">{project.type}</span>
           <span className="mx-1.5 text-neutral-300">·</span>
-          {project.role}
-          <span className="mx-1.5 text-neutral-300">·</span>
           {project.stack.join(", ")}
-          {liveHost && project.liveUrl ? (
-            <>
+          {projectLinks.map(({ label, href }) => (
+            <span key={href}>
               <span className="mx-1.5 text-neutral-300">·</span>
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {liveHost}
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                {label}
               </a>
-            </>
-          ) : null}
+            </span>
+          ))}
         </p>
       </div>
 

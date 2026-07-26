@@ -30,13 +30,17 @@ export function isResumeModule(module: ProjectModule): boolean {
   return module.showResume !== false;
 }
 
+export type ProjectBlogPost = {
+  title: string;
+  href: string;
+};
+
 export type ProjectDetail = {
   slug: string;
   name: string;
   tagline: string;
   overview: string;
   type: string;
-  role: string;
   stack: string[];
   startDate: string;
   endDate: string | null;
@@ -47,6 +51,8 @@ export type ProjectDetail = {
   docsUrl?: string;
   figmaUrl?: string;
   banner?: string;
+  /** Related blog posts to attach on the project page. */
+  blogPosts?: ProjectBlogPost[];
   modules: ProjectModule[];
 };
 

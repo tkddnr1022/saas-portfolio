@@ -153,7 +153,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
       ) : null}
 
       <motion.dl
-        className="relative z-10 mt-10 grid w-full max-w-3xl gap-4 border-t border-border px-6 pt-8 sm:grid-cols-3"
+        className="relative z-10 mt-10 grid w-full max-w-3xl gap-4 border-t border-border px-6 pt-8 sm:grid-cols-2"
         initial="hidden"
         animate="visible"
         variants={variants}
@@ -165,13 +165,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           </dt>
           <dd className="font-medium">{project.type}</dd>
         </div>
-        <div className="space-y-1">
-          <dt className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            참여 역할
-          </dt>
-          <dd className="font-medium">{project.role}</dd>
-        </div>
-        <div className="space-y-2 sm:col-span-1">
+        <div className="space-y-2">
           <dt className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
             주요 기술
           </dt>

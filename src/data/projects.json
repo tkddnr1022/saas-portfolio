@@ -6,16 +6,7 @@
       "tagline": "AI 기반 맞춤형 레시피 추천 플랫폼",
       "overview": "보유 재료와 대화 맥락을 바탕으로 레시피를 추천하는 AI 챗봇 서비스를 풀스택으로 설계·개발한 개인 프로젝트입니다. 캐싱으로 레시피 검색 응답 시간을 약 66% 단축했고, Batch API·NAT Instance 등으로 API·인프라 비용을 각각 최대 50% 절감했습니다.",
       "type": "개인 프로젝트",
-      "role": "기획, 설계, 개발",
-      "stack": [
-        "Next.js",
-        "NestJS",
-        "PostgreSQL",
-        "MongoDB",
-        "Redis",
-        "Kafka",
-        "OpenAI API"
-      ],
+      "stack": ["Next.js", "NestJS", "PostgreSQL", "MongoDB", "Redis", "Kafka"],
       "startDate": "2026-01",
       "endDate": "2026-06",
       "githubUrl": "https://github.com/tkddnr1022/mealio",
@@ -23,6 +14,16 @@
       "docsUrl": "https://docs.mealio.site",
       "figmaUrl": "https://www.figma.com/design/r9bdZPeswvPR1ncezzt4ri/Mealio",
       "banner": "/images/mealio/banner.png",
+      "blogPosts": [
+        {
+          "title": "Post1",
+          "href": "https://blog.sanguk.site/posts/2026-04-04-design-system-with-ai"
+        },
+        {
+          "title": "Post2",
+          "href": "https://blog.sanguk.site/posts/2026-07-25-agentic-rag-chatbot"
+        }
+      ],
       "modules": [
         {
           "id": "architecture",
@@ -30,9 +31,7 @@
           "summary": "실시간 요청과 이벤트 기반 비동기 처리를 분리한 백엔드 구조",
           "problem": "챗봇 응답 생성, 행동 이벤트 집계처럼 처리 시간이 긴 작업을 API 응답 과정에서 배제하고자 하였습니다. 실시간 요청 처리와 이벤트 기반 비동기 처리를 분리하는 것을 핵심 설계 과제로 삼았고, 백엔드를 API 서버와 이벤트 처리 워커로 나누어 Kafka로 연결했습니다.",
           "image": "/images/mealio/architecture.svg",
-          "points": [
-            "이벤트 기반 비동기 처리 구조로 서비스 간 결합도 완화 및 체감 응답 속도 향상"
-          ]
+          "points": ["이벤트 기반 비동기 처리 구조로 서비스 간 결합도 완화 및 체감 응답 속도 향상"]
         },
         {
           "id": "db-design",
@@ -62,7 +61,7 @@
               "showResume": false
             },
             "스트림 채널 단위 멱등 과금으로 중복 요청·재시도 시 크레딧 이중 차감 방지",
-            "OpenAI Completions API -> Responses API 마이그레이션으로 10턴 세션 기준 요청 body 약 30% 절감"
+            "OpenAI Completions API → Responses API 마이그레이션으로 10턴 세션 기준 요청 body 약 30% 절감"
           ]
         },
         {
@@ -119,17 +118,12 @@
       "tagline": "AI 웹툰 번역 플랫폼",
       "overview": "자사 AI 웹툰 번역 서비스를 B2C에서 B2B로 확장하기 위해, 단일 파일 처리 구조를 스튜디오·퍼블리셔용 대용량·다중 파일 처리로 확장하였습니다. 비동기 스트림·I/O 최적화와 작업 큐 기반 다중 프로세스 아키텍처를 설계해 건당 100GB 이상의 업로드 성능을 달성했습니다.",
       "type": "사내 프로젝트",
-      "role": "백엔드 설계 및 구현",
-      "stack": [
-        "Node.js",
-        "Prisma",
-        "MySQL",
-        "Redis"
-      ],
+      "stack": ["Node.js", "Prisma", "MySQL", "Redis"],
       "startDate": "2025-07",
       "endDate": "2025-09",
       "showSite": false,
       "showResume": true,
+      "blogPosts": [],
       "modules": [
         {
           "id": "architecture",
@@ -162,17 +156,13 @@
       "tagline": "K-콘텐츠 IP 거래 플랫폼",
       "overview": "K콘텐츠 온라인 IP 거래를 위한 B2B 서비스 신규 프로젝트에서 플랫폼·CMS를 개발하였습니다. SSR로 메인 페이지 FCP를 40% 단축하고, 스켈레톤 UI로 CLS를 0.1 이하로 안정화했습니다.",
       "type": "사내 프로젝트(올콘텐츠앤에이아이)",
-      "role": "프론트엔드 설계 및 개발",
-      "stack": [
-        "Next.js",
-        "TanStack Query",
-        "React Admin",
-        "Docusaurus"
-      ],
+      "stack": ["Next.js", "TanStack Query", "React Admin", "Docusaurus"],
       "startDate": "2025-04",
       "endDate": "2025-07",
+      "liveUrl": "https://kcontentsmarket.com",
       "showSite": false,
       "showResume": true,
+      "blogPosts": [],
       "modules": [
         {
           "id": "platform",
@@ -232,17 +222,13 @@
       "tagline": "위치 기반 QR 출석 서비스",
       "overview": "강의 출석을 모바일로 간편하고 정확하게 처리하기 위해 기획부터 개발까지 전담한 개인 프로젝트입니다. QR·딥링크로 출석 UX는 단순화하면서도, 서버에서 시간·위치·유저·디바이스를 다층 검증해 대리·원격 출석을 원천 차단하는 구조를 설계했습니다. 참조 분리형 MongoDB 스키마와 헬스체크·인가·예외 코드 체계로 데이터 무결성과 운영 안정성을 함께 확보했습니다.",
       "type": "개인 프로젝트",
-      "role": "기획, 설계, 개발",
-      "stack": [
-        "React Native",
-        "Nest.js",
-        "MongoDB"
-      ],
+      "stack": ["React Native", "Nest.js", "MongoDB"],
       "startDate": "2024-09",
       "endDate": "2024-11",
       "githubUrl": "https://github.com/tkddnr1022/Class-Manager",
       "docsUrl": "https://powerful-aries-478.notion.site/8f9462fd3f6641c2b224bc0a5b3a12de?pvs=4",
       "banner": "/images/class-manager/banner.png",
+      "blogPosts": [],
       "modules": [
         {
           "id": "db-design",
