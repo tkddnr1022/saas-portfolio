@@ -78,7 +78,7 @@
             "Optimistic Lock을 적용해 각 단계에서 메시지 재전달·cron 중복 실행 시 이중 처리 방지",
             "OpenAI Batch API로 공공데이터 원본을 대량 비동기 변환 후 일정 주기로 폴링하여 동기 대비 API 비용 50% 절감",
             {
-              "text": "레시피 이미지를 S3·CloudFront로 호스팅하여 원본 URL 대비 LCP 약 2배 개선",
+              "text": "원본 이미지를 리사이즈·압축·CDN 호스팅하여 원본 URL 사용 대비 LCP 약 3배 개선",
               "showResume": false
             }
           ]
