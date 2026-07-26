@@ -54,9 +54,6 @@ function ProjectEntry({ project }: { project: ProjectDetail }) {
           {resumeModules.map((module) => (
             <li key={module.id} className="break-inside-avoid">
               <p className="resume-text font-bold text-neutral-900">{module.title}</p>
-              <p className="resume-text-sm mt-0.5 leading-relaxed text-neutral-600">
-                {module.problem}
-              </p>
               <ul className="resume-text mt-0.5 space-y-0.5 leading-relaxed">
                 {module.points.filter(isResumePoint).map((point) => {
                   const text = getPointText(point);

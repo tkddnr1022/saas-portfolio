@@ -11,6 +11,7 @@ export type ProjectModule = {
   id: string;
   title: string;
   summary: string;
+  /** Site-only narrative. Never shown on the resume (`showResume: false` fixed). */
   problem: string;
   points: ProjectPoint[];
   image?: string;
