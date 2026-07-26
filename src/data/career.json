@@ -1,20 +1,20 @@
 {
-  "summary": "Next.js/Node.js 기반 풀스택 실무 1년. 대용량 파일 처리 파이프라인, 이벤트 기반 아키텍처, LLM 연동 서비스를 설계·구현했습니다. 프론트엔드부터 API·인프라까지 제품 전 구간을 책임지며, 성능·확장성·운영 안정성을 함께 고려합니다.",
+  "summary": "대용량 트래픽과 비동기 처리가 필요한 백엔드 문제에 강점이 있는 1년차 풀스택 엔지니어입니다. 파일 서버를 단일 업로드에서 건당 100GB 이상 병렬 처리 구조로 확장했고, 프론트엔드에서는 SSR 최적화로 FCP를 40% 단축한 경험이 있습니다. 시니어 개발자와의 페어 프로그래밍·코드 리뷰를 통해 실무 컨벤션을 빠르게 체화했습니다.",
   "stacks": [
     {
       "id": "frontend",
       "label": "Frontend",
-      "items": ["Next.js", "TypeScript", "Storybook", "Figma"]
+      "items": ["Next.js", "Storybook", "Figma"]
     },
     {
       "id": "backend",
       "label": "Backend",
-      "items": ["Node.js", "NestJS", "Kafka", "OpenAI API"]
+      "items": ["NestJS", "Kafka", "OpenAI API"]
     },
     {
       "id": "infra",
       "label": "Infra",
-      "items": ["Docker", "AWS", "Prometheus", "Grafana", "Sentry"]
+      "items": ["Docker", "AWS", "Sentry"]
     },
     {
       "id": "db",

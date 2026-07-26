@@ -49,3 +49,5 @@ content/
 
 # resume pdf
 /public/resume.pdf
+
+.temp/
