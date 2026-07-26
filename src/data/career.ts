@@ -15,7 +15,6 @@ export type Experience = {
   summary: string;
   employmentType: string;
   stack: string[];
-  responsibilities: string[];
   achievements: Achievement[];
 };
 

@@ -48,19 +48,6 @@ export function ResumeCareer() {
                 </ul>
               </div>
             ) : null}
-
-            {experience.responsibilities.length > 0 ? (
-              <div className="mt-2">
-                <p className="resume-text-sm mb-0.5 font-bold text-neutral-900">담당 업무</p>
-                <ul className="resume-text space-y-0.5 leading-relaxed">
-                  {experience.responsibilities.map((item) => (
-                    <ResumeBullet key={item} marker="muted">
-                      {item}
-                    </ResumeBullet>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
           </li>
         ))}
       </ul>
