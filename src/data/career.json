@@ -9,7 +9,7 @@
     {
       "id": "backend",
       "label": "Backend",
-      "items": ["NestJS", "Kafka", "OpenAI API"]
+      "items": ["NestJS", "Kafka", "Prisma"]
     },
     {
       "id": "infra",
