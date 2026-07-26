@@ -341,9 +341,14 @@
     max-width: none !important;
   }
 
-  .resume-section-title,
-  .resume-entry {
+  .resume-section-title {
+    break-after: avoid;
     break-inside: avoid;
+  }
+
+  /* Keep small atomic blocks together; allow large entries to split */
+  .resume-entry {
+    break-inside: auto;
   }
 
   a {
