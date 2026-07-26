@@ -58,10 +58,10 @@ export const PROJECT_DETAILS: ProjectDetail[] = ALL_PROJECTS.filter(
   (project) => project.showSite,
 );
 
-/** Projects included in the resume print page, sorted by startDate ascending. */
+/** Projects included in the resume print page, sorted by startDate descending. */
 export const RESUME_PROJECTS: ProjectDetail[] = ALL_PROJECTS.filter(
   (project) => project.showResume,
-).sort((a, b) => a.startDate.localeCompare(b.startDate));
+).sort((a, b) => b.startDate.localeCompare(a.startDate));
 
 export function getProjectBySlug(slug: string): ProjectDetail | undefined {
   return PROJECT_DETAILS.find((project) => project.slug === slug);
