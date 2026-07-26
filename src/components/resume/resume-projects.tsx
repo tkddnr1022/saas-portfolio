@@ -1,5 +1,7 @@
 import {
   formatResumePeriod,
+  getPointText,
+  isResumePoint,
   RESUME_PROJECTS,
   type ProjectDetail,
 } from "@/data/projects";
@@ -54,9 +56,10 @@ function ProjectEntry({ project }: { project: ProjectDetail }) {
                 {module.problem}
               </p>
               <ul className="resume-text mt-0.5 space-y-0.5 leading-relaxed">
-                {module.points.map((point) => (
-                  <ResumeBullet key={point}>{point}</ResumeBullet>
-                ))}
+                {module.points.filter(isResumePoint).map((point) => {
+                  const text = getPointText(point);
+                  return <ResumeBullet key={text}>{text}</ResumeBullet>;
+                })}
               </ul>
             </li>
           ))}

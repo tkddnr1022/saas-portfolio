@@ -1,13 +1,28 @@
 import projectsData from "./projects.json";
 
+export type ProjectPoint =
+  | string
+  | {
+      text: string;
+      showResume?: boolean;
+    };
+
 export type ProjectModule = {
   id: string;
   title: string;
   summary: string;
   problem: string;
-  points: string[];
+  points: ProjectPoint[];
   image?: string;
 };
+
+export function getPointText(point: ProjectPoint): string {
+  return typeof point === "string" ? point : point.text;
+}
+
+export function isResumePoint(point: ProjectPoint): boolean {
+  return typeof point === "string" ? true : point.showResume !== false;
+}
 
 export type ProjectDetail = {
   slug: string;

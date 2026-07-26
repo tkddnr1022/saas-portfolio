@@ -55,7 +55,15 @@
           "problem": "단순 Q&A에서 벗어나 보유 재료와 대화 맥락에 맞는 추천을 제공하고자 하였습니다. LLM이 필요할 때 도메인 데이터를 직접 호출해 활용하는 Function Calling 구조를 도입했고, 과금 안정성과 외부 호출 실패까지 함께 고려하였습니다.",
           "image": "/images/mealio/chatbot.svg",
           "points": [
+            {
+              "text": "시맨틱 검색·질의 확장·가중치 정렬로 LLM 컨텍스트 품질 확보, 도메인 함수를 도구 형태로 분리해 데이터 소스 확장 용이성 확보",
+              "showResume": false
+            },
             "메시지 브로커를 통해 LLM 처리를 백그라운드 워커로 분리, Redis·SSE로 응답 청크 실시간 전달하는 비동기 스트리밍 파이프라인 구축",
+            {
+              "text": "지수 백오프 재시도와 DLQ를 두어 LLM·외부 호출 실패를 격리하고 실패 전파 범위를 제한",
+              "showResume": false
+            },
             "스트림 채널 단위 멱등 과금으로 중복 요청·재시도 시 크레딧 이중 차감 방지",
             "OpenAI Completions API -> Responses API 마이그레이션으로 10턴 세션 기준 요청 body 약 30% 절감"
           ]
@@ -68,7 +76,11 @@
           "image": "/images/mealio/etl.svg",
           "points": [
             "Optimistic Lock을 적용해 각 단계에서 메시지 재전달·cron 중복 실행 시 이중 처리 방지",
-            "OpenAI Batch API로 공공데이터 원본을 대량 비동기 변환 후 일정 주기로 폴링하여 동기 대비 API 비용 50% 절감"
+            "OpenAI Batch API로 공공데이터 원본을 대량 비동기 변환 후 일정 주기로 폴링하여 동기 대비 API 비용 50% 절감",
+            {
+              "text": "레시피 이미지를 S3·CloudFront로 호스팅하여 원본 URL 대비 LCP 약 2배 개선",
+              "showResume": false
+            }
           ]
         },
         {
@@ -78,6 +90,10 @@
           "problem": "Figma에 구축한 디자인 시스템을 바탕으로 토큰·명세·라우팅 전략이 서로 맞물리는 프론트 아키텍처를 목표로 했습니다.",
           "image": "/images/mealio/frontend.png",
           "points": [
+            {
+              "text": "Figma 변수·토큰·컴포넌트 체계와 코드를 1:1 동기화",
+              "showResume": false
+            },
             "온디맨드 ISR과 태그 기반 revalidation으로 공개 도메인의 캐시 정합성 관리"
           ]
         },
@@ -89,7 +105,11 @@
           "points": [
             "AWS EC2 NAT Instance로 Public IPv4 비용 50% 절감",
             "Prometheus 메트릭 수집으로 HTTP·DB 지연·inflight·슬로우 쿼리 모니터링",
-            "Grafana 알림과 Slack 채널을 연결하여 KPI 임계 신호와 장애를 조기 감지"
+            "Grafana 알림과 Slack 채널을 연결하여 KPI 임계 신호와 장애를 조기 감지",
+            {
+              "text": "시크릿 값으로 내부 SSR 트래픽과 외부 트래픽을 구분하여 rate limit 차등 적용",
+              "showResume": false
+            }
           ]
         }
       ],
@@ -176,9 +196,17 @@
           "summary": "다국어·복잡한 폼 제약 속에서 Core Web Vitals와 변경 용이성을 맞춘 Next.js 플랫폼",
           "problem": "초기 렌더링과 SEO를 위해 자사 콘텐츠를 서버에서 노출하면서도, Swiper 등 클라이언트 위젯으로 인한 Layout Shift와 API 왕복 지연을 최소화하는 것이 주요 과제였습니다.",
           "points": [
+            {
+              "text": "Next.js Middleware와 Dictionary 체계로 로케일 라우팅·번역 로딩을 일원화해, 페이지마다 다국어 분기를 중복 구현하지 않도록 정리",
+              "showResume": false
+            },
             "Swiper SSR Placeholder와 스켈레톤 UI를 도입해 클라이언트 하이드레이션 전후 레이아웃 변화를 제거, CLS 0.1 이하 확보",
             "메인 페이지에 SSR을 적용해 FCP를 2.5초에서 1.5초로 개선하고, 초기 HTML에 자사 콘텐츠를 포함해 SEO 인덱싱 기반을 마련",
-            "카테고리·장르에 따라 필드 조합이 바뀌는 등록 플로우를 Schema Driven Form으로 정의해, 레이아웃 분기 코드를 스키마 변경으로 대체하고 폼 확장 비용 완화"
+            "카테고리·장르에 따라 필드 조합이 바뀌는 등록 플로우를 Schema Driven Form으로 정의해, 레이아웃 분기 코드를 스키마 변경으로 대체하고 폼 확장 비용 완화",
+            {
+              "text": "FSD로 도메인·공유 모듈 경계를 나눠 기능 추가 시 import 방향과 수정 범위를 제한하고, 화면·도메인 확장의 영향을 예측 가능한 범위로 제한",
+              "showResume": false
+            }
           ]
         },
         {
@@ -196,6 +224,10 @@
           "summary": "에러 역추적과 자동 배포로 맞춘 운영·배포 안정성",
           "problem": "신규 서비스 특성 상 QA·프로덕션에서 프론트 오류를 빠르게 재현·격리해야 했고, 수동 배포의 휴먼 에러를 방지할 필요가 있었습니다. 관측과 CD를 전제로 운영 기반을 잡는 것이 목표였습니다.",
           "points": [
+            {
+              "text": "Sentry를 QA·프로덕션에 연동해 릴리스·환경별 프론트 예외를 수집하고, 재현에 필요한 컨텍스트로 장애 대응 시간을 단축",
+              "showResume": false
+            },
             "Docker 이미지 빌드와 GitHub Actions 기반 EC2 배포를 CD로 자동화, 수동 이미지 로드·반영 과정을 제거하고 반복 가능한 배포 절차 구축"
           ]
         },

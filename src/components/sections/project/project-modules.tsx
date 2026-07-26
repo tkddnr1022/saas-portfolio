@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { ImageLightbox } from "@/components/ui/image-lightbox";
-import type { ProjectModule } from "@/data/projects";
+import { getPointText, type ProjectModule } from "@/data/projects";
 
 type ProjectModulesProps = {
   modules: ProjectModule[];
@@ -61,12 +61,15 @@ export function ProjectModules({ modules }: ProjectModulesProps) {
                 ) : null}
 
                 <ul className="flex flex-col gap-3 border-l border-border pl-4">
-                  {module.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2 text-sm leading-relaxed">
-                      <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-primary" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
+                  {module.points.map((point) => {
+                    const text = getPointText(point);
+                    return (
+                      <li key={text} className="flex items-start gap-2 text-sm leading-relaxed">
+                        <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <span>{text}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </article>
             </Reveal>
