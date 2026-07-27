@@ -4,7 +4,7 @@
       "slug": "mealio",
       "name": "Mealio",
       "tagline": "AI 기반 맞춤형 레시피 추천 플랫폼",
-      "overview": "보유 재료와 대화 맥락을 바탕으로 레시피를 추천하는 AI 챗봇 서비스를 풀스택으로 설계·개발한 개인 프로젝트입니다. 캐싱으로 레시피 검색 응답 시간을 약 66% 단축했고, Batch API·NAT Instance 등으로 API·인프라 비용을 각각 최대 50% 절감했습니다.",
+      "overview": "보유 재료와 대화 맥락을 바탕으로 레시피를 추천하는 AI 챗봇 서비스를 풀스택으로 설계·개발한 개인 프로젝트입니다. 캐싱으로 레시피 검색 응답 시간을 약 66% 단축했고, Batch API와 NAT Instance로 인프라 비용을 최대 50% 절감했습니다.",
       "type": "개인 프로젝트",
       "stack": ["Next.js", "NestJS", "PostgreSQL", "MongoDB", "Redis", "Kafka"],
       "startDate": "2026-01",
