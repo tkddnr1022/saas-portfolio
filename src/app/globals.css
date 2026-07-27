@@ -296,6 +296,22 @@
   color: #0f6e6e;
 }
 
+/* Font-independent markers for headless Chromium PDF (no ▸ glyph). */
+.resume-bullet-marker {
+  display: block;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.resume-bullet-dot {
+  display: block;
+  width: 0.28em;
+  height: 0.28em;
+  border-radius: 9999px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 .resume-section-title {
   display: flex;
   align-items: center;
