@@ -162,7 +162,16 @@
       "liveUrl": "https://kcontentsmarket.com",
       "showSite": false,
       "showResume": true,
-      "blogPosts": [],
+      "blogPosts": [
+        {
+          "title": "개발일지",
+          "href": "https://tame-wizard-874.notion.site/19a81d4c646e8019b452e1a80e14cbdc"
+        },
+        {
+          "title": "회고",
+          "href": "https://tame-wizard-874.notion.site/24681d4c646e80888f49ef83a306dc64"
+        }
+      ],
       "modules": [
         {
           "id": "platform",
