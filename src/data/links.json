@@ -18,19 +18,19 @@
       "showInFooter": true
     },
     {
+      "id": "intro",
+      "label": "자기소개서",
+      "description": "성과 대신 이야기로 알아보세요",
+      "href": "https://tungsten-word-4ab.notion.site/3ab66408a68c80ccbac6c9a41a4c36c3",
+      "icon": "intro",
+      "showInFooter": true
+    },
+    {
       "id": "kakao",
       "label": "카카오톡 오픈채팅",
       "description": "편하게 메시지를 남겨주세요",
       "href": "https://open.kakao.com/o/sPHdIREi",
       "icon": "kakao",
-      "showInFooter": true
-    },
-    {
-      "id": "mealio",
-      "label": "Mealio",
-      "description": "사이드 프로젝트를 구경해보세요",
-      "href": "https://mealio.site",
-      "icon": "mealio",
       "showInFooter": true
     }
   ]

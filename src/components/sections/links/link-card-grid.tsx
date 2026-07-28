@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Egg, ExternalLink, type LucideIcon } from "lucide-react";
+import { BookOpen, ExternalLink, FileUser, type LucideIcon } from "lucide-react";
 
 import { GithubIcon } from "@/components/icons/github-icon";
 import { KakaoIcon } from "@/components/icons/kakao-icon";
@@ -14,7 +14,7 @@ const ICON_MAP: Record<LinkIcon, IconComponent> = {
   github: GithubIcon,
   blog: BookOpen,
   kakao: KakaoIcon,
-  mealio: Egg,
+  intro: FileUser,
 };
 
 type LinkCardGridProps = {

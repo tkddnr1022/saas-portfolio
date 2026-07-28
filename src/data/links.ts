@@ -1,7 +1,7 @@
 import linksData from "./links.json";
 import { SITE_EMAIL } from "./site";
 
-export type LinkIcon = "github" | "blog" | "kakao" | "mealio";
+export type LinkIcon = "github" | "blog" | "kakao" | "intro";
 
 export type ExternalLink = {
   id: string;
