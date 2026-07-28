@@ -33,7 +33,17 @@ export function isResumeModule(module: ProjectModule): boolean {
 export type ProjectBlogPost = {
   title: string;
   href: string;
+  showSite?: boolean;
+  showResume?: boolean;
 };
+
+export function isSiteBlogPost(post: ProjectBlogPost): boolean {
+  return post.showSite !== false;
+}
+
+export function isResumeBlogPost(post: ProjectBlogPost): boolean {
+  return post.showResume !== false;
+}
 
 export type ProjectDetail = {
   slug: string;

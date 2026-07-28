@@ -1,6 +1,7 @@
 import {
   formatResumePeriod,
   getPointText,
+  isResumeBlogPost,
   isResumeModule,
   isResumePoint,
   RESUME_PROJECTS,
@@ -22,7 +23,7 @@ function ProjectEntry({ project }: { project: ProjectDetail }) {
       const href = project[key];
       return href ? [{ label, href }] : [];
     }),
-    ...(project.blogPosts ?? []).map((post) => ({
+    ...(project.blogPosts ?? []).filter(isResumeBlogPost).map((post) => ({
       label: post.title,
       href: post.href,
     })),

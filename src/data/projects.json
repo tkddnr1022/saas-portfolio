@@ -17,11 +17,39 @@
       "blogPosts": [
         {
           "title": "Post1",
-          "href": "https://blog.sanguk.site/posts/2026-04-04-design-system-with-ai"
+          "href": "https://blog.sanguk.site/posts/2026-04-04-design-system-with-ai",
+          "showSite": false,
+          "showResume": true
         },
         {
           "title": "Post2",
-          "href": "https://blog.sanguk.site/posts/2026-07-25-agentic-rag-chatbot"
+          "href": "https://blog.sanguk.site/posts/2026-05-16-progressive-disclosure",
+          "showSite": false,
+          "showResume": true
+        },
+        {
+          "title": "Post3",
+          "href": "https://blog.sanguk.site/posts/2026-07-25-agentic-rag-chatbot",
+          "showSite": false,
+          "showResume": true
+        },
+        {
+          "title": "AI로 디자인 시스템 구축하기",
+          "href": "https://blog.sanguk.site/posts/2026-04-04-design-system-with-ai",
+          "showSite": true,
+          "showResume": false
+        },
+        {
+          "title": "검색 필터 UX와 Progressive Disclosure",
+          "href": "https://blog.sanguk.site/posts/2026-05-16-progressive-disclosure",
+          "showSite": true,
+          "showResume": false
+        },
+        {
+          "title": "Agentic RAG 레시피 추천 챗봇 만들기",
+          "href": "https://blog.sanguk.site/posts/2026-07-25-agentic-rag-chatbot",
+          "showSite": true,
+          "showResume": false
         }
       ],
       "modules": [
@@ -165,11 +193,15 @@
       "blogPosts": [
         {
           "title": "개발일지",
-          "href": "https://tame-wizard-874.notion.site/19a81d4c646e8019b452e1a80e14cbdc"
+          "href": "https://tame-wizard-874.notion.site/19a81d4c646e8019b452e1a80e14cbdc",
+          "showSite": true,
+          "showResume": true
         },
         {
           "title": "회고",
-          "href": "https://tame-wizard-874.notion.site/24681d4c646e80888f49ef83a306dc64"
+          "href": "https://tame-wizard-874.notion.site/24681d4c646e80888f49ef83a306dc64",
+          "showSite": true,
+          "showResume": true
         }
       ],
       "modules": [
@@ -235,9 +267,15 @@
       "startDate": "2024-09",
       "endDate": "2024-11",
       "githubUrl": "https://github.com/tkddnr1022/Class-Manager",
-      "docsUrl": "https://powerful-aries-478.notion.site/8f9462fd3f6641c2b224bc0a5b3a12de?pvs=4",
       "banner": "/images/class-manager/banner.png",
-      "blogPosts": [],
+      "blogPosts": [
+        {
+          "title": "개발일지",
+          "href": "https://powerful-aries-478.notion.site/8f9462fd3f6641c2b224bc0a5b3a12de?pvs=4",
+          "showSite": true,
+          "showResume": false
+        }
+      ],
       "modules": [
         {
           "id": "db-design",

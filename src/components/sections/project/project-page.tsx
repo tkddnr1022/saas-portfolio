@@ -1,4 +1,4 @@
-import type { ProjectDetail } from "@/data/projects";
+import { isSiteBlogPost, type ProjectDetail } from "@/data/projects";
 
 import { ProjectBlogPosts } from "./project-blog-posts";
 import { ProjectCta } from "./project-cta";
@@ -14,7 +14,7 @@ export function ProjectPageView({ project }: ProjectPageProps) {
     <main id="main-content" tabIndex={-1} className="outline-none">
       <ProjectHero project={project} />
       <ProjectModules modules={project.modules} />
-      <ProjectBlogPosts posts={project.blogPosts ?? []} />
+      <ProjectBlogPosts posts={(project.blogPosts ?? []).filter(isSiteBlogPost)} />
       <ProjectCta project={project} />
     </main>
   );
