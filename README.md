@@ -9,6 +9,7 @@
 - **AI SDK** + OpenAI (채팅 / 임베딩)
 - **PostgreSQL** + pgvector (지식베이스)
 - **Redis** (레이트 리밋)
+- **Sentry** (에러 모니터링)
 
 ## Getting Started
 
@@ -17,7 +18,8 @@ npm install
 cp .env.example .env.local
 ```
 
-`.env.local`에 API 키·DB·Redis URL을 채운 뒤:
+`.env.local`에 API 키·DB·Redis URL을 채운 뒤 실행합니다.  
+Sentry를 쓰려면 `NEXT_PUBLIC_SENTRY_DSN`을 설정하세요(미설정 시 비활성).
 
 ```bash
 npm run db:schema   # documents 테이블 + pgvector

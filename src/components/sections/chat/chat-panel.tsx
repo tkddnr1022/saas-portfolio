@@ -8,6 +8,7 @@ import { ChatError } from "@/components/sections/chat/chat-error";
 import { ChatInput } from "@/components/sections/chat/chat-input";
 import { ChatMessages } from "@/components/sections/chat/chat-messages";
 import { MAX_MESSAGE_LENGTH } from "@/lib/chat/validate-input";
+import { reportChatError } from "@/lib/sentry/report-chat-error";
 
 const chatTransport = new DefaultChatTransport({ api: "/api/chat" });
 
@@ -59,6 +60,9 @@ export function ChatPanel() {
 
   const { messages, sendMessage, status, stop, error, clearError } = useChat({
     transport: chatTransport,
+    onError: (chatError) => {
+      reportChatError(chatError, { source: "client" });
+    },
   });
 
   const validationError = input.length > 0 ? getClientValidationError(input) : undefined;

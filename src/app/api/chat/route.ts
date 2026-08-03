@@ -12,6 +12,7 @@ import { validateChatInput } from "@/lib/chat/validate-input";
 import { serverEnv } from "@/lib/env";
 import { searchDocuments } from "@/lib/rag/search";
 import { checkChatRateLimit, getClientIp } from "@/lib/rate-limit";
+import { reportChatError } from "@/lib/sentry/report-chat-error";
 
 export const maxDuration = 30;
 
@@ -53,10 +54,17 @@ export async function POST(request: Request) {
     });
 
     return createUIMessageStreamResponse({
-      stream: toUIMessageStream({ stream: result.stream }),
+      stream: toUIMessageStream({
+        stream: result.stream,
+        onError: (error) => {
+          reportChatError(error, { source: "stream" });
+          return "요청을 처리하는 중 오류가 발생했습니다.";
+        },
+      }),
     });
   } catch (error) {
     console.error(error);
+    reportChatError(error, { source: "api" });
     return jsonError("요청을 처리하는 중 오류가 발생했습니다.", 500);
   }
 }
