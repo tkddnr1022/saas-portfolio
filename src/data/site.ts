@@ -10,6 +10,7 @@ export type SiteData = {
   photoSrc: string;
   email: string;
   githubId: string;
+  portfolioUrl: string;
 };
 
 const data = siteData as SiteData;
@@ -24,6 +25,7 @@ export const SITE_PHOTO_SRC = data.photoSrc;
 export const SITE_EMAIL = data.email;
 export const SITE_GITHUB_ID = data.githubId;
 export const SITE_GITHUB_URL = `https://github.com/${data.githubId}`;
+export const SITE_PORTFOLIO_URL = data.portfolioUrl;
 
 /** Absolute site origin for metadata, sitemap, and robots. */
 export function getSiteUrl(): string {

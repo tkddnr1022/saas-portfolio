@@ -8,6 +8,7 @@ import {
   SITE_GITHUB_URL,
   SITE_JOB_TITLE,
   SITE_PHOTO_SRC,
+  SITE_PORTFOLIO_URL,
   SITE_YEARS_OF_EXPERIENCE,
 } from "@/data/site";
 
@@ -32,6 +33,14 @@ export function ResumeHeader() {
       node: (
         <a href={SITE_GITHUB_URL} target="_blank" rel="noopener noreferrer">
           github.com/{SITE_GITHUB_ID}
+        </a>
+      ),
+    },
+    {
+      key: "portfolio",
+      node: (
+        <a href={SITE_PORTFOLIO_URL} target="_blank" rel="noopener noreferrer">
+          {displayUrl(SITE_PORTFOLIO_URL)}
         </a>
       ),
     },
