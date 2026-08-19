@@ -1,10 +1,10 @@
 export const navLinks = [
   { href: "/#hero", label: "Home" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/#chat", label: "Chat" },
   { href: "/#projects", label: "Projects" },
+  { href: "/#chat", label: "Chat" },
+  { href: "/#skills", label: "Skills" },
   { href: "/#career", label: "Career" },
+  { href: "/#pricing", label: "Pricing" },
   { href: "/#links", label: "Links" },
 ] as const;
 
