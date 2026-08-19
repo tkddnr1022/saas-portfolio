@@ -36,14 +36,6 @@ export function ResumeHeader() {
         </a>
       ),
     },
-    {
-      key: "portfolio",
-      node: (
-        <a href={SITE_PORTFOLIO_URL} target="_blank" rel="noopener noreferrer">
-          {displayUrl(SITE_PORTFOLIO_URL)}
-        </a>
-      ),
-    },
     ...(blogHref
       ? [
           {
@@ -56,6 +48,14 @@ export function ResumeHeader() {
           },
         ]
       : []),
+    {
+      key: "portfolio",
+      node: (
+        <a href={SITE_PORTFOLIO_URL} target="_blank" rel="noopener noreferrer">
+          {displayUrl(SITE_PORTFOLIO_URL)}
+        </a>
+      ),
+    },
   ];
 
   return (
